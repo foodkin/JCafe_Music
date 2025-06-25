@@ -62,7 +62,7 @@ export default function Gen() {
               style={{
                 position: "relative",
                 zIndex: 2,
-                maxHeight: "250%",
+                maxHeight: "300%",
                 top: "30px"
               }}
             />

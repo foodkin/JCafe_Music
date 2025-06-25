@@ -34,7 +34,7 @@ html, body {
 .gen-section {
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 100px;
   margin: 0;
   padding: 0;
 }
