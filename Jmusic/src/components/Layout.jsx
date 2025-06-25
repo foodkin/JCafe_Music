@@ -1,18 +1,45 @@
 import { Outlet, Link } from 'react-router-dom';
+import { useState } from 'react';
 import './Layout.css';
 
 function Layout() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div className="layout-container">
       <header>
         <nav className="navbar">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/gen">Gen</Link></li>
-            <li><Link to="/finalproject">Final Project</Link></li>
-          </ul>
+          <div className="nav-container">
+            <div className="logo">
+              <img src="/images/jmusic-logo.png" alt="JMusic Logo" className="logo-img" />
+            </div>
+            <div
+              className={`hamburger ${menuOpen ? 'active' : ''}`}
+              onClick={toggleMenu}
+            >
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </div>
+            <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+              <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+              <li><Link to="/gen" onClick={closeMenu}>Gen</Link></li>
+              <li><Link to="/finalproject" onClick={closeMenu}>Final Project</Link></li>
+            </ul>
+          </div>
         </nav>
       </header>
+
+      {/* Overlay untuk blur transparan */}
+      {menuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
 
       <main className="main-content">
         <Outlet />
@@ -21,10 +48,20 @@ function Layout() {
       <footer className="footer">
         <p>&copy; JMusic. All rights reserved.</p>
         <div className="social-links">
-          <a href="https://youtube.com/@jcafemusic?si=pdMLfO1gTR7Zvjf1" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <a
+            href="https://youtube.com/@jcafemusic?si=pdMLfO1gTR7Zvjf1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
             <i className="fab fa-youtube"></i>
           </a>
-          <a href="https://www.instagram.com/jcafemusic?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a
+            href="https://www.instagram.com/jcafemusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
             <i className="fab fa-instagram"></i>
           </a>
           <a href="mailto:jcafemusic.mail@gmail.com" aria-label="Email">
