@@ -58,7 +58,13 @@ export default function Gen() {
             <img
               src="/images/gen14.png"
               alt="Overlay GEN 14"
-              className="overlay-image overlay-image--overflow"
+              className="overlay-image"
+              style={{
+                position: "relative",
+                zIndex: 2,
+                maxHeight: "250%",
+                top: "30px"
+              }}
             />
           </div>
 
@@ -90,6 +96,7 @@ export default function Gen() {
           </div>
         </Link>
 
+{/* Coming Soon */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
             <img 
