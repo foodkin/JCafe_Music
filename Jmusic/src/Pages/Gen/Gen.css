@@ -90,11 +90,6 @@ html, body {
   display: block;
 }
 
-/* Hover effect hanya untuk overlay image */
-.gen-banner:hover .overlay-image {
-  transform: scale(1.05);
-}
-
 .gen-box {
   width: 100%;
   display: flex;
@@ -113,13 +108,17 @@ html, body {
   text-align: center;
   text-transform: uppercase;
   transition: all 0.3s ease;
-  text-align: left;
-  margin-top: 110px;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  width: 100%;
 }
 
 /* Optional hover h2 effect */
 .gen-banner:hover .gen-box h2 {
-  transform: scale(1.1);
+  transform: translateX(-50%) scale(1.1);
 }
 
 /* Background image (from <img>) */
@@ -131,59 +130,6 @@ html, body {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .gen-container {
-    padding: 15px 0;
-  }
-
-  .gen-title {
-    font-size: 2.2rem;
-    margin: 20px 20px 40px 20px;
-  }
-
-  .gen-section {
-    gap: 30px;
-  }
-
-  .gen-banner {
-    min-height: 120px;
-  }
-
-  .gen-box {
-    height: 120px;
-  }
-
-  .gen-box h2 {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gen-title {
-    font-size: 1.8rem;
-    margin: 15px 20px 30px 20px;
-  }
-
-  .gen-section {
-    gap: 20px;
-  }
-
-  .gen-banner {
-    min-height: 100px;
-  }
-
-  .gen-box {
-    height: 100px;
-  }
-
-  .gen-box h2 {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-  }
 }
 
 /* Entry Animation */
@@ -240,4 +186,259 @@ html, body {
   align-items: flex-end !important;
   overflow: visible !important;
   height: 100%;
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .gen-title {
+    font-size: 2.8rem;
+    margin: 35px 20px 50px 20px;
+    letter-spacing: 1.5px;
+  }
+
+  .gen-section {
+    gap: 80px;
+  }
+
+  .gen-banner {
+    min-height: 140px;
+    max-height: 140px;
+  }
+
+  .gen-box h2 {
+    font-size: clamp(1.1rem, 2.8vw, 2.2rem);
+    letter-spacing: 2.5px;
+  }
+
+  .gen-image-wrapper {
+    width: 140%;
+  }
+}
+
+@media (max-width: 768px) {
+  .gen-container {
+    padding: 15px 0;
+  }
+
+  .gen-title {
+    font-size: 2.4rem;
+    margin: 25px 15px 40px 15px;
+    letter-spacing: 1px;
+  }
+
+  .gen-title::before {
+    width: 80px;
+    height: 3px;
+  }
+
+  .gen-section {
+    gap: 50px;
+  }
+
+  .gen-banner {
+    min-height: 120px;
+    max-height: 120px;
+  }
+
+  .gen-box {
+    padding-bottom: 1rem;
+  }
+
+  .gen-box h2 {
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    letter-spacing: 2px;
+  }
+
+  .gen-image-wrapper {
+    width: 130%;
+  }
+
+  /* Adjust overflow banners for tablets */
+  .gen-banner--with-overflow {
+    clip-path: inset(-60px 0px 0px 0px);
+  }
+
+  .gen-banner--with-overflow .overlay-image {
+    max-height: 250% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .gen-title {
+    font-size: 2rem;
+    margin: 20px 15px 35px 15px;
+  }
+
+  .gen-section {
+    gap: 40px;
+  }
+
+  .gen-banner {
+    min-height: 110px;
+    max-height: 110px;
+  }
+
+  .gen-box h2 {
+    font-size: clamp(0.9rem, 2.2vw, 1.6rem);
+    letter-spacing: 1.5px;
+  }
+
+  .gen-image-wrapper {
+    width: 120%;
+  }
+
+  /* Further adjust overflow banners for smaller screens */
+  .gen-banner--with-overflow {
+    clip-path: inset(-50px 0px 0px 0px);
+  }
+
+  .gen-banner--with-overflow .overlay-image {
+    max-height: 220% !important;
+    top: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gen-title {
+    font-size: 1.8rem;
+    margin: 15px 10px 30px 10px;
+  }
+
+  .gen-title::before {
+    width: 60px;
+  }
+
+  .gen-section {
+    gap: 30px;
+  }
+
+  .gen-banner {
+    min-height: 100px;
+    max-height: 100px;
+  }
+
+  .gen-box {
+    padding-bottom: 0.8rem;
+  }
+
+  .gen-box h2 {
+    font-size: clamp(0.8rem, 2vw, 1.4rem);
+    letter-spacing: 1px;
+    bottom: 0.8rem;
+  }
+
+  .gen-image-wrapper {
+    width: 110%;
+  }
+
+  /* Mobile optimization for overflow banners */
+  .gen-banner--with-overflow {
+    clip-path: inset(-40px 0px 0px 0px);
+  }
+
+  .gen-banner--with-overflow .overlay-image {
+    max-height: 200% !important;
+    top: 15px !important;
+  }
+
+  /* Reduce hover effects on mobile */
+  .gen-banner:hover {
+    transform: none;
+  }
+
+  .gen-banner:hover .overlay-image {
+    transform: scale(1.02);
+  }
+
+  .gen-banner:hover .gen-box h2 {
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+@media (max-width: 360px) {
+  .gen-title {
+    font-size: 1.6rem;
+    margin: 12px 8px 25px 8px;
+  }
+
+  .gen-section {
+    gap: 25px;
+  }
+
+  .gen-banner {
+    min-height: 90px;
+    max-height: 90px;
+  }
+
+  .gen-box h2 {
+    font-size: clamp(0.7rem, 1.8vw, 1.2rem);
+    bottom: 0.6rem;
+  }
+
+  .gen-image-wrapper {
+    width: 100%;
+  }
+
+  /* Ultra mobile optimization */
+  .gen-banner--with-overflow {
+    clip-path: inset(-35px 0px 0px 0px);
+  }
+
+  .gen-banner--with-overflow .overlay-image {
+    max-height: 180% !important;
+    top: 10px !important;
+  }
+
+  /* Disable hover effects on very small screens */
+  .gen-banner:hover,
+  .gen-banner:hover .overlay-image,
+  .gen-banner:hover .gen-box h2 {
+    transform: none;
+  }
+  
+  .gen-banner:hover .gen-box h2 {
+    transform: translateX(-50%);
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 896px) and (orientation: landscape) and (max-height: 500px) {
+  .gen-title {
+    font-size: 1.8rem;
+    margin: 10px 15px 20px 15px;
+  }
+
+  .gen-section {
+    gap: 20px;
+  }
+
+  .gen-banner {
+    min-height: 80px;
+    max-height: 80px;
+  }
+
+  .gen-box h2 {
+    font-size: 1.2rem;
+    bottom: 0.5rem;
+  }
+
+  .gen-banner--with-overflow {
+    clip-path: inset(-30px 0px 0px 0px);
+  }
+
+  .gen-banner--with-overflow .overlay-image {
+    max-height: 160% !important;
+    top: 8px !important;
+  }
+}
+
+/* High DPI displays optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .gen-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .gen-box h2 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  }
 }

@@ -1,5 +1,5 @@
 import { Outlet, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Layout.css';
 
 function Layout() {
@@ -13,16 +13,31 @@ function Layout() {
     setMenuOpen(false);
   };
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    // Cleanup function to remove class when component unmounts
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [menuOpen]);
+
   return (
     <div className="layout-container">
+      <div className="logo fixed-logo">
+        <img src="/images/jmusic-logo.png" alt="JMusic Logo" className="logo-img" />
+      </div>
+
       <header>
         <nav className="navbar">
           <div className="nav-container">
-            <div className="logo">
-              <img src="/images/jmusic-logo.png" alt="JMusic Logo" className="logo-img" />
-            </div>
             <div
-              className={`hamburger ${menuOpen ? 'active' : ''}`}
+              className={`hamburger fixed-hamburger ${menuOpen ? 'active' : ''}`}
               onClick={toggleMenu}
             >
               <div className="bar"></div>
@@ -39,7 +54,7 @@ function Layout() {
       </header>
 
       {/* Overlay untuk blur transparan */}
-      {menuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
+      {menuOpen && <div className={`menu-overlay ${menuOpen ? 'active' : ''}`} onClick={closeMenu}></div>}
 
       <main className="main-content">
         <Outlet />
