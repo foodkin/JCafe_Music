@@ -1,22 +1,22 @@
-/* Home.css */
+/* Home.css - Optimized Responsive */
 
 .hero-section {
   position: relative;
-  width: 100vw; /* Full viewport width */
-  height: 50vh; /* 40% dari tinggi viewport */
+  width: 100vw;
+  height: 50vh;
+  min-height: 400px; /* Minimum height untuk konsistensi */
+  max-height: 700px; /* Maximum height untuk layar besar */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: calc(-50vw + 50%); /* Extend ke full width dari parent container */
-  margin-top: -80px; /* Video naik ke atas untuk ditimpa navbar */
-  padding-top: 80px; /* Kompensasi untuk content di dalam */
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4); /* Inner shadow untuk efek depth */
+  margin-left: calc(-50vw + 50%);
+  margin-top: -80px;
+  padding-top: 80px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
   
-  /* Background yang menyatu dengan layout utama */
   background: linear-gradient(135deg, #0b3b5c 0%, #7cc9dc 50%, #e53935 100%);
   
-  /* Tambahan efek untuk menyatu dengan background */
   &::before {
     content: '';
     position: absolute;
@@ -33,7 +33,6 @@
   }
 }
 
-/* Video Container untuk efek transisi */
 .video-container {
   position: absolute;
   top: 0;
@@ -43,8 +42,6 @@
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   z-index: 1;
-  
-  /* Efek bayangan untuk video container */
   filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
 }
 
@@ -52,7 +49,6 @@
   opacity: 0;
 }
 
-/* Update untuk video-background agar sesuai dengan layout */
 .video-background {
   position: absolute;
   top: 0;
@@ -70,8 +66,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(4px); /* tambahkan blur */
-  background-color: rgba(0, 0, 0, 0.2); /* bayangan tambahan */
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1.5;
   pointer-events: none;
 }
@@ -99,8 +95,9 @@
 .hero-image-section {
   position: relative;
   width: 100vw;
-  height: 75vh; /* Lebih tinggi untuk layar besar */
-  max-height: 1000px; /* Batasi agar tidak terlalu tinggi */
+  height: 60vh;
+  min-height: 450px;
+  max-height: 800px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -113,8 +110,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;  /* isi penuh lebar layar */
-  height: 100%;   /* atau 100vh jika kamu ingin full tinggi */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   border: none;
@@ -128,10 +125,10 @@
   left: 20px;
   display: flex;
   gap: 12px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 12px;
+  padding: 0;
   border-radius: 10px;
   z-index: 2;
+  background: transparent;
 }
 
 .thumb-wrapper {
@@ -169,6 +166,7 @@
   font-size: 0.7rem;
   color: #fff;
   text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Tombol Panah Navigasi */
@@ -189,7 +187,7 @@
   background: none;
   border: none;
   color: white;
-  font-size: 1.4rem; /* default desktop size */
+  font-size: 1.4rem;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -198,47 +196,7 @@
   transform: scale(1.2);
 }
 
-/* Ukuran tombol panah untuk tablet */
-@media (max-width: 992px) {
-  .arrow-navigation button {
-    font-size: 1.2rem;
-  }
-
-  .arrow-navigation span {
-    font-size: 0.9rem;
-  }
-}
-
-/* Ukuran tombol panah untuk mobile */
-@media (max-width: 600px) {
-  .arrow-navigation {
-    gap: 6px;
-    padding: 4px 8px;
-  }
-
-  .arrow-navigation button {
-    font-size: 1rem;
-  }
-
-  .arrow-navigation span {
-    font-size: 0.8rem;
-  }
-}
-
-/* Update Thumbnail: hilangkan background hitam */
-.thumbnail-strip {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  gap: 12px;
-  padding: 0;
-  border-radius: 10px;
-  z-index: 2;
-  background: transparent; /* hapus bg hitam */
-}
-
-/* Welcome Section - dipindah ke bawah video */
+/* Welcome Section */
 .welcome-section {
   padding: 60px 20px;
   text-align: center;
@@ -271,14 +229,12 @@
   position: relative;
 }
 
-/* Content section setelah hero */
 .main-content {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -290,55 +246,208 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  
-  .hero-content {
-    padding: 15px;
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Large Desktop (1920px and above) */
+@media (min-width: 1920px) {
+  .hero-section {
+    height: 55vh;
+    min-height: 500px;
+    max-height: 750px;
   }
 
-  /* Responsive adjustments untuk video YouTube */
-  .video-background {
-    transform: scale(1.3); /* Scale up lebih banyak di mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.9rem;
-  }
-
-  /* Responsive adjustments untuk video YouTube */
-  .video-background {
-    transform: scale(1.4); /* Scale up paling banyak di mobile kecil */
-  }
-}
-
-/* RESPONSIVE TUNING */
-
-/* Untuk Tablet & Layar Medium */
-@media (max-width: 992px) {
-  .hero-section,
   .hero-image-section {
-    height: 45vh;
+    height: 65vh;
+    min-height: 600px;
+    max-height: 900px;
   }
 
   .thumbnail-strip {
-    bottom: 10px;
-    left: 10px;
+    bottom: 30px;
+    left: 30px;
+    gap: 16px;
+  }
+
+  .thumb-wrapper {
+    width: 120px;
+  }
+
+  .thumbnail-image {
+    width: 120px;
+    height: 68px;
+  }
+
+  .thumb-title {
+    font-size: 0.8rem;
+  }
+
+  .arrow-navigation {
+    left: 30px;
+    gap: 12px;
+    padding: 8px 12px;
+  }
+
+  .arrow-navigation button {
+    font-size: 1.6rem;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+/* Desktop Large (1600px - 1919px) */
+@media (min-width: 1600px) and (max-width: 1919px) {
+  .hero-section {
+    height: 52vh;
+    min-height: 450px;
+    max-height: 700px;
+  }
+
+  .hero-image-section {
+    height: 62vh;
+    min-height: 550px;
+    max-height: 850px;
+  }
+
+  .thumbnail-strip {
+    bottom: 25px;
+    left: 25px;
+    gap: 14px;
+  }
+
+  .thumb-wrapper {
+    width: 110px;
+  }
+
+  .thumbnail-image {
+    width: 110px;
+    height: 62px;
+  }
+
+  .thumb-title {
+    font-size: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+}
+
+/* Desktop Standard (1200px - 1599px) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .hero-section {
+    height: 50vh;
+    min-height: 400px;
+    max-height: 650px;
+  }
+
+  .hero-image-section {
+    height: 60vh;
+    min-height: 500px;
+    max-height: 750px;
+  }
+
+  .thumbnail-strip {
+    bottom: 20px;
+    left: 20px;
+    gap: 12px;
+  }
+
+  .thumb-wrapper {
+    width: 100px;
+  }
+
+  .thumbnail-image {
+    width: 100px;
+    height: 56px;
+  }
+
+  .thumb-title {
+    font-size: 0.7rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet Large (993px - 1199px) */
+@media (min-width: 993px) and (max-width: 1199px) {
+  .hero-section {
+    height: 48vh;
+    min-height: 380px;
+    max-height: 600px;
+  }
+
+  .hero-image-section {
+    height: 58vh;
+    min-height: 450px;
+    max-height: 700px;
+  }
+
+  .thumbnail-strip {
+    bottom: 18px;
+    left: 18px;
+    gap: 10px;
+  }
+
+  .thumb-wrapper {
+    width: 90px;
+  }
+
+  .thumbnail-image {
+    width: 90px;
+    height: 51px;
+  }
+
+  .thumb-title {
+    font-size: 0.65rem;
+  }
+
+  .arrow-navigation button {
+    font-size: 1.3rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablet Standard (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .hero-section {
+    height: 45vh;
+    min-height: 350px;
+    max-height: 550px;
+  }
+
+  .hero-image-section {
+    height: 55vh;
+    min-height: 400px;
+    max-height: 650px;
+  }
+
+  .thumbnail-strip {
+    bottom: 15px;
+    left: 15px;
     gap: 8px;
-    padding: 8px;
   }
 
   .thumb-wrapper {
@@ -353,22 +462,113 @@
   .thumb-title {
     font-size: 0.6rem;
   }
+
+  .arrow-navigation {
+    left: 15px;
+    gap: 8px;
+    padding: 4px 8px;
+  }
+
+  .arrow-navigation button {
+    font-size: 1.2rem;
+  }
+
+  .arrow-navigation span {
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
 }
 
-/* Untuk Mobile */
-@media (max-width: 600px) {
-  .hero-section,
+/* Mobile Large (601px - 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .hero-section {
+    height: 42vh;
+    min-height: 320px;
+    max-height: 500px;
+  }
+
   .hero-image-section {
-    height: 40vh;
+    height: 50vh;
+    min-height: 350px;
+    max-height: 600px;
   }
 
   .thumbnail-strip {
-    flex-wrap: wrap;
-    bottom: 10px;
-    left: 5px;
-    right: 5px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
     gap: 6px;
-    padding: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .thumb-wrapper {
+    width: 75px;
+  }
+
+  .thumbnail-image {
+    width: 75px;
+    height: 42px;
+  }
+
+  .thumb-title {
+    font-size: 0.55rem;
+  }
+
+  .arrow-navigation {
+    left: 12px;
+    gap: 6px;
+    padding: 3px 6px;
+  }
+
+  .arrow-navigation button {
+    font-size: 1.1rem;
+  }
+
+  .arrow-navigation span {
+    font-size: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .welcome-section {
+    padding: 50px 15px;
+  }
+}
+
+/* Mobile Standard (481px - 600px) */
+@media (min-width: 481px) and (max-width: 600px) {
+  .hero-section {
+    height: 40vh;
+    min-height: 300px;
+    max-height: 450px;
+  }
+
+  .hero-image-section {
+    height: 45vh;
+    min-height: 320px;
+    max-height: 550px;
+  }
+
+  .thumbnail-strip {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    gap: 5px;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
@@ -382,7 +582,84 @@
   }
 
   .thumb-title {
-    font-size: 0.55rem;
+    font-size: 0.5rem;
+  }
+
+  .arrow-navigation {
+    left: 10px;
+    gap: 5px;
+    padding: 3px 5px;
+  }
+
+  .arrow-navigation button {
+    font-size: 1rem;
+  }
+
+  .arrow-navigation span {
+    font-size: 0.8rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .welcome-section {
+    padding: 40px 12px;
+  }
+}
+
+/* Mobile Small (320px - 480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    height: 38vh;
+    min-height: 280px;
+    max-height: 400px;
+  }
+
+  .hero-image-section {
+    height: 42vh;
+    min-height: 300px;
+    max-height: 500px;
+  }
+
+  .thumbnail-strip {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .thumb-wrapper {
+    width: 65px;
+  }
+
+  .thumbnail-image {
+    width: 65px;
+    height: 37px;
+  }
+
+  .thumb-title {
+    font-size: 0.45rem;
+  }
+
+  .arrow-navigation {
+    left: 8px;
+    gap: 4px;
+    padding: 2px 4px;
+  }
+
+  .arrow-navigation button {
+    font-size: 0.9rem;
+  }
+
+  .arrow-navigation span {
+    font-size: 0.75rem;
   }
 
   .hero-title {
@@ -394,31 +671,87 @@
   }
 
   .welcome-section {
-    padding: 40px 10px;
+    padding: 35px 10px;
   }
 }
 
-@media (min-width: 1600px) {
-  .hero-main-image,
-  .video-background {
-    object-fit: contain; /* Agar tidak terpotong terlalu parah di layar besar */
-    background-color: #000;
+/* Ultra Wide (2560px and above) */
+@media (min-width: 2560px) {
+  .hero-section {
+    height: 45vh;
+    min-height: 600px;
+    max-height: 800px;
   }
 
-  .hero-section,
   .hero-image-section {
-    height: 60vh; /* sedikit lebih pendek */
+    height: 55vh;
+    min-height: 700px;
+    max-height: 1000px;
+  }
+
+  .thumbnail-strip {
+    bottom: 40px;
+    left: 40px;
+    gap: 20px;
+  }
+
+  .thumb-wrapper {
+    width: 140px;
+  }
+
+  .thumbnail-image {
+    width: 140px;
+    height: 79px;
+  }
+
+  .thumb-title {
+    font-size: 0.9rem;
+  }
+
+  .arrow-navigation {
+    left: 40px;
+    gap: 15px;
+    padding: 10px 15px;
+  }
+
+  .arrow-navigation button {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.6rem;
+  }
+
+  .welcome-section {
+    padding: 80px 30px;
   }
 }
 
-@media (min-width: 1920px) {
-  .hero-section,
-  .hero-image-section {
-    height: 85vh;
+/* Landscape Orientation untuk Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    height: 70vh;
+    min-height: 250px;
   }
 
-  .video-background,
-  .hero-main-image {
-    object-fit: cover;
+  .hero-image-section {
+    height: 80vh;
+    min-height: 300px;
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .welcome-section {
+    padding: 30px 10px;
   }
 }
