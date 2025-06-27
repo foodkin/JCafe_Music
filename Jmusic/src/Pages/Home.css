@@ -174,8 +174,8 @@
 /* Tombol Panah Navigasi */
 .arrow-navigation {
   position: absolute;
-  left: 20px; /* Sejajar dengan thumbnail paling kiri */
-  bottom: 0px; /* Tepat di bawah thumbnail strip */
+  left: 20px;
+  bottom: 0px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -189,13 +189,40 @@
   background: none;
   border: none;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.4rem; /* default desktop size */
   cursor: pointer;
   transition: transform 0.2s;
 }
 
 .arrow-navigation button:hover {
   transform: scale(1.2);
+}
+
+/* Ukuran tombol panah untuk tablet */
+@media (max-width: 992px) {
+  .arrow-navigation button {
+    font-size: 1.2rem;
+  }
+
+  .arrow-navigation span {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ukuran tombol panah untuk mobile */
+@media (max-width: 600px) {
+  .arrow-navigation {
+    gap: 6px;
+    padding: 4px 8px;
+  }
+
+  .arrow-navigation button {
+    font-size: 1rem;
+  }
+
+  .arrow-navigation span {
+    font-size: 0.8rem;
+  }
 }
 
 /* Update Thumbnail: hilangkan background hitam */
