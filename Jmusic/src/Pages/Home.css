@@ -11,9 +11,48 @@
   margin-left: calc(-50vw + 50%); /* Extend ke full width dari parent container */
   margin-top: -80px; /* Video naik ke atas untuk ditimpa navbar */
   padding-top: 80px; /* Kompensasi untuk content di dalam */
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3); /* Inner shadow untuk efek depth */
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4); /* Inner shadow untuk efek depth */
+  
+  /* Background yang menyatu dengan layout utama */
+  background: linear-gradient(135deg, #0b3b5c 0%, #7cc9dc 50%, #e53935 100%);
+  
+  /* Tambahan efek untuk menyatu dengan background */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(124, 201, 220, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(229, 57, 53, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(11, 59, 92, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
+/* Video Container untuk efek transisi */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
+  
+  /* Efek bayangan untuk video container */
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+}
+
+.video-container.transitioning {
+  opacity: 0;
+}
+
+/* Update untuk video-background agar sesuai dengan layout */
 .video-background {
   position: absolute;
   top: 0;
@@ -21,8 +60,20 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
-  opacity: 0.85; /* Sedikit transparan untuk blend dengan bg */
+  object-position: center center;
+  z-index: 1;
+}
+
+.video-blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px); /* tambahkan blur */
+  background-color: rgba(0, 0, 0, 0.2); /* bayangan tambahan */
+  z-index: 1.5;
+  pointer-events: none;
 }
 
 .hero-overlay {
@@ -31,9 +82,133 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(155, 89, 182, 0.2)); /* Gradient overlay yang sesuai dengan bg */
+  background: linear-gradient(135deg, 
+    rgba(11, 59, 92, 0.4) 0%, 
+    rgba(124, 201, 220, 0.3) 35%, 
+    rgba(229, 57, 53, 0.3) 70%, 
+    rgba(11, 59, 92, 0.4) 100%
+  ); 
+  z-index: 2;
+  box-shadow: 
+    inset 0 0 100px rgba(0, 0, 0, 0.4),
+    inset 0 20px 40px rgba(11, 59, 92, 0.4),
+    inset 0 -20px 40px rgba(229, 57, 53, 0.3);
+}
+
+/* Hero Image Section */
+.hero-image-section {
+  position: relative;
+  width: 100vw;
+  height: 75vh; /* Lebih tinggi untuk layar besar */
+  max-height: 1000px; /* Batasi agar tidak terlalu tinggi */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(-50vw + 50%);
+  background-color: #000;
+}
+
+.hero-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;  /* isi penuh lebar layar */
+  height: 100%;   /* atau 100vh jika kamu ingin full tinggi */
+  object-fit: cover;
+  object-position: center;
+  border: none;
   z-index: 1;
-  border-radius: 15px;
+}
+
+/* Thumbnail Strip */
+.thumbnail-strip {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.thumb-wrapper {
+  cursor: pointer;
+  width: 100px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.thumb-wrapper.active,
+.thumb-wrapper:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.thumbnail-image {
+  width: 100px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  border: 2px solid transparent;
+}
+
+.thumb-wrapper.active .thumbnail-image {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px #ffd700;
+}
+
+.thumb-title {
+  font-size: 0.7rem;
+  color: #fff;
+  text-align: center;
+}
+
+/* Tombol Panah Navigasi */
+.arrow-navigation {
+  position: absolute;
+  left: 20px; /* Sejajar dengan thumbnail paling kiri */
+  bottom: 0px; /* Tepat di bawah thumbnail strip */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  color: white;
+  font-weight: bold;
+  z-index: 3;
+}
+
+.arrow-navigation button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.arrow-navigation button:hover {
+  transform: scale(1.2);
+}
+
+/* Update Thumbnail: hilangkan background hitam */
+.thumbnail-strip {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  border-radius: 10px;
+  z-index: 2;
+  background: transparent; /* hapus bg hitam */
 }
 
 /* Welcome Section - dipindah ke bawah video */
@@ -52,15 +227,21 @@
   font-size: 3rem;
   font-weight: bold;
   margin: 0 0 20px 0;
-  color: #2c3e50;
+  color: #ffffff;
   animation: fadeInUp 1s ease-out;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(124, 201, 220, 0.4);
+  z-index: 3;
+  position: relative;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
   margin: 0;
-  color: #7f8c8d;
+  color: #f0f0f0;
   animation: fadeInUp 1s ease-out 0.3s both;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  z-index: 3;
+  position: relative;
 }
 
 /* Content section setelah hero */
@@ -95,6 +276,11 @@
   .hero-content {
     padding: 15px;
   }
+
+  /* Responsive adjustments untuk video YouTube */
+  .video-background {
+    transform: scale(1.3); /* Scale up lebih banyak di mobile */
+  }
 }
 
 @media (max-width: 480px) {
@@ -104,5 +290,108 @@
   
   .hero-subtitle {
     font-size: 0.9rem;
+  }
+
+  /* Responsive adjustments untuk video YouTube */
+  .video-background {
+    transform: scale(1.4); /* Scale up paling banyak di mobile kecil */
+  }
+}
+
+/* RESPONSIVE TUNING */
+
+/* Untuk Tablet & Layar Medium */
+@media (max-width: 992px) {
+  .hero-section,
+  .hero-image-section {
+    height: 45vh;
+  }
+
+  .thumbnail-strip {
+    bottom: 10px;
+    left: 10px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .thumb-wrapper {
+    width: 80px;
+  }
+
+  .thumbnail-image {
+    width: 80px;
+    height: 45px;
+  }
+
+  .thumb-title {
+    font-size: 0.6rem;
+  }
+}
+
+/* Untuk Mobile */
+@media (max-width: 600px) {
+  .hero-section,
+  .hero-image-section {
+    height: 40vh;
+  }
+
+  .thumbnail-strip {
+    flex-wrap: wrap;
+    bottom: 10px;
+    left: 5px;
+    right: 5px;
+    gap: 6px;
+    padding: 6px;
+    justify-content: center;
+  }
+
+  .thumb-wrapper {
+    width: 70px;
+  }
+
+  .thumbnail-image {
+    width: 70px;
+    height: 40px;
+  }
+
+  .thumb-title {
+    font-size: 0.55rem;
+  }
+
+  .hero-title {
+    font-size: 1.3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .welcome-section {
+    padding: 40px 10px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-main-image,
+  .video-background {
+    object-fit: contain; /* Agar tidak terpotong terlalu parah di layar besar */
+    background-color: #000;
+  }
+
+  .hero-section,
+  .hero-image-section {
+    height: 60vh; /* sedikit lebih pendek */
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-section,
+  .hero-image-section {
+    height: 85vh;
+  }
+
+  .video-background,
+  .hero-main-image {
+    object-fit: cover;
   }
 }

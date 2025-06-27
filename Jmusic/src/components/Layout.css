@@ -134,7 +134,7 @@ body.menu-open {
   position: fixed;
   top: 0;
   bottom: 0;
-  right: -30vw; /* Start dari luar layar */
+  right: -100vw; /* Start dari luar layar */
   width: 30vw; /* Selalu 25% dari viewport width (setengah dari setengah layar) */
   height: 100vh;
   margin: 0;
