@@ -134,8 +134,8 @@ body.menu-open {
   position: fixed;
   top: 0;
   bottom: 0;
-  right: -25vw; /* Start dari luar layar */
-  width: 25vw; /* Selalu 25% dari viewport width (setengah dari setengah layar) */
+  right: -30vw; /* Start dari luar layar */
+  width: 30vw; /* Selalu 25% dari viewport width (setengah dari setengah layar) */
   height: 100vh;
   margin: 0;
   background: linear-gradient(135deg, #2c5f7a 0%, #7cc9dc 50%, #e53935 100%);

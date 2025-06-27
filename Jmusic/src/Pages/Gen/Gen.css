@@ -49,7 +49,7 @@ html, body {
   left: 50%;
   margin-left: -50vw;
   text-decoration: none;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
   min-height: 150px;
@@ -58,6 +58,7 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   animation: fadeInUp 0.6s ease forwards;
+  clip-path: inset(-100px 0px 0px 0px);
 }
 
 /* Delay per banner */
@@ -79,15 +80,18 @@ html, body {
   z-index: 2;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   pointer-events: none;
+  overflow: visible;
 }
 
 .overlay-image {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 300%;
   object-fit: contain;
   display: block;
+  position: relative;
+  top: 30px;
 }
 
 .gen-box {
@@ -175,11 +179,10 @@ html, body {
   left: 100%;
 }
 
-/* Hanya untuk banner yang izinkan overflow */
+/* Untuk banner dengan background image terpisah */
 .gen-banner--with-overflow {
   position: relative;
   overflow: visible;
-  clip-path: inset(-80px 0px 0px 0px);
 }
 
 .gen-image-wrapper--overflow {
@@ -203,6 +206,7 @@ html, body {
   .gen-banner {
     min-height: 140px;
     max-height: 140px;
+    clip-path: inset(-90px 0px 0px 0px);
   }
 
   .gen-box h2 {
@@ -212,6 +216,11 @@ html, body {
 
   .gen-image-wrapper {
     width: 140%;
+  }
+
+  .overlay-image {
+    max-height: 280%;
+    top: 25px;
   }
 }
 
@@ -238,6 +247,7 @@ html, body {
   .gen-banner {
     min-height: 120px;
     max-height: 120px;
+    clip-path: inset(-80px 0px 0px 0px);
   }
 
   .gen-box {
@@ -253,13 +263,9 @@ html, body {
     width: 130%;
   }
 
-  /* Adjust overflow banners for tablets */
-  .gen-banner--with-overflow {
-    clip-path: inset(-60px 0px 0px 0px);
-  }
-
-  .gen-banner--with-overflow .overlay-image {
-    max-height: 250% !important;
+  .overlay-image {
+    max-height: 250%;
+    top: 20px;
   }
 }
 
@@ -276,6 +282,7 @@ html, body {
   .gen-banner {
     min-height: 110px;
     max-height: 110px;
+    clip-path: inset(-70px 0px 0px 0px);
   }
 
   .gen-box h2 {
@@ -287,14 +294,9 @@ html, body {
     width: 120%;
   }
 
-  /* Further adjust overflow banners for smaller screens */
-  .gen-banner--with-overflow {
-    clip-path: inset(-50px 0px 0px 0px);
-  }
-
-  .gen-banner--with-overflow .overlay-image {
-    max-height: 220% !important;
-    top: 20px !important;
+  .overlay-image {
+    max-height: 220%;
+    top: 18px;
   }
 }
 
@@ -315,6 +317,7 @@ html, body {
   .gen-banner {
     min-height: 100px;
     max-height: 100px;
+    clip-path: inset(-60px 0px 0px 0px);
   }
 
   .gen-box {
@@ -331,14 +334,9 @@ html, body {
     width: 110%;
   }
 
-  /* Mobile optimization for overflow banners */
-  .gen-banner--with-overflow {
-    clip-path: inset(-40px 0px 0px 0px);
-  }
-
-  .gen-banner--with-overflow .overlay-image {
-    max-height: 200% !important;
-    top: 15px !important;
+  .overlay-image {
+    max-height: 200%;
+    top: 15px;
   }
 
   /* Reduce hover effects on mobile */
@@ -368,6 +366,7 @@ html, body {
   .gen-banner {
     min-height: 90px;
     max-height: 90px;
+    clip-path: inset(-50px 0px 0px 0px);
   }
 
   .gen-box h2 {
@@ -379,14 +378,9 @@ html, body {
     width: 100%;
   }
 
-  /* Ultra mobile optimization */
-  .gen-banner--with-overflow {
-    clip-path: inset(-35px 0px 0px 0px);
-  }
-
-  .gen-banner--with-overflow .overlay-image {
-    max-height: 180% !important;
-    top: 10px !important;
+  .overlay-image {
+    max-height: 180%;
+    top: 12px;
   }
 
   /* Disable hover effects on very small screens */
@@ -415,6 +409,7 @@ html, body {
   .gen-banner {
     min-height: 80px;
     max-height: 80px;
+    clip-path: inset(-45px 0px 0px 0px);
   }
 
   .gen-box h2 {
@@ -422,13 +417,9 @@ html, body {
     bottom: 0.5rem;
   }
 
-  .gen-banner--with-overflow {
-    clip-path: inset(-30px 0px 0px 0px);
-  }
-
-  .gen-banner--with-overflow .overlay-image {
-    max-height: 160% !important;
-    top: 8px !important;
+  .overlay-image {
+    max-height: 160%;
+    top: 10px;
   }
 }
 

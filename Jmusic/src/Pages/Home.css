@@ -1,0 +1,108 @@
+/* Home.css */
+
+.hero-section {
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  height: 50vh; /* 40% dari tinggi viewport */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(-50vw + 50%); /* Extend ke full width dari parent container */
+  margin-top: -80px; /* Video naik ke atas untuk ditimpa navbar */
+  padding-top: 80px; /* Kompensasi untuk content di dalam */
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3); /* Inner shadow untuk efek depth */
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.85; /* Sedikit transparan untuk blend dengan bg */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(155, 89, 182, 0.2)); /* Gradient overlay yang sesuai dengan bg */
+  z-index: 1;
+  border-radius: 15px;
+}
+
+/* Welcome Section - dipindah ke bawah video */
+.welcome-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: transparent;
+}
+
+.welcome-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #7f8c8d;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Content section setelah hero */
+.main-content {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+}
