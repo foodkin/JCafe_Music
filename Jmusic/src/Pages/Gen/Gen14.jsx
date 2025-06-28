@@ -10,16 +10,23 @@ function Gen14() {
     setIsLoading(false);
   };
 
-  if (isLoading) {
-    return <Gen14Loading onLoadingComplete={handleLoadingComplete} imageSrc="/images/Gen14Load.jpg" />;
-  }
-
   return (
-    <div className="gen14-container fade-in">
-      <h1>Selamat Datang di JMusic 🎶</h1>
-      <p>Gen 14</p>
-      
-    </div>
+    <>
+      {/* Background layer tetap muncul sejak awal */}
+      <div className="gen14-background-layer"></div>
+
+      {isLoading ? (
+        <Gen14Loading
+          onLoadingComplete={handleLoadingComplete}
+          imageSrc="/images/Gen14Load.jpg"
+        />
+      ) : (
+        <div className="gen14-content fade-in">
+          <h1>Selamat Datang di JMusic 🎶</h1>
+          <p className="gen14-subtitle">Gen 14</p>
+        </div>
+      )}
+    </>
   );
 }
 

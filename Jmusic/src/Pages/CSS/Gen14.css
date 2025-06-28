@@ -1,105 +1,272 @@
-/* Gen14.css - JMusic Color Palette Theme */
+/* Gen14.css - Independent background styling */
 
-/* Set background untuk seluruh halaman */
-body {
+.gen14-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  overflow: auto;
+}
+
+.gen14-page html,
+.gen14-page body {
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, 
-    #1a1a2e 0%,           /* Deep dark blue */
-    #16213e 25%,          /* Navy blue */
-    #0f3460 50%,          /* Medium blue */
-    #533483 75%,          /* Purple accent */
-    #1a1a2e 100%          /* Back to dark blue */
-  );
-  min-height: 100vh;
-  background-attachment: fixed; /* Background tetap saat scroll */
-}
-
-/* Root element untuk full coverage */
-#root {
-  min-height: 100vh;
-}
-
-.gen14-container {
+    #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e 100%);
+  background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
-  position: relative;
-  overflow: hidden;
-  /* Remove background dari sini karena sudah di body */
+  box-sizing: border-box;
 }
 
-/* Add some animated elements inspired by the logo's star effects */
-.gen14-container::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at 40% 60%, rgba(220, 53, 69, 0.1) 2px, transparent 2px);
-  background-size: 100px 100px, 150px 150px, 200px 200px;
-  animation: float 20s infinite linear;
+.gen14-background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e 100%);
+  background-attachment: fixed;
+  z-index: 0;
   pointer-events: none;
 }
 
-@keyframes float {
-  0% { transform: rotate(0deg) translate(-50%, -50%); }
-  100% { transform: rotate(360deg) translate(-50%, -50%); }
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Styling for the content */
-.gen14-container h1 {
-  color: #ffffff;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content styling */
+.gen14-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 10vh; /* Geser turun dari atas */
+  text-align: center;
+  color: white;
+}
+
+.gen14-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 2px;
   text-shadow: 
     0 0 10px rgba(255, 255, 255, 0.5),
-    0 0 20px rgba(83, 52, 131, 0.3),
-    0 0 30px rgba(220, 53, 69, 0.2);
-  font-size: 2.5rem;
-  text-align: center;
-  padding-top: 2rem;
+    0 0 20px rgba(83, 52, 131, 0.4),
+    0 0 30px rgba(220, 53, 69, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ffffff, #533483, #dc3545);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
   margin-bottom: 1rem;
-  font-weight: bold;
+}
+
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .gen14-container p {
   color: #e8e8e8;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
-/* Border effect removed for clean look */
+.gen14-subtitle {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 600;
+  color: #dc3545;
+  text-shadow: 
+    0 0 15px rgba(220, 53, 69, 0.6),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 
-/* Color variables for easy customization */
+/* Interactive elements */
+.gen14-welcome-card {
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0.05));
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  max-width: 600px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.gen14-welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  transition: left 0.8s ease;
+}
+
+.gen14-welcome-card:hover::before {
+  left: 100%;
+}
+
+.gen14-welcome-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(83, 52, 131, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(220, 53, 69, 0.4);
+}
+
+/* Navigation button (if needed) */
+.gen14-nav-button {
+  background: linear-gradient(45deg, #533483, #dc3545);
+  border: none;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gen14-nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  transition: left 0.5s;
+}
+
+.gen14-nav-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 30px rgba(220, 53, 69, 0.4),
+    0 0 20px rgba(83, 52, 131, 0.3);
+}
+
+.gen14-nav-button:hover::before {
+  left: 100%;
+}
+
+.gen14-nav-button:active {
+  transform: translateY(-1px);
+}
+
+/* Color variables for Gen14 theme */
 :root {
-  --jmusic-dark-blue: #1a1a2e;
-  --jmusic-navy: #16213e;
-  --jmusic-medium-blue: #0f3460;
-  --jmusic-purple: #533483;
-  --jmusic-red: #dc3545;
-  --jmusic-white: #ffffff;
-  --jmusic-light-gray: #e8e8e8;
+  --gen14-dark-blue: #1a1a2e;
+  --gen14-navy: #16213e;
+  --gen14-medium-blue: #0f3460;
+  --gen14-purple: #533483;
+  --gen14-red: #dc3545;
+  --gen14-white: #ffffff;
+  --gen14-light-gray: #e8e8e8;
 }
+
+/* Utility classes using Gen14 color palette */
+.gen14-text-primary { color: var(--gen14-white); }
+.gen14-text-secondary { color: var(--gen14-light-gray); }
+.gen14-text-accent { color: var(--gen14-red); }
+.gen14-bg-primary { background-color: var(--gen14-dark-blue); }
+.gen14-bg-secondary { background-color: var(--gen14-navy); }
+.gen14-bg-accent { background-color: var(--gen14-purple); }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .gen14-container h1 {
-    font-size: 2rem;
-    padding-top: 1.5rem;
+  .gen14-container {
+    padding: 1rem;
   }
   
-  .gen14-container p {
+  .gen14-content {
+    padding: 1rem;
+  }
+  
+  .gen14-welcome-card {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gen14-container {
+    padding: 0.5rem;
+  }
+  
+  .gen14-welcome-card {
+    padding: 1.5rem 1rem;
+    margin: 0.5rem;
+  }
+  
+  .gen14-nav-button {
+    padding: 12px 25px;
     font-size: 1rem;
   }
 }
 
-/* Additional utility classes using the color palette */
-.jmusic-text-primary { color: var(--jmusic-white); }
-.jmusic-text-secondary { color: var(--jmusic-light-gray); }
-.jmusic-text-accent { color: var(--jmusic-red); }
-.jmusic-bg-primary { background-color: var(--jmusic-dark-blue); }
-.jmusic-bg-secondary { background-color: var(--jmusic-navy); }
-.jmusic-bg-accent { background-color: var(--jmusic-purple); }
+/* Smooth scrolling for Gen14 container */
+.gen14-container {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for Gen14 */
+.gen14-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.gen14-container::-webkit-scrollbar-track {
+  background: rgba(26, 26, 46, 0.5);
+}
+
+.gen14-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #533483, #dc3545);
+  border-radius: 4px;
+}
+
+.gen14-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #dc3545, #533483);
+}

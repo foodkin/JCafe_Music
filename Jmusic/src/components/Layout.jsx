@@ -16,35 +16,38 @@ function Layout() {
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
-      document.body.classList.add('menu-open');
+      document.querySelector('.layout-container').classList.add('menu-open');
     } else {
-      document.body.classList.remove('menu-open');
+      document.querySelector('.layout-container').classList.remove('menu-open');
     }
 
     // Cleanup function to remove class when component unmounts
     return () => {
-      document.body.classList.remove('menu-open');
+      const layoutContainer = document.querySelector('.layout-container');
+      if (layoutContainer) {
+        layoutContainer.classList.remove('menu-open');
+      }
     };
   }, [menuOpen]);
 
   return (
     <div className="layout-container">
-      <div className="logo fixed-logo">
-        <img src="/images/jmusic-logo.png" alt="JMusic Logo" className="logo-img" />
+      <div className="layout-fixed-logo">
+        <img src="/images/jmusic-logo.png" alt="JMusic Logo" className="layout-logo-img" />
       </div>
 
       <header>
-        <nav className="navbar">
-          <div className="nav-container">
+        <nav className="layout-navbar">
+          <div className="layout-nav-container">
             <div
-              className={`hamburger fixed-hamburger ${menuOpen ? 'active' : ''}`}
+              className={`layout-hamburger layout-fixed-hamburger ${menuOpen ? 'active' : ''}`}
               onClick={toggleMenu}
             >
               <div className="bar"></div>
               <div className="bar"></div>
               <div className="bar"></div>
             </div>
-            <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+            <ul className={`layout-nav-menu ${menuOpen ? 'active' : ''}`}>
               <li><Link to="/" onClick={closeMenu}>Home</Link></li>
               <li><Link to="/gen" onClick={closeMenu}>Gen</Link></li>
               <li><Link to="/finalproject" onClick={closeMenu}>Final Project</Link></li>
@@ -54,15 +57,15 @@ function Layout() {
       </header>
 
       {/* Overlay untuk blur transparan */}
-      {menuOpen && <div className={`menu-overlay ${menuOpen ? 'active' : ''}`} onClick={closeMenu}></div>}
+      {menuOpen && <div className={`layout-menu-overlay ${menuOpen ? 'active' : ''}`} onClick={closeMenu}></div>}
 
-      <main className="main-content">
+      <main className="layout-main-content">
         <Outlet />
       </main>
 
-      <footer className="footer">
+      <footer className="layout-footer">
         <p>&copy; JMusic. All rights reserved.</p>
-        <div className="social-links">
+        <div className="layout-social-links">
           <a
             href="https://youtube.com/@jcafemusic?si=pdMLfO1gTR7Zvjf1"
             target="_blank"
