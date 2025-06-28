@@ -1,0 +1,105 @@
+/* Gen14.css - JMusic Color Palette Theme */
+
+/* Set background untuk seluruh halaman */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, 
+    #1a1a2e 0%,           /* Deep dark blue */
+    #16213e 25%,          /* Navy blue */
+    #0f3460 50%,          /* Medium blue */
+    #533483 75%,          /* Purple accent */
+    #1a1a2e 100%          /* Back to dark blue */
+  );
+  min-height: 100vh;
+  background-attachment: fixed; /* Background tetap saat scroll */
+}
+
+/* Root element untuk full coverage */
+#root {
+  min-height: 100vh;
+}
+
+.gen14-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  /* Remove background dari sini karena sudah di body */
+}
+
+/* Add some animated elements inspired by the logo's star effects */
+.gen14-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 40% 60%, rgba(220, 53, 69, 0.1) 2px, transparent 2px);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  animation: float 20s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: rotate(0deg) translate(-50%, -50%); }
+  100% { transform: rotate(360deg) translate(-50%, -50%); }
+}
+
+/* Styling for the content */
+.gen14-container h1 {
+  color: #ffffff;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(83, 52, 131, 0.3),
+    0 0 30px rgba(220, 53, 69, 0.2);
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.gen14-container p {
+  color: #e8e8e8;
+  text-align: center;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Border effect removed for clean look */
+
+/* Color variables for easy customization */
+:root {
+  --jmusic-dark-blue: #1a1a2e;
+  --jmusic-navy: #16213e;
+  --jmusic-medium-blue: #0f3460;
+  --jmusic-purple: #533483;
+  --jmusic-red: #dc3545;
+  --jmusic-white: #ffffff;
+  --jmusic-light-gray: #e8e8e8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .gen14-container h1 {
+    font-size: 2rem;
+    padding-top: 1.5rem;
+  }
+  
+  .gen14-container p {
+    font-size: 1rem;
+  }
+}
+
+/* Additional utility classes using the color palette */
+.jmusic-text-primary { color: var(--jmusic-white); }
+.jmusic-text-secondary { color: var(--jmusic-light-gray); }
+.jmusic-text-accent { color: var(--jmusic-red); }
+.jmusic-bg-primary { background-color: var(--jmusic-dark-blue); }
+.jmusic-bg-secondary { background-color: var(--jmusic-navy); }
+.jmusic-bg-accent { background-color: var(--jmusic-purple); }
