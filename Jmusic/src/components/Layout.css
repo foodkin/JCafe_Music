@@ -2,6 +2,7 @@
 /* Pastikan html dan body memiliki background gradient untuk menutupi area putih */
 body {
   overflow-x: hidden;
+  background: linear-gradient(135deg, #0b3b5c 0%, #7cc9dc 50%, #e53935 100%);
 }
 
 html, body {
@@ -24,6 +25,9 @@ html, body {
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   box-sizing: border-box;
 }
 
@@ -31,15 +35,6 @@ html, body {
 .layout-container.menu-open {
   overflow: hidden;
   width: 100%;
-}
-
-.layout-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .layout-container::before {
@@ -497,4 +492,10 @@ html, body {
 .layout-social-links a:hover {
   color: #e53935;
   transform: scale(1.2);
+}
+
+@supports (height: 100dvh) {
+  html, body, .layout-container {
+    min-height: 100dvh;
+  }
 }
