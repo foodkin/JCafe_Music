@@ -1,11 +1,15 @@
 /* Layout CSS - Base styles untuk seluruh layout */
 /* Pastikan html dan body memiliki background gradient untuk menutupi area putih */
+body {
+  overflow-x: hidden;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #0b3b5c 0%, #7cc9dc 50%, #e53935 100%);
   background-attachment: fixed;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   box-sizing: border-box;
 }
@@ -16,7 +20,7 @@ html, body {
   font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
   background: linear-gradient(135deg, #0b3b5c 0%, #7cc9dc 50%, #e53935 100%);
   color: white;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -26,7 +30,6 @@ html, body {
 /* Prevent scrolling when menu is open */
 .layout-container.menu-open {
   overflow: hidden;
-  position: fixed;
   width: 100%;
 }
 
@@ -41,7 +44,7 @@ html, body {
 
 .layout-container::before {
   content: '';
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
