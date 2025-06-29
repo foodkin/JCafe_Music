@@ -12,7 +12,7 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: inherit;
+  background: linear-gradient(135deg, #0b3b5c 0%, #7cc9dc 50%, #e53935 100%);
   z-index: -9999;
 }
 
@@ -35,7 +35,7 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
   color: white;
-  /* ❌ JANGAN ADA background di sini */
+  background: none !important;
 }
 
 /* Prevent scrolling when menu is open */
