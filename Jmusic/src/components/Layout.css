@@ -5,6 +5,17 @@ body {
   background: linear-gradient(135deg, #0b3b5c 0%, #7cc9dc 50%, #e53935 100%);
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: inherit;
+  z-index: -9999;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -494,3 +505,4 @@ html, body {
   html, body, .layout-container {
     min-height: 100dvh;
   }
+}
