@@ -68,13 +68,7 @@ function Gen14() {
               <div className="gen14-intro-description">
                 <h3 className="gen14-intro-title">Welcome to Gen 14</h3>
                 <p className="gen14-intro-text">
-                  Selamat datang di J Cafe Music Generation 14! Kami adalah komunitas musik yang terdiri dari 9 anggota unik, 
-                  masing-masing dengan karakter dan peran yang berbeda. Dari para pemimpin hingga malaikat dan iblis, 
-                  setiap anggota membawa keunikan tersendiri dalam harmoni musik kami.
-                </p>
-                <p className="gen14-intro-text">
-                  Bergabunglah dengan kami dalam perjalanan musik yang penuh dengan sins dan virtue, 
-                  di mana setiap nada memiliki cerita dan setiap melodi membawa makna.
+                  Baelum kepikiran apa"
                 </p>
               </div>
             </div>
