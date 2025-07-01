@@ -12,7 +12,7 @@ function Gen14() {
     { id: 0, name: 'Bathory', role: 'Leader', roleColor: '#FFD700', desc: 'Ketua Jmusic.', img: '/images/14Char/Nadine.jpg' },
     { id: 1, name: 'Sai', role: 'Vice Leader', roleColor: '#00CED1', desc: 'Wakil Ketua Jmusic.', img: '/images/14Char/Sebastian.jpg' },
     { id: 2, name: 'Yuzu', role: 'Secretary', roleColor: '#000000', desc: 'Sekretaris Jmusic.', img: '/images/14Char/Wishley.jpg' },
-    { id: 3, name: 'Ren Mixe', role: 'Treasurer', roleColor: '#5D3A9B', desc: 'Holder of the Sin of Greed and the Virtue of Patience, with his duties as treasurer of Jmusic Gen14, he carefully guards every coin and budget like a dragon hoarding gold. Calm under pressure and sharp with numbers, he ensures that every resource is used wisely, never wasting a single note. Hidden behind his quiet demeanor is a strategist who plans three steps ahead, balancing desire with discipline.', img: '/images/14Char/Jeferson.jpg' },
+    { id: 3, name: 'Ren Mixe', role: 'Treasurer', roleColor: '#5D3A9B', desc: 'Holder of Greed and Patience, he serves as Jmusic Gen14’s treasurer. Calm, calculating, and fiercely protective of every coin. Behind his quiet demeanor lies a sharp strategist who balances ambition with discipline.', img: '/images/14Char/Jeferson.jpg' },
     { id: 4, name: 'Chess', role: 'Documentation', roleColor: '#20B2AA', desc: 'Dokumentasi Jmusic.', img: '/images/14Char/Lucky.jpg' },
     { id: 5, name: 'Sakura Inari', role: 'Publication', roleColor: '#FF69B4', desc: 'Publikasi Jmusic.', img: '/images/14Char/Sephine.jpg' },
     { id: 6, name: 'Moppo', role: 'Logistic', roleColor: '#FFA500', desc: 'Perlengkapan Jmusic.', img: '/images/14Char/Gwendy.jpg' },
@@ -57,6 +57,33 @@ function Gen14() {
           <div className="gen14-welcome-section">
             <h1 className="gen14-welcome-title">Sins & Virtue🎶</h1>
             <p className="gen14-subtitle">J Cafe Music Gen 14</p>
+          </div>
+
+          {/* Gen14 Introduction Section */}
+          <div className="gen14-intro-section">
+            <div className="gen14-intro-content">
+              <div className="gen14-intro-image">
+                <img src="/images/jmusic-logo14.png" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
+              </div>
+              <div className="gen14-intro-description">
+                <h3 className="gen14-intro-title">Welcome to Gen 14</h3>
+                <p className="gen14-intro-text">
+                  Selamat datang di J Cafe Music Generation 14! Kami adalah komunitas musik yang terdiri dari 9 anggota unik, 
+                  masing-masing dengan karakter dan peran yang berbeda. Dari para pemimpin hingga malaikat dan iblis, 
+                  setiap anggota membawa keunikan tersendiri dalam harmoni musik kami.
+                </p>
+                <p className="gen14-intro-text">
+                  Bergabunglah dengan kami dalam perjalanan musik yang penuh dengan sins dan virtue, 
+                  di mana setiap nada memiliki cerita dan setiap melodi membawa makna.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="gen14-bph-section">
+            <div className="gen14-bph-line"></div>
+            <h2 className="gen14-bph-title">BPH</h2>
+            <div className="gen14-bph-line"></div>
           </div>
 
           {/* Character Showcase Section */}
@@ -105,6 +132,13 @@ function Gen14() {
               </div>
             </div>
           </div>
+
+          <div className="gen14-bph-section">
+            <div className="gen14-bph-line"></div>
+            <h2 className="gen14-bph-title">Member</h2>
+            <div className="gen14-bph-line"></div>
+          </div>
+
         </div>
       )}
     </>
