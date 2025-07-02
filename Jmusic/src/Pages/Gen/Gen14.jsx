@@ -12,9 +12,9 @@ function Gen14() {
   // BPH Character List
   const characterList = [
     { id: 0, name: 'Bathory', role: 'Leader', roleColor: '#FFD700', desc: 'Ketua Jmusic.', img: '/images/14Char/Nadine.jpg' },
-    { id: 1, name: 'Sai', role: 'Vice Leader', roleColor: '#00CED1', desc: 'Sai, the holder of lust and humility...', img: '/images/14Char/Sebastian.jpg' },
+    { id: 1, name: 'Sai', role: 'Vice Leader', roleColor: '#00CED1', desc: 'Sai, the holder of lust and humility, he\'s the vice leader of Jmusic, Gen 14. Open, humble, and down to earth, Sai tries his best to connect with the members of Jmusic, though not always successful, you can bet that he does his best.', img: '/images/14Char/Sebastian.jpg' },
     { id: 2, name: 'Yuzu', role: 'Secretary', roleColor: '#000000', desc: 'Sekretaris Jmusic.', img: '/images/14Char/Wishley.jpg' },
-    { id: 3, name: 'Ren Mixe', role: 'Treasurer', roleColor: '#5D3A9B', desc: 'Holder of Greed and Patience...', img: '/images/14Char/Jeferson.jpg' },
+    { id: 3, name: 'Ren Mixe', role: 'Treasurer', roleColor: '#5D3A9B', desc: 'Holder of Greed and Patience, he serves as Jmusic Gen14’s treasurer. calm, calculating, and fiercely protective of every coin. Behind his quiet demeanor lies a sharp strategist who balances ambition with discipline.', img: '/images/14Char/Jeferson.jpg' },
     { id: 4, name: 'Chess', role: 'Documentation', roleColor: '#20B2AA', desc: 'Dokumentasi Jmusic.', img: '/images/14Char/Lucky.jpg' },
     { id: 5, name: 'Sakura Inari', role: 'Publication', roleColor: '#FF69B4', desc: 'Publikasi Jmusic.', img: '/images/14Char/Sephine.jpg' },
     { id: 6, name: 'Moppo', role: 'Logistic', roleColor: '#FFA500', desc: 'Perlengkapan Jmusic.', img: '/images/14Char/Gwendy.jpg' },
