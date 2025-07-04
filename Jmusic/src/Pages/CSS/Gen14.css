@@ -13,7 +13,7 @@
   overflow: hidden; /* Supaya ::before tidak bocor keluar */
 }
 
-/* Tambahan efek glowing/particle bergerak */
+/* efek glowing/particle bergerak */
 .gen14-background-layer::before {
   content: '';
   position: absolute;
@@ -619,7 +619,7 @@
 .gen14-intro-content {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 6rem;
   padding: 2rem 0;
   position: relative;
 }

@@ -8,12 +8,7 @@
   width: 100vw;
   height: 100vh;
   background: linear-gradient(135deg, 
-    #1a1a2e 0%,           /* Deep dark blue */
-    #16213e 25%,          /* Navy blue */
-    #0f3460 50%,          /* Medium blue */
-    #533483 75%,          /* Purple accent */
-    #1a1a2e 100%          /* Back to dark blue */
-  );
+    #1a1a2e 0%, #16213e 25%, #0f3460 50%);
   display: flex;
   flex-direction: column;
   justify-content: center;

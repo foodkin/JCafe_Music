@@ -156,7 +156,6 @@ function Gen14() {
             <p className="gen14-subtitle">J Cafe Music Gen 14</p>
           </div>
 
-          <div className="gen14-intro-section">
             <div className="gen14-intro-content">
               <div className="gen14-intro-image">
                 <img src="/images/jmusic-logo14.png" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
@@ -166,7 +165,6 @@ function Gen14() {
                 <p className="gen14-intro-text">Baelum kepikiran apa"</p>
               </div>
             </div>
-          </div>
 
           <div className="gen14-bph-section">
             <div className="gen14-bph-line"></div>
