@@ -724,7 +724,7 @@
   background-clip: text;
 
   /* Animasi gradasi + neon kejet-kejet */
-  animation: gradientShift 8s ease infinite, neonFlicker 2.5s infinite;
+  animation: fadeInUp 1s ease-out, neonFlicker 1.5s ease-in-out infinite;
 
   /* Tambahan efek glow sekitar huruf */
   text-shadow:
@@ -1029,13 +1029,24 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
-  animation: gradientShift 5s ease infinite, neonFlicker 1.5s infinite;
+  animation: fadeInUp 1s ease-out, neonFlicker 1.5s ease-in-out infinite;
 
   text-shadow: 
     0 0 10px rgba(255, 255, 255, 0.5),
     0 0 20px rgba(220, 53, 69, 0.7),
     0 0 30px rgba(83, 52, 131, 0.5),
     0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design untuk BPH Section */
