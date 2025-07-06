@@ -714,20 +714,45 @@
 .gen14-intro-title {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 800;
-  color: #ffffff;
-  text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.4),
-    0 4px 15px rgba(0, 0, 0, 0.6);
   margin-bottom: 2rem;
   letter-spacing: 2px;
+  position: relative;
   background: linear-gradient(45deg, #ffffff, #dc3545, #533483);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 4s ease infinite;
-  position: relative;
+
+  /* Animasi gradasi + neon kejet-kejet */
+  animation: gradientShift 8s ease infinite, neonFlicker 2.5s infinite;
+
+  /* Tambahan efek glow sekitar huruf */
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(220, 53, 69, 0.8),
+    0 0 30px rgba(83, 52, 131, 0.6);
 }
+
+@keyframes neonFlicker {
+  0%, 100% { opacity: 1; }
+  5% { opacity: 0.7; }
+  10% { opacity: 0.3; }
+  15% { opacity: 1; }
+  25% { opacity: 0.9; }
+  30% { opacity: 0.2; }
+  35% { opacity: 1; }
+  50% { opacity: 0.8; }
+  60% { opacity: 1; }
+  70% { opacity: 0.6; }
+  80% { opacity: 1; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 .gen14-intro-title::after {
   content: '🎵';
@@ -987,13 +1012,12 @@
 .gen14-bph-title {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
-  color: #ffffff;
-  text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.6),
-    0 0 40px rgba(220, 53, 69, 0.4),
-    0 4px 15px rgba(0, 0, 0, 0.8);
   letter-spacing: 4px;
   text-transform: uppercase;
+  padding: 0 2rem;
+  white-space: nowrap;
+  position: relative;
+
   background: linear-gradient(45deg, 
     #ffffff 0%, 
     #dc3545 25%, 
@@ -1004,10 +1028,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 3s ease infinite;
-  position: relative;
-  padding: 0 2rem;
-  white-space: nowrap;
+
+  animation: gradientShift 5s ease infinite, neonFlicker 1.5s infinite;
+
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(220, 53, 69, 0.7),
+    0 0 30px rgba(83, 52, 131, 0.5),
+    0 4px 15px rgba(0, 0, 0, 0.8);
 }
 
 /* Responsive Design untuk BPH Section */

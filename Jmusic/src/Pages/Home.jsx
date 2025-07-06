@@ -29,6 +29,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {/* Hero Section */}
       <section className="hero-image-section">
         <img
           src={showcaseImages[activeImageIndex].src}
@@ -39,8 +40,8 @@ const Home = () => {
         <section className="welcome-section">
           <div className="welcome-content">
             <div className="welcome-box">
-            <h1 className="hero-subtitle">- Welcome to -</h1>
-            <p className="hero-title">J-Music</p>
+              <h1 className="hero-subtitle">- Welcome to -</h1>
+              <p className="hero-title">J-Music</p>
             </div>
           </div>
         </section>
@@ -68,6 +69,24 @@ const Home = () => {
           </button>
         </div>
       </section>
+
+      <section className="jmusic-intro-section">
+        <div className="jmusic-intro-content">
+          <div className="jmusic-intro-image">
+            <img src="/images/jmusic-logo.png" alt="J-Music Community" className="jmusic-intro-img" />
+          </div>
+          <div className="jmusic-intro-description">
+            <h3 className="jmusic-intro-title">ABOUT US</h3>
+            <p className="jmusic-intro-text">We are a Japanese Music Club that focuses on making covers and having fun! We’re based in Gading Serpong as the music division of the Japanese club, JCAFE in UMN. </p>
+            <p className="jmusic-intro-text"> Our club has been up and running ever since 2007!</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div className="main-content">
+        {/* Add your other content here */}
+      </div>
     </div>
   );
 };
