@@ -61,7 +61,7 @@ function Layout() {
                 <li><Link to="/finalproject" onClick={closeMenu}>Final Project</Link></li>
 
                 {/* Tambahan Link Sosial Media */}
-                <div className="layout-social-links layout-social-center" style={{ marginTop: "2rem" }}>
+                <div className="layout-social-links layout-social-nav" style={{ marginTop: "2rem" }}>
                   <a
                     href="https://youtube.com/@jcafemusic?si=pdMLfO1gTR7Zvjf1"
                     target="_blank"

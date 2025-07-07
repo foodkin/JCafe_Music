@@ -237,7 +237,6 @@ html, body {
 .layout-nav-menu .layout-social-links {
   justify-content: flex-start;
   margin-top: 2rem;
-  padding-left: 0.5rem;
 }
 
 .layout-social-links.layout-social-center {
@@ -616,5 +615,29 @@ html, body {
 @supports (height: 100dvh) {
   html, body, .layout-container {
     min-height: 100dvh;
+  }
+}
+
+/* Sosial media khusus di dalam menu navbar */
+.layout-social-links.layout-social-nav {
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .layout-social-links.layout-social-nav {
+    gap: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-social-links.layout-social-nav {
+    gap: 0.7rem;
+    font-size: 1rem;
   }
 }
