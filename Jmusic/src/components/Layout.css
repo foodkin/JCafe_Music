@@ -6,17 +6,115 @@ body {
 }
 
 body::before {
+  content: '🎵 🎶 🎵 🎶 🎵 🎶 🎵 🎶 🎵 🎶';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  font-size: 2rem;
+  color: #7cc9dc;
+  text-shadow: 0 0 10px #7cc9dc, 0 0 20px #7cc9dc, 0 0 30px #7cc9dc;
+  white-space: pre;
+  animation: floatNotes 30s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+body::after {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2c4a5c 25%, #7cc9dc 70%, #a8d5e2 100%);
-  background-image: 
-    radial-gradient(circle at 80% 20%, rgba(229, 57, 53, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(229, 57, 53, 0.08) 0%, transparent 60%);
-  z-index: -9999;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+@keyframes floatNotes {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(25%, 25%);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* Container not balok */
+.floating-notes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-notes span {
+  position: absolute;
+  bottom: -50px;
+  font-size: 2rem;
+  color: #7cc9dc;
+  text-shadow: 0 0 10px #7cc9dc, 0 0 20px #7cc9dc;
+  animation: floatUp 10s linear infinite;
+  opacity: 0;
+}
+
+.floating-notes span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-notes span:nth-child(2) { left: 30%; animation-delay: 2s; }
+.floating-notes span:nth-child(3) { left: 50%; animation-delay: 4s; }
+.floating-notes span:nth-child(4) { left: 70%; animation-delay: 6s; }
+.floating-notes span:nth-child(5) { left: 85%; animation-delay: 1s; }
+.floating-notes span:nth-child(6) { left: 95%; animation-delay: 3s; }
+
+/* Generate multiple notes with different delays & positions */
+.floating-notes span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+.floating-notes span:nth-child(2) {
+  left: 25%;
+  animation-delay: 2s;
+}
+.floating-notes span:nth-child(3) {
+  left: 40%;
+  animation-delay: 4s;
+}
+.floating-notes span:nth-child(4) {
+  left: 60%;
+  animation-delay: 1.5s;
+}
+.floating-notes span:nth-child(5) {
+  left: 75%;
+  animation-delay: 3.2s;
+}
+.floating-notes span:nth-child(6) {
+  left: 90%;
+  animation-delay: 5s;
 }
 
 html, body {
