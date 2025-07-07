@@ -10,32 +10,28 @@ const WhatWeDoSlider = () => {
       title: "WEEKLY KARAOKE",
       subtitle: "Our weekly scheduled karaoke session!",
       description: "Every Thursday and Friday, we'd get together and sing songs based on themes set beforehand, a challenging but fun time for our members.",
-      image: "/images/showcase1.jpg",
-      pattern: "karaoke"
+      image: "/images/showcase1.jpg"
     },
     {
       id: 2,
       title: "BONDING J-MUSIC",
       subtitle: "Building stronger connections within our community!",
       description: "Regular bonding activities that bring our J-Music family closer together through games, discussions, and shared experiences.",
-      image: "/images/showcase2.jpg",
-      pattern: "bonding"
+      image: "/images/showcase2.jpg"
     },
     {
       id: 3,
       title: "BONDING INTI",
       subtitle: "Core team bonding sessions!",
       description: "Special bonding activities for our core team members to strengthen leadership and coordination within the club.",
-      image: "/images/bonding-inti.jpg",
-      pattern: "inti"
+      image: "/images/bonding-inti.jpg"
     },
     {
       id: 4,
       title: "FINAL PROJECT",
       subtitle: "Our culminating showcase event!",
       description: "The ultimate showcase of our talents and hard work throughout the semester, featuring performances and collaborations.",
-      image: "/images/final-project.jpg",
-      pattern: "project"
+      image: "/images/final-project.jpg"
     }
   ];
 
@@ -55,7 +51,6 @@ const WhatWeDoSlider = () => {
             <img src={activities[currentSlide].image} alt={activities[currentSlide].title} />
           </div>
 
-          {/* Pattern text grid - dipindahkan ke dalam slide-overlay */}
           <div className="slide-overlay">            
             <div className="slide-content">
               <h3 className="slide-title">{activities[currentSlide].title}</h3>
@@ -109,7 +104,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
+      {/* Hero Section - tidak perlu kotak */}
       <section className="hero-image-section">
         <img
           src={showcaseImages[activeImageIndex].src}
@@ -150,28 +145,28 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="jmusic-intro-section">
-        <div className="jmusic-intro-content">
-          <div className="jmusic-intro-image">
-            <img src="/images/jmusic-logo.png" alt="J-Music Community" className="jmusic-intro-img" />
+      {/* About Us Section - dalam kotak */}
+      <div className="content-box">
+        <section className="jmusic-intro-section">
+          <div className="jmusic-intro-content">
+            <div className="jmusic-intro-image">
+              <img src="/images/jmusic-logo.png" alt="J-Music Community" className="jmusic-intro-img" />
+            </div>
+            <div className="jmusic-intro-description">
+              <h3 className="jmusic-intro-title">ABOUT US</h3>
+              <p className="jmusic-intro-text">We are a Japanese Music Club that focuses on making covers and having fun! We're based in Gading Serpong as the music division of the Japanese club, JCAFE in UMN. </p>
+              <p className="jmusic-intro-text"> Our club has been up and running ever since 2007!</p>
+            </div>
           </div>
-          <div className="jmusic-intro-description">
-            <h3 className="jmusic-intro-title">ABOUT US</h3>
-            <p className="jmusic-intro-text">We are a Japanese Music Club that focuses on making covers and having fun! We're based in Gading Serpong as the music division of the Japanese club, JCAFE in UMN. </p>
-            <p className="jmusic-intro-text"> Our club has been up and running ever since 2007!</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      {/* What We Do Section */}
-      <section className="what-we-do-section">
-        <h2 className="what-we-do-title">WHAT WE DO</h2>
-        <WhatWeDoSlider />
-      </section>
-
-      {/* Main Content */}
-      <div className="main-content">
-        {/* Add your other content here */}
+      {/* What We Do Section - dalam kotak */}
+      <div className="content-box">
+        <section className="what-we-do-section">
+          <h2 className="what-we-do-title">WHAT WE DO</h2>
+          <WhatWeDoSlider />
+        </section>
       </div>
     </div>
   );

@@ -234,6 +234,17 @@ html, body {
   border-radius: 2px;
 }
 
+.layout-nav-menu .layout-social-links {
+  justify-content: flex-start;
+  margin-top: 2rem;
+  padding-left: 0.5rem;
+}
+
+.layout-social-links.layout-social-center {
+  justify-content: center;
+  width: 100%;
+}
+
 /* Animation saat hamburger aktif */
 .layout-hamburger.active .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
