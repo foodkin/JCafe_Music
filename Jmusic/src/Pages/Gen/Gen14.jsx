@@ -11,15 +11,100 @@ function Gen14() {
 
   // BPH Character List
   const characterList = [
-    { id: 0, name: 'Bathory', role: 'Leader', roleColor: '#FFD700', desc: 'Ketua Jmusic.', img: '/images/14Char/Nadine.jpg' },
-    { id: 1, name: 'Sai', role: 'Vice Leader', roleColor: '#00CED1', desc: 'Sai, the holder of lust and humility, he\'s the vice leader of Jmusic, Gen 14. Open, humble, and down to earth, Sai tries his best to connect with the members of Jmusic, though not always successful, you can bet that he does his best.', img: '/images/14Char/Sebastian.jpg' },
-    { id: 2, name: 'Yuzu', role: 'Secretary', roleColor: '#000000', desc: 'Sekretaris Jmusic.', img: '/images/14Char/Wishley.jpg' },
-    { id: 3, name: 'Ren Mixe', role: 'Treasurer', roleColor: '#5D3A9B', desc: 'Holder of Greed and Patience, he serves as Jmusic Gen14’s treasurer. calm, calculating, and fiercely protective of every coin. Behind his quiet demeanor lies a sharp strategist who balances ambition with discipline.', img: '/images/14Char/Jeferson.jpg' },
-    { id: 4, name: 'Chess', role: 'Documentation', roleColor: '#20B2AA', desc: 'Dokumentasi Jmusic.', img: '/images/14Char/Lucky.jpg' },
-    { id: 5, name: 'Sakura Inari', role: 'Publication', roleColor: '#FF69B4', desc: 'Publikasi Jmusic.', img: '/images/14Char/Sephine.jpg' },
-    { id: 6, name: 'Moppo', role: 'Logistic', roleColor: '#FFA500', desc: 'Perlengkapan Jmusic.', img: '/images/14Char/Gwendy.jpg' },
-    { id: 7, name: 'Gabi', role: 'Angle', roleColor: '#87CEFA', desc: 'Malaikat Jmusic.', img: '/images/14Char/Gabi.jpg' },
-    { id: 8, name: 'Pito', role: 'Demon', roleColor: '#FF4500', desc: 'Iblis Jmusic.', img: '/images/14Char/Pito.jpg' },
+    {
+      id: 0,
+      name: 'Bathory',
+      role: 'Leader',
+      roleColor: '#FFD700',
+      desc: 'Ketua Jmusic.',
+      img: '/images/14Char/Nadine.jpg'
+    },
+    {
+      id: 1,
+      name: 'Sai',
+      role: 'Vice Leader',
+      roleColor: '#00CED1',
+      desc: "Sai, the holder of lust and humility, he's the vice leader of Jmusic, Gen 14. Open, humble, and down to earth, Sai tries his best to connect with the members of Jmusic, though not always successful, you can bet that he does his best.",
+      img: '/images/14Char/Sebastian.jpg'
+    },
+    {
+      id: 2,
+      name: 'Yuzu',
+      role: 'Secretary',
+      roleColor: '#000000',
+      desc: (
+        <>
+          Yuzu is the holder of the sin Wrath and the virtue Diligence. His name comes from the fruit yuzu, known for its tart and slightly sweet taste, which happens to match his own taste buds.
+          His role is the secretary. As the oldest among the generations, Yuzu has a deep passion for improving the organization.
+          He often advocates for new systems and better structures. To those who do not know him well, he may seem overly serious at first.{' '}
+          <span style={{ color: 'black', fontWeight: 'bold' }}>
+            "A wrong answer is not a meaningless one."
+          </span>{' '}
+          – One of his favorite quotes.
+        </>
+      ),
+      img: '/images/14Char/Wishley.jpg'
+    },
+    {
+      id: 3,
+      name: 'Ren Mixe',
+      role: 'Treasurer',
+      roleColor: '#5D3A9B',
+      desc: (
+        <>
+          Ren Mixe is the holder of Greed and Patience, an ironic duality only he can balance.
+          His hands do not merely manage numbers, they command the flow of fortune itself.
+          His gaze is sharp enough to slice through deception, and his silence speaks louder than a thousand coins.
+          He guards Jmusic’s treasury like a dragon over its sacred hoard, unmoved by temptation.
+          It is said he can calculate a person’s worth with a single glance.
+          To challenge him is to play chess with fate...{' '}
+          <span style={{ color: '#5D3A9B', fontWeight: 'bold' }}>
+            while he’s already five moves ahead.
+          </span>
+        </>
+      ),
+      img: '/images/14Char/Jeferson.jpg'
+    },
+    {
+      id: 4,
+      name: 'Chess',
+      role: 'Documentation',
+      roleColor: '#20B2AA',
+      desc: 'Dokumentasi Jmusic.',
+      img: '/images/14Char/Lucky.jpg'
+    },
+    {
+      id: 5,
+      name: 'Sakura Inari',
+      role: 'Publication',
+      roleColor: '#FF69B4',
+      desc: 'Publikasi Jmusic.',
+      img: '/images/14Char/Sephine.jpg'
+    },
+    {
+      id: 6,
+      name: 'Moppo',
+      role: 'Logistic',
+      roleColor: '#FFA500',
+      desc: 'Perlengkapan Jmusic.',
+      img: '/images/14Char/Gwendy.jpg'
+    },
+    {
+      id: 7,
+      name: 'Gabi',
+      role: 'Angle',
+      roleColor: '#87CEFA',
+      desc: 'Malaikat Jmusic.',
+      img: '/images/14Char/Gabi.jpg'
+    },
+    {
+      id: 8,
+      name: 'Pito',
+      role: 'Demon',
+      roleColor: '#FF4500',
+      desc: 'Iblis Jmusic.',
+      img: '/images/14Char/Pito.jpg'
+    }
   ];
 
   // Member Teams Data (Tanpa subname)
