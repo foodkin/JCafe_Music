@@ -127,7 +127,6 @@ const Home = () => {
                 className="hero-title"
                 style={{
                   fontFamily: 'Romaunt Gaolines',
-                  fontSize: '2.5rem',
                   fontWeight: 300
                 }}
               >

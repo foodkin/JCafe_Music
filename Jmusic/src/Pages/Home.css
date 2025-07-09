@@ -59,7 +59,7 @@
 .welcome-box {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Rata tengah horizontal */
+  align-items: center;
   justify-content: center;
   text-align: center;
 }
