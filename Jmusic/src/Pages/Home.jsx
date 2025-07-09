@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
 
 const WhatWeDoSlider = () => {
@@ -50,7 +50,6 @@ const WhatWeDoSlider = () => {
           <div className="slide-image">
             <img src={activities[currentSlide].image} alt={activities[currentSlide].title} />
           </div>
-
           <div className="slide-overlay">
             <div className="slide-content" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               <h3 className="slide-title">{activities[currentSlide].title}</h3>
@@ -58,18 +57,96 @@ const WhatWeDoSlider = () => {
               <p className="slide-description">{activities[currentSlide].description}</p>
             </div>
           </div>
-
           <button className="nav-arrow next" onClick={nextSlide}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-
           <button className="nav-arrow prev" onClick={prevSlide}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const YouTubePlayer = () => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const playerRef = useRef(null);
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const videos = [
+    { id: "oUxpK0WnOEU", title: "【オトノナルホウへ→ // Oto no naru hou e→】 Cover by Nijisetsu (BPH Gen 13)" },
+    { id: "H08xfaJnYrQ", title: "BPH Gen 14" },
+  ];
+
+  useEffect(() => {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window.onYouTubeIframeAPIReady = () => {
+      const player = new window.YT.Player('youtube-player', {
+        height: '500',
+        width: '100%',
+        videoId: videos[currentVideoIndex].id,
+        playerVars: {
+          autoplay: 0,
+          mute: 1,
+          controls: 1,
+          disablekb: 0,
+          fs: 1,
+          iv_load_policy: 3,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0,
+          playsinline: 1
+        },
+        events: {
+          onReady: (event) => {
+            setIsPlayerReady(true);
+            setIsLoading(false);
+            playerRef.current = event.target;
+          },
+          onStateChange: (event) => {
+            if (event.data === window.YT.PlayerState.ENDED) {
+              setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+            }
+          }
+        }
+      });
+    };
+
+    return () => {
+      if (playerRef.current) {
+        playerRef.current.destroy();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isPlayerReady && playerRef.current) {
+      setIsLoading(true);
+      playerRef.current.loadVideoById(videos[currentVideoIndex].id);
+      setTimeout(() => setIsLoading(false), 1000);
+    }
+  }, [currentVideoIndex, isPlayerReady]);
+
+  return (
+    <div className="youtube-showcase-container">
+      <div className={`youtube-main-player ${isLoading ? 'loading' : 'loaded'}`} style={{ position: 'relative' }}>
+        <div id="youtube-player"></div>
+
+        {/* Title Overlay */}
+        <div className="video-overlay">
+          <div className="video-info">
+            <h4 className="video-title">{videos[currentVideoIndex].title}</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -87,23 +164,14 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    const imageTimer = setInterval(() => {
+    const timer = setInterval(() => {
       setActiveImageIndex((prev) => (prev + 1) % showcaseImages.length);
     }, 5000);
-    return () => clearInterval(imageTimer);
-  }, [showcaseImages.length]);
-
-  const handlePrevious = () => {
-    setActiveImageIndex((activeImageIndex - 1 + showcaseImages.length) % showcaseImages.length);
-  };
-
-  const handleNext = () => {
-    setActiveImageIndex((activeImageIndex + 1) % showcaseImages.length);
-  };
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
       <section className="hero-image-section">
         <img
           src={showcaseImages[activeImageIndex].src}
@@ -114,69 +182,28 @@ const Home = () => {
         <section className="welcome-section">
           <div className="welcome-content">
             <div className="welcome-box">
-              <h1
-                className="hero-subtitle"
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 300
-                }}
-              >
+              <h1 className="hero-subtitle" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                 - Welcome to -
               </h1>
-              <p
-                className="hero-title"
-                style={{
-                  fontFamily: 'Romaunt Gaolines',
-                  fontWeight: 300
-                }}
-              >
+              <p className="hero-title" style={{ fontFamily: 'Romaunt Gaolines', fontWeight: 300 }}>
                 J-Music
               </p>
             </div>
           </div>
         </section>
 
-        {/* Thumbnail Strip */}
-        <div className="thumbnail-strip">
-          {showcaseImages.map((img, index) => (
-            <div
-              key={index}
-              className={`thumb-wrapper ${index === activeImageIndex ? 'active' : ''}`}
-              onClick={() => setActiveImageIndex(index)}
-            >
-              <img src={img.src} alt={img.title} className="thumbnail-image" />
-              <div
-                className="thumb-title"
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: '0.6rem',
-                  textAlign: 'center'
-                }}
-              >
-                {img.title}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Arrows */}
         <div className="arrow-navigation">
-          <button onClick={handlePrevious} aria-label="Previous image">◀</button>
+          <button onClick={() => setActiveImageIndex((activeImageIndex - 1 + showcaseImages.length) % showcaseImages.length)}>◀</button>
           <span>{activeImageIndex + 1} / {showcaseImages.length}</span>
-          <button onClick={handleNext} aria-label="Next image">▶</button>
+          <button onClick={() => setActiveImageIndex((activeImageIndex + 1) % showcaseImages.length)}>▶</button>
         </div>
       </section>
 
-      {/* About Us Section */}
       <div className="content-box" style={{ fontFamily: "'Montserrat', sans-serif" }}>
         <section className="jmusic-intro-section">
           <div className="jmusic-intro-content">
             <div className="jmusic-intro-image">
-              <img
-                src="/images/jmusic-logo.png"
-                alt="J-Music Community"
-                className="jmusic-intro-img"
-              />
+              <img src="/images/jmusic-logo.png" alt="J-Music Community" className="jmusic-intro-img" />
             </div>
             <div className="jmusic-intro-description">
               <h3 className="jmusic-intro-title">ABOUT US</h3>
@@ -190,11 +217,17 @@ const Home = () => {
         </section>
       </div>
 
-      {/* What We Do Section */}
       <div className="content-box" style={{ fontFamily: "'Montserrat', sans-serif" }}>
         <section className="what-we-do-section">
           <h2 className="what-we-do-title">WHAT WE DO</h2>
           <WhatWeDoSlider />
+        </section>
+      </div>
+
+      <div className="youtube-section-container" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+        <section className="youtube-section">
+          <h2 className="youtube-section-title">YOUTUBE</h2>
+          <YouTubePlayer />
         </section>
       </div>
     </div>

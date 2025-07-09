@@ -151,53 +151,6 @@
   }
 }
 
-/* Thumbnail Strip */
-.thumbnail-strip {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  gap: 12px;
-  z-index: 3;
-}
-
-.thumb-wrapper {
-  cursor: pointer;
-  width: 100px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.thumb-wrapper.active,
-.thumb-wrapper:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.thumbnail-image {
-  width: 100px;
-  height: 56px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 5px;
-  border: 2px solid transparent;
-}
-
-.thumb-wrapper.active .thumbnail-image {
-  border-color: #ffd700;
-  box-shadow: 0 0 10px #ffd700;
-}
-
-.thumb-title {
-  font-size: 0.7rem;
-  color: #fff;
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
 
 /* Arrow Navigation */
 .arrow-navigation {
@@ -1242,6 +1195,355 @@
   }
 }
 
+/* YouTube Section Container - untuk mengatur posisi keseluruhan */
+.youtube-section-container {
+  position: relative;
+  width: 100%;
+  margin-top: -50px;
+}
+
+/* YouTube Section */
+.youtube-section {
+  position: relative;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.youtube-section-title {
+  font-size: 3rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.youtube-showcase-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.youtube-main-player {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  margin-bottom: 2rem;
+}
+
+.youtube-main-player:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 35px 70px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+#youtube-player {
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+  border: none;
+  display: block;
+  pointer-events: none;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    transparent 100%
+  );
+  padding: 30px;
+  border-radius: 0 0 20px 20px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+}
+
+.video-info {
+  color: white;
+  text-align: left;
+  position: relative;
+  z-index: 5;
+}
+
+.video-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(45deg, #ffffff, #EB2D2D, #8BC8E8);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.video-description {
+  font-size: 1.1rem;
+  margin: 0 0 15px 0;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  line-height: 1.5;
+}
+
+.video-counter {
+  display: inline-block;
+  background: nonne;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-shadow: none;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.video-info .video-title {
+  color: white;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Loading Animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes loadingGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.youtube-main-player::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    #2F4F4F 0%,
+    #4682B4 25%,
+    #8BC8E8 50%,
+    #EB2D2D 75%,
+    #2F4F4F 100%
+  );
+  background-size: 400% 400%;
+  animation: loadingGradient 2s ease-in-out infinite;
+  z-index: -1;
+  border-radius: 20px;
+  opacity: 0.1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .youtube-section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .youtube-showcase-container {
+    padding: 0 1.5rem;
+  }
+  
+  #youtube-player {
+    height: 400px;
+  }
+  
+  .video-title {
+    font-size: 1.5rem;
+  }
+  
+  .video-description {
+    font-size: 1rem;
+  }
+  
+  .video-thumbnails {
+    gap: 0.8rem;
+  }
+  
+  .thumbnail-item {
+    min-width: 180px;
+    max-width: 220px;
+  }
+  
+  .thumbnail-image {
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .youtube-section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .youtube-showcase-container {
+    padding: 0 1rem;
+  }
+  
+  #youtube-player {
+    height: 300px;
+  }
+  
+  .video-overlay {
+    padding: 20px;
+  }
+  
+  .video-title {
+    font-size: 1.3rem;
+  }
+  
+  .video-description {
+    font-size: 0.9rem;
+  }
+  
+  .video-counter {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  
+  .video-thumbnails {
+    gap: 0.6rem;
+    flex-direction: column;
+  }
+  
+  .thumbnail-item {
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .thumbnail-image {
+    width: 120px;
+    height: 80px;
+    flex-shrink: 0;
+  }
+  
+  .thumbnail-info {
+    flex: 1;
+    padding: 0.8rem;
+  }
+  
+  .thumbnail-title {
+    font-size: 0.85rem;
+  }
+  
+  .thumbnail-description {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .youtube-section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .youtube-showcase-container {
+    padding: 0 0.5rem;
+  }
+  
+  #youtube-player {
+    height: 250px;
+  }
+  
+  .video-overlay {
+    padding: 15px;
+  }
+  
+  .video-title {
+    font-size: 1.1rem;
+  }
+  
+  .video-description {
+    font-size: 0.8rem;
+  }
+  
+  .video-counter {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+  
+  .thumbnail-image {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .thumbnail-info {
+    padding: 0.6rem;
+  }
+  
+  .thumbnail-title {
+    font-size: 0.8rem;
+  }
+  
+  .thumbnail-description {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .youtube-section-title {
+    font-size: 1.5rem;
+  }
+  
+  #youtube-player {
+    height: 200px;
+  }
+  
+  .video-overlay {
+    padding: 12px;
+  }
+  
+  .video-title {
+    font-size: 1rem;
+  }
+  
+  .video-description {
+    font-size: 0.75rem;
+  }
+  
+  .thumbnail-image {
+    width: 80px;
+    height: 60px;
+  }
+  
+  .thumbnail-info {
+    padding: 0.5rem;
+  }
+}
+
 /* Khusus Jarak antar Konten
 /* Container utama untuk mengatur jarak antar konten */
 .home-container {
@@ -1254,14 +1556,18 @@
 
 /* Kotak untuk setiap konten */
 .content-box {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   padding: 2rem;
   margin: 0 2rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 0.5px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
+
 
 /* Hero section tetap fullwidth */
 .hero-image-section {
