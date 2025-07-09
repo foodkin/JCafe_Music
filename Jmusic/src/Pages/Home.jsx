@@ -51,8 +51,8 @@ const WhatWeDoSlider = () => {
             <img src={activities[currentSlide].image} alt={activities[currentSlide].title} />
           </div>
 
-          <div className="slide-overlay">            
-            <div className="slide-content">
+          <div className="slide-overlay">
+            <div className="slide-content" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               <h3 className="slide-title">{activities[currentSlide].title}</h3>
               <p className="slide-subtitle">{activities[currentSlide].subtitle}</p>
               <p className="slide-description">{activities[currentSlide].description}</p>
@@ -64,7 +64,7 @@ const WhatWeDoSlider = () => {
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-          
+
           <button className="nav-arrow prev" onClick={prevSlide}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -86,7 +86,6 @@ const Home = () => {
     { src: 'images/showcase4.jpg', title: 'Istri Bendahara Gen 14' }
   ];
 
-  // Auto-change image every 5 seconds
   useEffect(() => {
     const imageTimer = setInterval(() => {
       setActiveImageIndex((prev) => (prev + 1) % showcaseImages.length);
@@ -104,7 +103,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section - tidak perlu kotak */}
+      {/* Hero Section */}
       <section className="hero-image-section">
         <img
           src={showcaseImages[activeImageIndex].src}
@@ -115,12 +114,30 @@ const Home = () => {
         <section className="welcome-section">
           <div className="welcome-content">
             <div className="welcome-box">
-              <h1 className="hero-subtitle">- Welcome to -</h1>
-              <p className="hero-title">J-Music</p>
+              <h1
+                className="hero-subtitle"
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 300
+                }}
+              >
+                - Welcome to -
+              </h1>
+              <p
+                className="hero-title"
+                style={{
+                  fontFamily: 'Romaunt Gaolines',
+                  fontSize: '2.5rem',
+                  fontWeight: 300
+                }}
+              >
+                J-Music
+              </p>
             </div>
           </div>
         </section>
 
+        {/* Thumbnail Strip */}
         <div className="thumbnail-strip">
           {showcaseImages.map((img, index) => (
             <div
@@ -129,40 +146,53 @@ const Home = () => {
               onClick={() => setActiveImageIndex(index)}
             >
               <img src={img.src} alt={img.title} className="thumbnail-image" />
-              <div className="thumb-title">{img.title}</div>
+              <div
+                className="thumb-title"
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: '0.6rem',
+                  textAlign: 'center'
+                }}
+              >
+                {img.title}
+              </div>
             </div>
           ))}
         </div>
 
+        {/* Arrows */}
         <div className="arrow-navigation">
-          <button onClick={handlePrevious} aria-label="Previous image">
-            ◀
-          </button>
+          <button onClick={handlePrevious} aria-label="Previous image">◀</button>
           <span>{activeImageIndex + 1} / {showcaseImages.length}</span>
-          <button onClick={handleNext} aria-label="Next image">
-            ▶
-          </button>
+          <button onClick={handleNext} aria-label="Next image">▶</button>
         </div>
       </section>
 
-      {/* About Us Section - dalam kotak */}
-      <div className="content-box">
+      {/* About Us Section */}
+      <div className="content-box" style={{ fontFamily: "'Montserrat', sans-serif" }}>
         <section className="jmusic-intro-section">
           <div className="jmusic-intro-content">
             <div className="jmusic-intro-image">
-              <img src="/images/jmusic-logo.png" alt="J-Music Community" className="jmusic-intro-img" />
+              <img
+                src="/images/jmusic-logo.png"
+                alt="J-Music Community"
+                className="jmusic-intro-img"
+              />
             </div>
             <div className="jmusic-intro-description">
               <h3 className="jmusic-intro-title">ABOUT US</h3>
-              <p className="jmusic-intro-text">We are a Japanese Music Club that focuses on making covers and having fun! We're based in Gading Serpong as the music division of the Japanese club, JCAFE in UMN. </p>
-              <p className="jmusic-intro-text"> Our club has been up and running ever since 2007!</p>
+              <p className="jmusic-intro-text">
+                We are a Japanese Music Club that focuses on making covers and having fun! We're based
+                in Gading Serpong as the music division of the Japanese club, JCAFE in UMN.
+              </p>
+              <p className="jmusic-intro-text">Our club has been up and running ever since 2007!</p>
             </div>
           </div>
         </section>
       </div>
 
-      {/* What We Do Section - dalam kotak */}
-      <div className="content-box">
+      {/* What We Do Section */}
+      <div className="content-box" style={{ fontFamily: "'Montserrat', sans-serif" }}>
         <section className="what-we-do-section">
           <h2 className="what-we-do-title">WHAT WE DO</h2>
           <WhatWeDoSlider />

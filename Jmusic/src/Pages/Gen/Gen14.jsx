@@ -9,6 +9,11 @@ function Gen14() {
   const [selectedMember, setSelectedMember] = useState(null);
   const carouselRef = useRef(null);
 
+  // Font style untuk Montserrat
+  const montserratStyle = {
+    fontFamily: 'Montserrat, sans-serif'
+  };
+
   // BPH Character List
   const characterList = [
     {
@@ -23,7 +28,7 @@ function Gen14() {
       id: 1,
       name: 'Sai',
       role: 'Vice Leader',
-      roleColor: '#00CED1',
+      roleColor: '#9E70CE',
       desc: "Sai, the holder of lust and humility, he's the vice leader of Jmusic, Gen 14. Open, humble, and down to earth, Sai tries his best to connect with the members of Jmusic, though not always successful, you can bet that he does his best.",
       img: '/images/14Char/Sebastian.jpg'
     },
@@ -37,7 +42,7 @@ function Gen14() {
           Yuzu is the holder of the sin Wrath and the virtue Diligence. His name comes from the fruit yuzu, known for its tart and slightly sweet taste, which happens to match his own taste buds.
           His role is the secretary. As the oldest among the generations, Yuzu has a deep passion for improving the organization.
           He often advocates for new systems and better structures. To those who do not know him well, he may seem overly serious at first.{' '}
-          <span style={{ color: 'black', fontWeight: 'bold' }}>
+          <span style={{ color: '#000000', fontWeight: 'bold' }}>
             "A wrong answer is not a meaningless one."
           </span>{' '}
           – One of his favorite quotes.
@@ -55,11 +60,11 @@ function Gen14() {
           Ren Mixe is the holder of Greed and Patience, an ironic duality only he can balance.
           His hands do not merely manage numbers, they command the flow of fortune itself.
           His gaze is sharp enough to slice through deception, and his silence speaks louder than a thousand coins.
-          He guards Jmusic’s treasury like a dragon over its sacred hoard, unmoved by temptation.
-          It is said he can calculate a person’s worth with a single glance.
+          He guards Jmusic's treasury like a dragon over its sacred hoard, unmoved by temptation.
+          It is said he can calculate a person's worth with a single glance.
           To challenge him is to play chess with fate...{' '}
           <span style={{ color: '#5D3A9B', fontWeight: 'bold' }}>
-            while he’s already five moves ahead.
+            while he's already five moves ahead.
           </span>
         </>
       ),
@@ -112,96 +117,96 @@ function Gen14() {
     {
       name: "Youth at 08:00",
       members: [
-        { name: "NPC 1", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 2", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 3", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 4", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 5", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 1", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 2", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 3", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 4", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 5", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Kurukurumawaru",
       members: [
-        { name: "NPC 6", race: "Spirit", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 7", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 8", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 9", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 10", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 6", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 7", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 8", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 9", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 10", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Yottsuhanabi",
       members: [
-        { name: "NPC 11", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 12", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 13", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 14", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 11", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 12", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 13", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 14", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Happyaku-ichi",
       members: [
-        { name: "NPC 15", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 16", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 17", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 18", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 15", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 16", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 17", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 18", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Galileo Galiei",
       members: [
-        { name: "NPC 19", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 20", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 21", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 22", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 23", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 19", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 20", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 21", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 22", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 23", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Tsuki No Usagi",
       members: [
-        { name: "NPC 24", race: "Moon Spirit", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 25", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 26", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 27", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 28", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 24", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 25", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 26", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 27", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 28", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Youfuu Kanon",
       members: [
-        { name: "NPC 29", race: "Wind Spirit", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 30", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 31", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 32", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 29", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 30", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 31", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 32", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "BIJIN TANTEIDAN!!!",
       members: [
-        { name: "NPC 33", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 34", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 35", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 36", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 33", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 34", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 35", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 36", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Irohana",
       members: [
-        { name: "NPC 37", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 38", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 39", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 40", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 41", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 37", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 38", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 39", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 40", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 41", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     },
     {
       name: "Tsukaretachi",
       members: [
-        { name: "NPC 42", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 43", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 44", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 45", race: "Human", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 42", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 43", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 44", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
+        { name: "NPC 45", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
       ]
     }
   ];
@@ -235,10 +240,10 @@ function Gen14() {
       {isLoading ? (
         <Gen14Loading onLoadingComplete={handleLoadingComplete} imageSrc="/images/Gen14Load.jpg" />
       ) : (
-        <div className="gen14-content fade-in">
+        <div className="gen14-content fade-in" style={montserratStyle}>
           <div className="gen14-welcome-section">
-            <h1 className="gen14-welcome-title">Sins & Virtue🎶</h1>
-            <p className="gen14-subtitle">J Cafe Music Gen 14</p>
+            <h1 className="gen14-welcome-title" style={montserratStyle}>Sins & Virtue🎶</h1>
+            <p className="gen14-subtitle" style={montserratStyle}>J Cafe Music Gen 14</p>
           </div>
 
             <div className="gen14-intro-content">
@@ -246,14 +251,14 @@ function Gen14() {
                 <img src="/images/jmusic-logo14.png" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
               </div>
               <div className="gen14-intro-description">
-                <h3 className="gen14-intro-title">Welcome to Gen 14</h3>
-                <p className="gen14-intro-text">Baelum kepikiran apa"</p>
+                <h3 className="gen14-intro-title" style={montserratStyle}>Welcome to Gen 14</h3>
+                <p className="gen14-intro-text" style={montserratStyle}>Baelum kepikiran apa"</p>
               </div>
             </div>
 
           <div className="gen14-bph-section">
             <div className="gen14-bph-line"></div>
-            <h2 className="gen14-bph-title">BPH</h2>
+            <h2 className="gen14-bph-title" style={montserratStyle}>BPH</h2>
             <div className="gen14-bph-line"></div>
           </div>
 
@@ -271,14 +276,14 @@ function Gen14() {
               <div className="gen14-character-details-wrapper">
                 <div className="gen14-character-details">
                   <div className="gen14-character-info">
-                    <h2 className="gen14-character-name">{characterList[activeIndex].name}</h2>
+                    <h2 className="gen14-character-name" style={montserratStyle}>{characterList[activeIndex].name}</h2>
                     <p
                       className="gen14-character-role"
-                      style={{ color: characterList[activeIndex].roleColor }}
+                      style={{ color: characterList[activeIndex].roleColor, ...montserratStyle }}
                     >
                       {characterList[activeIndex].role}
                     </p>
-                    <p className="gen14-character-description">{characterList[activeIndex].desc}</p>
+                    <p className="gen14-character-description" style={montserratStyle}>{characterList[activeIndex].desc}</p>
                   </div>
                 </div>
 
@@ -305,7 +310,7 @@ function Gen14() {
 
           <div className="gen14-bph-section">
             <div className="gen14-bph-line"></div>
-            <h2 className="gen14-bph-title">Member</h2>
+            <h2 className="gen14-bph-title" style={montserratStyle}>Member</h2>
             <div className="gen14-bph-line"></div>
           </div>
 
@@ -314,8 +319,8 @@ function Gen14() {
               {memberTeams.map((team, index) => (
                 <div key={index} className="gen14-team-card">
                   <div className="gen14-team-header">
-                    <h3 className="gen14-team-name">{team.name}</h3>
-                    <span className="gen14-team-count">{team.members.length} Members</span>
+                    <h3 className="gen14-team-name" style={montserratStyle}>{team.name}</h3>
+                    <span className="gen14-team-count" style={montserratStyle}>{team.members.length} Members</span>
                   </div>
                   <div className="gen14-team-members">
                     {team.members.map((member, memberIndex) => (
@@ -328,7 +333,7 @@ function Gen14() {
                           <img src={member.img} alt={member.name} />
                         </div>
                         <div className="gen14-member-info">
-                          <h4 className="gen14-member-name">{member.name}</h4>
+                          <h4 className="gen14-member-name" style={montserratStyle}>{member.name}</h4>
                         </div>
                       </div>
                     ))}
@@ -348,9 +353,9 @@ function Gen14() {
                     <img src={selectedMember.img} alt={selectedMember.name} />
                   </div>
                   <div className="gen14-modal-details">
-                    <h2 className="gen14-modal-name">{selectedMember.name}</h2>
-                    <span className="gen14-modal-race">{selectedMember.race}</span>
-                    <p className="gen14-modal-description">{selectedMember.desc}</p>
+                    <h2 className="gen14-modal-name" style={montserratStyle}>{selectedMember.name}</h2>
+                    <span className="gen14-modal-race" style={montserratStyle}>{selectedMember.race}</span>
+                    <p className="gen14-modal-description" style={montserratStyle}>{selectedMember.desc}</p>
                   </div>
                 </div>
               </div>
