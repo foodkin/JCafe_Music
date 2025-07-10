@@ -1617,34 +1617,30 @@
 }
 
 /* Responsive untuk mobile */
-/* Tablet landscape */
+/* Tablet landscape (≤1024px) */
 @media (max-width: 1024px) {
   .content-box {
-    padding: 2rem 3rem;
-    clip-path: inset(-90px 0px 0px 0px);
+    margin-top: 40px;
   }
 }
 
-/* Tablet potrait */
+/* Tablet portrait (≤768px) */
 @media (max-width: 768px) {
   .content-box {
-    padding: 1.5rem 2rem;
-    clip-path: inset(-80px 0px 0px 0px);
+    margin-top: 30px;
   }
 }
 
-/* Smartphone (640px ↓) */
+/* Smartphone (≤640px) */
 @media (max-width: 640px) {
   .content-box {
-    padding: 1.2rem 1.5rem;
-    clip-path: inset(-70px 0px 0px 0px);
+    margin-top: 25px;
   }
 }
 
-/* Very small smartphone (480px ↓) */
+/* Very small smartphone (≤480px) */
 @media (max-width: 480px) {
   .content-box {
-    padding: 1rem 1rem;
-    clip-path: inset(-60px 0px 0px 0px);
+    margin-top: 20px;
   }
 }
