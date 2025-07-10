@@ -1555,7 +1555,7 @@
 }
 
 /* Kotak untuk setiap konten */
-.content-box {
+/*.content-box {
   background: rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   padding: 2rem;
