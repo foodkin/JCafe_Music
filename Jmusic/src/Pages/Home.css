@@ -768,16 +768,19 @@
   margin-bottom: 2rem;
   letter-spacing: 2px;
   position: relative;
-  background: linear-gradient(45deg, #ffffff, #EB2D2D, #8BC8E8);
+  background: linear-gradient(45deg, #ffffff);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: fadeInUp 1s ease-out, neonFlicker 1.5s ease-in-out infinite;
-  text-shadow:
+  color: #ffffff;
+  letter-spacing: 0.30em;
+  text-shadow: 
+    0 0 5px #ffffff,
     0 0 10px #ffffff,
-    0 0 20px #EB2D2D,
-    0 0 40px #8BC8E8;
+    0 0 15px #ffffff,
+    0 0 20px #ffffff;
+  animation: fadeInUp 1s ease-out 0.3s both, neonFlicker 1.5s ease-in-out infinite 0.2s;
 }
 
 @keyframes neonFlicker {
@@ -1010,11 +1013,16 @@
 
 .what-we-do-title {
   font-size: 3rem;
-  color: #333;
+  color: #ffffff;
+  letter-spacing: 0.30em;
+  text-shadow: 
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 15px #ffffff,
+    0 0 20px #ffffff;
+  animation: fadeInUp 1s ease-out 0.3s both, neonFlicker 1.5s ease-in-out infinite 0.2s;
   text-align: center;
   margin-top: 5px;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 10;
 }
@@ -1211,11 +1219,16 @@
 
 .youtube-section-title {
   font-size: 3rem;
-  color: #333;
+  color: #ffffff;
+  letter-spacing: 0.30em;
+  text-shadow: 
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 15px #ffffff,
+    0 0 20px #ffffff;
+  animation: fadeInUp 1s ease-out 0.3s both, neonFlicker 1.5s ease-in-out infinite 0.2s;
   text-align: center;
   margin-bottom: 3rem;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 10;
 }
@@ -1555,19 +1568,32 @@
 }
 
 /* Kotak untuk setiap konten */
-/*.content-box {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 20px;
+.content-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
   padding: 2rem;
-  margin: 0 2rem;
+  min-height: auto;
+  max-height: none;
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.15),
     0 0 0 0.5px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  border: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: visible;
+  animation: fadeInUp 0.6s ease forwards;
+  clip-path: inset(-100px 0px 0px 0px);
 }
-
 
 /* Hero section tetap fullwidth */
 .hero-image-section {
@@ -1590,24 +1616,34 @@
 }
 
 /* Responsive untuk mobile */
-@media (max-width: 768px) {
-  .home-container {
-    gap: 2rem;
-  }
-  
+/* Tablet landscape */
+@media (max-width: 1024px) {
   .content-box {
-    margin: 0 1rem;
-    padding: 1.5rem;
+    padding: 2rem 3rem;
+    clip-path: inset(-90px 0px 0px 0px);
   }
 }
 
-@media (max-width: 480px) {
-  .home-container {
-    gap: 1.5rem;
-  }
-  
+/* Tablet potrait */
+@media (max-width: 768px) {
   .content-box {
-    margin: 0 0.5rem;
-    padding: 1rem;
+    padding: 1.5rem 2rem;
+    clip-path: inset(-80px 0px 0px 0px);
+  }
+}
+
+/* Smartphone (640px ↓) */
+@media (max-width: 640px) {
+  .content-box {
+    padding: 1.2rem 1.5rem;
+    clip-path: inset(-70px 0px 0px 0px);
+  }
+}
+
+/* Very small smartphone (480px ↓) */
+@media (max-width: 480px) {
+  .content-box {
+    padding: 1rem 1rem;
+    clip-path: inset(-60px 0px 0px 0px);
   }
 }
