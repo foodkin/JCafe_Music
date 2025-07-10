@@ -119,7 +119,7 @@ body::after {
 html, body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #000000 0%, #BCE3F0 30%, #BCE3F0 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c4a5c 25%, #7cc9dc 70%, #a8d5e2 100%);
   background-attachment: fixed;
   min-height: 100dvh;
   width: 100%;
