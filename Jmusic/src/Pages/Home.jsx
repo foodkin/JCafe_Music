@@ -215,7 +215,6 @@ const YouTubePlayer = () => {
         <div className="video-overlay">
           <div className="video-info">
             <h4 className="video-title">{videos[currentVideoIndex].title}</h4>
-            <p className="channel-link-text">Click to visit our YouTube channel</p>
           </div>
         </div>
       </div>
