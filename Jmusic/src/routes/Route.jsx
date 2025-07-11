@@ -9,6 +9,7 @@ import GenRouter from "../Pages/Gen/GenRouter"; // ✅ Router untuk pagination
 import Gen12 from "../Pages/Gen/Gen12";
 import Gen13 from "../Pages/Gen/Gen13";
 import Gen14 from "../Pages/Gen/Gen14";
+import Gen15 from "../Pages/Gen/Gen15"; // ✅ Tambahkan ini
 
 function RouteList() {
   return (
@@ -24,6 +25,7 @@ function RouteList() {
         <Route path="gen12" element={<Gen12 />} />
         <Route path="gen13" element={<Gen13 />} />
         <Route path="gen14" element={<Gen14 />} />
+        <Route path="gen15" element={<Gen15 />} /> {/* ✅ Tambahkan ini */}
 
         {/* Halaman lainnya */}
         <Route path="finalproject" element={<FinalProjeck />} />

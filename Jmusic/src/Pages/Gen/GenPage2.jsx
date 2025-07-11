@@ -9,7 +9,7 @@ export default function GenPage2() {
         {/* 5 kotak Coming Soon */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
-            <img src="/images/comingsoon.png" alt="Coming Soon" />
+            {/* <img src="/images/comingsoon.png" alt="Coming Soon" /> */}
           </div>
           <div className="gen-box">
             <h2>COMING SOON</h2>
@@ -18,7 +18,7 @@ export default function GenPage2() {
 
         <div className="gen-banner">
           <div className="gen-image-wrapper">
-            <img src="/images/comingsoon.png" alt="Coming Soon" />
+            {/* <img src="/images/comingsoon.png" alt="Coming Soon" /> */}
           </div>
           <div className="gen-box">
             <h2>COMING SOON</h2>
@@ -27,7 +27,7 @@ export default function GenPage2() {
 
         <div className="gen-banner">
           <div className="gen-image-wrapper">
-            <img src="/images/comingsoon.png" alt="Coming Soon" />
+            {/* <img src="/images/comingsoon.png" alt="Coming Soon" /> */}
           </div>
           <div className="gen-box">
             <h2>COMING SOON</h2>
@@ -36,7 +36,7 @@ export default function GenPage2() {
 
         <div className="gen-banner">
           <div className="gen-image-wrapper">
-            <img src="/images/comingsoon.png" alt="Coming Soon" />
+            {/* <img src="/images/comingsoon.png" alt="Coming Soon" /> */}
           </div>
           <div className="gen-box">
             <h2>COMING SOON</h2>
@@ -45,7 +45,7 @@ export default function GenPage2() {
 
         <div className="gen-banner">
           <div className="gen-image-wrapper">
-            <img src="/images/comingsoon.png" alt="Coming Soon" />
+            {/* <img src="/images/comingsoon.png" alt="Coming Soon" /> */}
           </div>
           <div className="gen-box">
             <h2>COMING SOON</h2>

@@ -81,7 +81,7 @@ export default function Gen() {
             className="background-image"
           />
 
-          <div className="gen-image-wrapper gen-image-wrapper--overflow">
+         <div className="gen-image-wrapper gen-image-wrapper--overflow">
             <img
               src="/images/gen15.png"
               alt="Overlay GEN 15"
@@ -99,12 +99,7 @@ export default function Gen() {
 {/* Coming Soon */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
-            <img 
-              src="/images/comingsoon.png" 
-              alt="Coming Soon"
-              onError={handleImageError}
-              onLoad={handleImageLoad}
-            />
+            {/* <img src="/images/comingsoon.png" alt="Coming Soon" /> */}
           </div>
           <div className="gen-box">
             <h2>COMING SOON</h2>

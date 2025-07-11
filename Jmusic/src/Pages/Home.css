@@ -1162,6 +1162,7 @@
   
   .slide-overlay {
     padding: clamp(18px, 2.5vw, 35px);
+    width: 50%;
   }
   
   .slide-title {
@@ -1189,7 +1190,7 @@
   
   .slide-overlay {
     padding: clamp(15px, 2.2vw, 30px);
-    width: 55%;
+    width: 50%;
   }
   
   .slide-title {
@@ -1219,7 +1220,7 @@
   
   .slide-overlay {
     padding: clamp(12px, 2vw, 25px);
-    width: 60%;
+    width: 50%;
   }
   
   .slide-title {
@@ -1258,7 +1259,7 @@
   
   .slide-overlay {
     padding: clamp(10px, 1.8vw, 20px);
-    width: 65%;
+    width: 50%;
   }
   
   .slide-title {
@@ -1280,6 +1281,7 @@
 @media (min-width: 1200px) {
   .slide-overlay {
     padding: clamp(35px, 4vw, 50px);
+    width: 50%;
   }
   
   .slide-content {
@@ -1303,6 +1305,7 @@
 @media (min-width: 1920px) {
   .slide-overlay {
     padding: clamp(40px, 4.5vw, 60px);
+    width: 50%;
   }
   
   .slide-content {
