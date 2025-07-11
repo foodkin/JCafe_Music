@@ -85,6 +85,8 @@ const YouTubePlayer = () => {
     { id: "H08xfaJnYrQ", title: "BPH Gen 14" },
   ];
 
+  const channelUrl = "https://youtube.com/@jcafemusic?si=tkCJbhX4HPMftVJm";
+
   useEffect(() => {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -150,14 +152,33 @@ const YouTubePlayer = () => {
     }
   };
 
+  const handleChannelClick = () => {
+    window.open(channelUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="youtube-showcase-container">
-      <div className={`youtube-main-player ${isLoading ? 'loading' : 'loaded'}`}>
+      <div 
+        className={`youtube-main-player ${isLoading ? 'loading' : 'loaded'}`}
+        onClick={handleChannelClick}
+        role="button"
+        tabIndex="0"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleChannelClick();
+          }
+        }}
+        aria-label="Click to visit J-Music YouTube channel"
+      >
         <div id="youtube-player"></div>
 
         {/* Mute/Unmute Button */}
         <button 
-          onClick={toggleMute}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleMute();
+          }}
           className="mute-button"
           aria-label={isMuted ? "Unmute video" : "Mute video"}
         >
@@ -175,10 +196,26 @@ const YouTubePlayer = () => {
           )}
         </button>
 
+        {/* Channel Link Button */}
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            handleChannelClick();
+          }}
+          className="channel-button"
+          aria-label="Visit J-Music YouTube channel"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </button>
+
         {/* Title Overlay */}
         <div className="video-overlay">
           <div className="video-info">
             <h4 className="video-title">{videos[currentVideoIndex].title}</h4>
+            <p className="channel-link-text">Click to visit our YouTube channel</p>
           </div>
         </div>
       </div>
