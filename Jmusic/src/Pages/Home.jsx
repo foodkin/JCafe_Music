@@ -75,6 +75,7 @@ const WhatWeDoSlider = () => {
 
 const YouTubePlayer = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
   const playerRef = useRef(null);
   const [isPlayerReady, setIsPlayerReady] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -96,7 +97,7 @@ const YouTubePlayer = () => {
         width: '100%',
         videoId: videos[currentVideoIndex].id,
         playerVars: {
-          autoplay: 0,
+          autoplay: 1,
           mute: 1,
           controls: 1,
           disablekb: 0,
@@ -137,10 +138,42 @@ const YouTubePlayer = () => {
     }
   }, [currentVideoIndex, isPlayerReady]);
 
+  const toggleMute = () => {
+    if (playerRef.current) {
+      if (isMuted) {
+        playerRef.current.unMute();
+        setIsMuted(false);
+      } else {
+        playerRef.current.mute();
+        setIsMuted(true);
+      }
+    }
+  };
+
   return (
     <div className="youtube-showcase-container">
-      <div className={`youtube-main-player ${isLoading ? 'loading' : 'loaded'}`} style={{ position: 'relative' }}>
+      <div className={`youtube-main-player ${isLoading ? 'loading' : 'loaded'}`}>
         <div id="youtube-player"></div>
+
+        {/* Mute/Unmute Button */}
+        <button 
+          onClick={toggleMute}
+          className="mute-button"
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        >
+          {isMuted ? (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          )}
+        </button>
 
         {/* Title Overlay */}
         <div className="video-overlay">
