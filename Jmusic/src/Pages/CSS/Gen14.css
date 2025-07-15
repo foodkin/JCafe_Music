@@ -1111,31 +1111,33 @@
 .gen14-team-name {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
   color: #ffffff;
   text-shadow: 
     0 0 20px rgba(255, 255, 255, 0.6),
     0 0 40px rgba(220, 53, 69, 0.4),
     0 4px 15px rgba(0, 0, 0, 0.8);
-  letter-spacing: 3px;
-  background: linear-gradient(45deg, 
-    #ffffff 0%, 
-    #dc3545 25%, 
-    #533483 50%, 
-    #ffffff 75%, 
-    #dc3545 100%);
+  background: linear-gradient(
+    45deg,
+    #ffffff 0%,
+    #dc3545 25%,
+    #533483 50%,
+    #ffffff 75%,
+    #dc3545 100%
+  );
   background-size: 400% 400%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
 }
 
 .gen14-team-count {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 2px;
   color: #dc3545;
   text-shadow: 0 0 15px rgba(220, 53, 69, 0.6);
-  letter-spacing: 2px;
-  font-weight: 600;
 }
 
 .gen14-team-members {
@@ -1145,6 +1147,7 @@
   justify-items: center;
 }
 
+/* Member Card */
 .gen14-member-card {
   position: relative;
   width: 200px;
@@ -1153,10 +1156,12 @@
   overflow: hidden;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background: linear-gradient(135deg, 
-    rgba(26, 26, 46, 0.9) 0%, 
-    rgba(15, 52, 96, 0.8) 50%, 
-    rgba(83, 52, 131, 0.9) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 46, 0.9) 0%,
+    rgba(15, 52, 96, 0.8) 50%,
+    rgba(83, 52, 131, 0.9) 100%
+  );
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.3),
@@ -1171,10 +1176,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, 
+  background: linear-gradient(
+    135deg,
     rgba(220, 53, 69, 0) 0%,
     rgba(220, 53, 69, 0.1) 50%,
-    rgba(220, 53, 69, 0) 100%);
+    rgba(220, 53, 69, 0) 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
@@ -1193,18 +1200,19 @@
   opacity: 1;
 }
 
+/* Member Image */
 .gen14-member-image {
+  position: relative;
   width: 100%;
   height: 200px;
-  position: relative;
-  z-index: 2;
   overflow: hidden;
+  z-index: 2;
   border-radius: 15px 15px 0 0;
-    background: linear-gradient(
+  background: linear-gradient(
     135deg,
     rgba(83, 52, 131, 0.5) 0%,
     rgba(15, 52, 96, 0.7) 100%
-  ); 
+  );
 }
 
 .gen14-member-image img {
@@ -1216,16 +1224,17 @@
 }
 
 .gen14-member-card:hover .gen14-member-image img {
-  filter: brightness(1.1) contrast(1.2) saturate(1.1);
   transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.2) saturate(1.1);
 }
 
+/* Member Info */
 .gen14-member-info {
-  padding: 0.5rem 1rem 0.3rem 1rem;
   position: relative;
   z-index: 3;
   height: auto;
-  min-height: 50px;
+  min-height: 30px;
+  padding: 0.3rem 1rem 0.2rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1233,13 +1242,12 @@
 }
 
 .gen14-member-name {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
-  text-align: center;
   margin: 0 auto;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Member Detail Modal */

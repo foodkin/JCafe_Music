@@ -79,6 +79,7 @@ const YouTubePlayer = () => {
   const playerRef = useRef(null);
   const [isPlayerReady, setIsPlayerReady] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [showTitle, setShowTitle] = useState(true);
 
   const videos = [
     { id: "oUxpK0WnOEU", title: "【オトノナルホウへ→ // Oto no naru hou e→】 Cover by Nijisetsu (BPH Gen 13)" },
@@ -140,6 +141,14 @@ const YouTubePlayer = () => {
     }
   }, [currentVideoIndex, isPlayerReady]);
 
+  useEffect(() => {
+    setShowTitle(true);
+    const timer = setTimeout(() => {
+      setShowTitle(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [currentVideoIndex]);
+
   const toggleMute = () => {
     if (playerRef.current) {
       if (isMuted) {
@@ -160,12 +169,11 @@ const YouTubePlayer = () => {
     <div className="youtube-showcase-container">
       <div 
         className={`youtube-main-player ${isLoading ? 'loading' : 'loaded'}`}
-        onClick={handleChannelClick}
         role="button"
         tabIndex="0"
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
+            e.stopPropagation();
             handleChannelClick();
           }
         }}
@@ -212,11 +220,13 @@ const YouTubePlayer = () => {
         </button>
 
         {/* Title Overlay */}
-        <div className="video-overlay">
-          <div className="video-info">
-            <h4 className="video-title">{videos[currentVideoIndex].title}</h4>
+        {showTitle && (
+          <div className="video-overlay">
+            <div className="video-info">
+              <h4 className="video-title">{videos[currentVideoIndex].title}</h4>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
