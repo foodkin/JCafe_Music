@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Gen14Loading from '../Feature/Gen14Loading';
-import '../Css/FinalGen14.css';
+import '../CSS/FinalGen14.css';
 
 const FinalGen14 = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
