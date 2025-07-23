@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Gen14Loading from '../Feature/Gen14Loading';
 import '../CSS/FinalGen14.css';
 
@@ -94,12 +94,39 @@ const FinalGen14 = () => {
   const openPopup = (video) => {
     setSelectedVideo(video);
     setIsPopupOpen(true);
+    // Prevent body scrolling
+    document.body.classList.add('popup-open');
   };
 
   const closePopup = () => {
     setSelectedVideo(null);
     setIsPopupOpen(false);
+    // Re-enable body scrolling
+    document.body.classList.remove('popup-open');
   };
+
+  // Cleanup effect to remove class if component unmounts while popup is open
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove('popup-open');
+    };
+  }, []);
+
+  // Handle escape key to close popup
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape' && isPopupOpen) {
+        closePopup();
+      }
+    };
+
+    if (isPopupOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      return () => {
+        document.removeEventListener('keydown', handleEscapeKey);
+      };
+    }
+  }, [isPopupOpen]);
 
   return (
     <>
@@ -135,9 +162,7 @@ const FinalGen14 = () => {
                   className="video-card"
                   onClick={() => openPopup(video)}
                 >
-                  <h3 className="video-title">{video.title}</h3>
-                  <p className="video-cover-info">{video.coverInfo}</p>
-                  <hr className="video-divider" />
+                  {/* Thumbnail moved to top */}
                   <div className="thumbnail-container">
                     <img
                       src={video.thumbnail}
@@ -151,6 +176,13 @@ const FinalGen14 = () => {
                       <div className="play-icon">▶</div>
                     </div>
                   </div>
+                  
+                  {/* Divider after thumbnail */}
+                  <hr className="video-divider" />
+                  
+                  {/* Title and cover info below thumbnail */}
+                  <h3 className="video-title">{video.title}</h3>
+                  <p className="video-cover-info">{video.coverInfo}</p>
                 </div>
               ))}
             </div>
