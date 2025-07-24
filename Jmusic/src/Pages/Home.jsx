@@ -10,7 +10,7 @@ const WhatWeDoSlider = () => {
       title: "WEEKLY KARAOKE",
       subtitle: "Our weekly scheduled karaoke session!",
       description: "Every Thursday and Friday, we'd get together and sing songs based on themes set beforehand, a challenging but fun time for our members.",
-      image: "/images/showcase1.jpg"
+      image: "/images/Weekly.jpg"
     },
     {
       id: 2,
@@ -23,15 +23,15 @@ const WhatWeDoSlider = () => {
       id: 3,
       title: "BONDING INTI",
       subtitle: "Core team bonding sessions!",
-      description: "Special bonding activities for our core team members to strengthen leadership and coordination within the club.",
+      description: "Special bonding activities for the entire Jcafe family to strengthen unity, teamwork, and shared spirit within the club.",
       image: "/images/bonding-inti.jpg"
     },
     {
       id: 4,
       title: "FINAL PROJECT",
       subtitle: "Our culminating showcase event!",
-      description: "The ultimate showcase of our talents and hard work throughout the semester, featuring performances and collaborations.",
-      image: "/images/final-project.jpg"
+      description: "A celebration of our members' dedication and creativity throughout the semester, presented through MV covers and exciting collaborations.",
+      image: "/images/Final.jpg"
     }
   ];
 

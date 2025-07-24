@@ -152,36 +152,6 @@
 }
 
 /* Arrow Navigation */
-.arrow-navigation {
-  position: absolute;
-  left: 20px;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 10px;
-  color: white;
-  font-weight: bold;
-  z-index: 3;
-}
-
-.arrow-navigation button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.arrow-navigation button:hover {
-  transform: scale(1.2);
-}
-
-.arrow-navigation button:focus {
-  outline: 2px solid #ffd700;
-  outline-offset: 2px;
-}
 
 /* ========== RESPONSIVE DESIGN ========== */
 
@@ -1510,9 +1480,9 @@
 }
 
 .video-title {
-  font-size: clamp(0.8rem, 2.2vw, 1.3rem); /* <== diperkecil dari sebelumnya */
+  font-size: clamp(0.8rem, 2.2vw, 1.3rem);
   font-weight: 200;
-  margin: 0 0 clamp(6px, 1.5vw, 10px) 0;   /* margin juga sedikit dikurangi */
+  margin: 0 0 clamp(6px, 1.5vw, 10px) 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   background: linear-gradient(45deg, #ffffff, #EB2D2D, #8BC8E8);
   background-size: 300% 300%;
@@ -1609,7 +1579,6 @@
 }
 
 /* Responsive Design - Mobile First Approach */
-
 /* Extra Small devices (phones, 320px and up) */
 @media (max-width: 479px) {
   .youtube-section-container {
@@ -1881,7 +1850,7 @@
   }
   
   .mute-button {
-    display: none; /* Hide mute button in print */
+    display: none;
   }
   
   .video-overlay {
@@ -1910,7 +1879,7 @@
 .home-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Jarak antar konten */
+  gap: 2rem;
   padding: 0;
   margin: 0;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Gen14Loading from '../Feature/Gen14Loading';
 import '../CSS/FinalGen14.css';
 
@@ -6,6 +6,7 @@ const FinalGen14 = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // Loading state
+  const scrollPositionRef = useRef(0); // Store scroll position
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -92,17 +93,25 @@ const FinalGen14 = () => {
   ];
 
   const openPopup = (video) => {
+    // Store current scroll position
+    scrollPositionRef.current = window.pageYOffset || document.documentElement.scrollTop;
+    
     setSelectedVideo(video);
     setIsPopupOpen(true);
-    // Prevent body scrolling
+    
+    // Prevent body scrolling without changing position
     document.body.classList.add('popup-open');
   };
 
   const closePopup = () => {
     setSelectedVideo(null);
     setIsPopupOpen(false);
+    
     // Re-enable body scrolling
     document.body.classList.remove('popup-open');
+    
+    // Restore scroll position
+    window.scrollTo(0, scrollPositionRef.current);
   };
 
   // Cleanup effect to remove class if component unmounts while popup is open
@@ -124,6 +133,36 @@ const FinalGen14 = () => {
       document.addEventListener('keydown', handleEscapeKey);
       return () => {
         document.removeEventListener('keydown', handleEscapeKey);
+      };
+    }
+  }, [isPopupOpen]);
+
+  // Prevent scrolling when popup is open
+  useEffect(() => {
+    if (isPopupOpen) {
+      // Prevent scroll events
+      const preventScroll = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      };
+
+      // Add event listeners to prevent scrolling
+      document.addEventListener('wheel', preventScroll, { passive: false });
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+      document.addEventListener('keydown', (e) => {
+        // Prevent arrow keys, page up/down, space bar, home, end from scrolling
+        if ([32, 33, 34, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) {
+          if (e.key !== 'Escape') { // Allow escape key to work
+            e.preventDefault();
+          }
+        }
+      });
+
+      return () => {
+        document.removeEventListener('wheel', preventScroll);
+        document.removeEventListener('touchmove', preventScroll);
+        document.removeEventListener('keydown', preventScroll);
       };
     }
   }, [isPopupOpen]);

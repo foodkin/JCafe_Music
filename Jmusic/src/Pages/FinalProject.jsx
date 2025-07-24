@@ -10,7 +10,7 @@ const FinalProject = () => {
     {
       id: 1,
       title: "Project Title 1",
-      song: "[Insert Song]",
+      song: "Berapa?",
       members: "[Member 1, Member 2, Member 3, Member 4, Member 5, Member 6]",
       image: "/images/Comingsoon.jpg",
       route: "/FinalGen12"
@@ -18,7 +18,7 @@ const FinalProject = () => {
     {
       id: 2,
       title: "Project Title 2",
-      song: "[Insert Song 2]",
+      song: "Berapa?",
       members: "[Member A, Member B, Member C, Member D]",
       image: "/images/Comingsoon.jpg",
       route: "/FinalGen13"
@@ -27,7 +27,7 @@ const FinalProject = () => {
       id: 3,
       title: "Gen 14",
       song: "Sins & Virtue",
-      members: "[Member X, Member Y, Member Z]",
+      members: "52",
       image: "/images/bg-gen14.jpg",
       route: "/FinalGen14"
     }
