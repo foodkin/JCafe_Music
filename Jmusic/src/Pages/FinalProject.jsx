@@ -4,6 +4,8 @@ import './FinalProject.css';
 
 const FinalProject = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showPageInput, setShowPageInput] = useState(false);
+  const [pageInputValue, setPageInputValue] = useState('');
   const navigate = useNavigate();
 
   const projects = [
@@ -30,6 +32,38 @@ const FinalProject = () => {
       members: "52",
       image: "/images/bg-gen14.jpg",
       route: "/FinalGen14"
+    },
+    {
+      id: 4,
+      title: "Project Title 4",
+      song: "Song 4",
+      members: "[Member W, Member X, Member Y, Member Z]",
+      image: "/images/Comingsoon.jpg",
+      route: "/FinalGen15"
+    },
+    {
+      id: 5,
+      title: "Project Title 5",
+      song: "Song 5",
+      members: "[Member P, Member Q, Member R, Member S]",
+      image: "/images/Comingsoon.jpg",
+      route: "/FinalGen16"
+    },
+    {
+      id: 6,
+      title: "Project Title 6",
+      song: "Song 6",
+      members: "[Member I, Member J, Member K, Member L]",
+      image: "/images/Comingsoon.jpg",
+      route: "/FinalGen17"
+    },
+    {
+      id: 7,
+      title: "Project Title 7",
+      song: "Song 7",
+      members: "[Member E, Member F, Member G, Member H]",
+      image: "/images/Comingsoon.jpg",
+      route: "/FinalGen18"
     }
   ];
 
@@ -46,31 +80,103 @@ const FinalProject = () => {
   };
 
   const navigateToProject = (index) => {
-    navigate(projects[index].route);
+    if (index < projects.length) {
+      navigate(projects[index].route);
+    }
   };
 
   const getNextSlide = () => {
     return (currentSlide + 1) % projects.length;
   };
 
+  const handleEllipsisClick = () => {
+    setShowPageInput(true);
+  };
+
+  const handlePageInputSubmit = (e) => {
+    e.preventDefault();
+    const pageNumber = parseInt(pageInputValue);
+    if (pageNumber >= 1 && pageNumber <= projects.length) {
+      setCurrentSlide(pageNumber - 1);
+    }
+    setShowPageInput(false);
+    setPageInputValue('');
+  };
+
+  const handlePageInputCancel = () => {
+    setShowPageInput(false);
+    setPageInputValue('');
+  };
+
   const getPaginationRange = () => {
     const total = projects.length;
-    const maxVisible = 3;
+    const current = currentSlide;
 
-    let start = Math.max(currentSlide - Math.floor(maxVisible / 2), 0);
-    let end = start + maxVisible;
-
-    if (end > total) {
-      end = total;
-      start = Math.max(end - maxVisible, 0);
+    // Jika total projects <= 3, tampilkan semua
+    if (total <= 3) {
+      return [...Array(total).keys()];
     }
 
-    return [...Array(end - start).keys()].map(i => i + start);
+    // Jika current di posisi 0 atau 1, tampilkan: 1 2 ... 3
+    if (current <= 1) {
+      return [0, 1, 'ellipsis', 2];
+    }
+
+    // Jika current di posisi terakhir atau kedua terakhir
+    if (current >= total - 2) {
+      return [total - 3, total - 2, 'ellipsis', total - 1];
+    }
+
+    // Jika current di tengah, tampilkan: prev current ... next
+    return [current - 1, current, 'ellipsis', current + 1];
+  };
+
+  const renderPaginationDots = () => {
+    const range = getPaginationRange();
+    
+    return range.map((item, index) => {
+      if (item === 'ellipsis') {
+        return (
+          <div key={`ellipsis-${index}`} className="pagination-ellipsis">
+            {showPageInput ? (
+              <form onSubmit={handlePageInputSubmit} className="page-input-form">
+                <input
+                  type="number"
+                  value={pageInputValue}
+                  onChange={(e) => setPageInputValue(e.target.value)}
+                  onBlur={handlePageInputCancel}
+                  autoFocus
+                  min="1"
+                  max={projects.length}
+                  className="page-input"
+                />
+              </form>
+            ) : (
+              <button
+                className="pagination-ellipsis-btn"
+                onClick={handleEllipsisClick}
+              >
+                ...
+              </button>
+            )}
+          </div>
+        );
+      }
+
+      return (
+        <button
+          key={item}
+          className={`pagination-dot ${currentSlide === item ? 'active' : ''}`}
+          onClick={() => goToSlide(item)}
+        >
+          {item + 1}
+        </button>
+      );
+    });
   };
 
   return (
     <div className="final-project-container">
-
       {/* Bagian hero section */}
       <section className="hero-section">
         <div className="hero-content">
@@ -143,15 +249,7 @@ const FinalProject = () => {
         </div>
 
         <div className="slider-pagination">
-          {getPaginationRange().map((index) => (
-            <button
-              key={index}
-              className={`pagination-dot ${currentSlide === index ? 'active' : ''}`}
-              onClick={() => navigateToProject(index)}
-            >
-              {index + 1}
-            </button>
-          ))}
+          {renderPaginationDots()}
         </div>
       </div>
     </div>
