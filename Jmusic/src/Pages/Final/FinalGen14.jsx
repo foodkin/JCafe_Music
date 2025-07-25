@@ -176,14 +176,14 @@ const FinalGen14 = () => {
           {/* Animated Background Layer */}
           <div className="finalgen14-background-layer"></div>
 
-          {/* Welcome Section */}
-          <section className="welcome-section">
-            <div className="welcome-content">
-              <div className="welcome-box">
-                <h1 className="hero-subtitle" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
+          {/* Welcome14 Section */}
+          <section className="welcome14-section">
+            <div className="welcome14-content">
+              <div className="welcome14-box">
+                <h1 className="hero14-subtitle" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                   - Final Project Of -
                 </h1>
-                <p className="hero-title" style={{ fontFamily: 'Romaunt Gaolines', fontWeight: 300 }}>
+                <p className="hero14-title" style={{ fontFamily: 'Romaunt Gaolines', fontWeight: 300 }}>
                   Gen 14
                 </p>
                 <div className="gen14-intro-image">

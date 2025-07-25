@@ -46,13 +46,13 @@
   }
 }
 
-/* Welcome Section Styles */
+/* Welcome14 Section Styles */
 @font-face {
   font-family: 'Romaunt Gaolines';
   src: url('/fonts/RomauntGaolines.ttf') format('truetype');
 }
 
-.welcome-section {
+.welcome14-section {
   position: absolute;
   top: clamp(35px, 7vh, 70px);
   left: 50%;
@@ -63,11 +63,11 @@
   max-width: 900px;
 }
 
-.welcome-content {
+.welcome14-content {
   margin: 0 auto;
 }
 
-.welcome-box {
+.welcome14-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +75,7 @@
   text-align: center;
 }
 
-.hero-title {
+.hero14-title {
   font-size: clamp(1.8rem, 5vw, 3.5rem);
   font-weight: bold;
   margin: 0 auto clamp(8px, 1.5vh, 15px);
@@ -90,7 +90,7 @@
   animation: fadeInUp 1s ease-out, neonFlicker 1.5s ease-in-out infinite;
 }
 
-.hero-subtitle {
+.hero14-subtitle {
   font-size: clamp(0.8rem, 2.5vw, 1.4rem);
   margin: 0;
   color: #ffffff;
@@ -507,7 +507,7 @@
     padding-top: 280px;
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: 25px;
   }
   
@@ -558,7 +558,7 @@
     padding-top: 300px;
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: 28px;
   }
   
@@ -625,7 +625,7 @@
     padding-top: 480px; /* Increased from 350px */
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: clamp(40px, 8vh, 80px);
   }
   
@@ -646,7 +646,7 @@
     padding-top: 520px; /* Increased from 370px */
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: clamp(45px, 9vh, 90px);
   }
   
@@ -667,7 +667,7 @@
     padding-top: 620px; /* Increased from 560px for laptop */
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: clamp(50px, 10vh, 100px);
   }
   
@@ -699,7 +699,7 @@
     padding-top: clamp(280px, 45vh, 380px); /* Increased minimum */
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: clamp(20px, 5vh, 40px);
   }
   
@@ -707,12 +707,12 @@
     margin: clamp(15px, 3vh, 25px) auto clamp(20px, 4vh, 30px); /* Increased margins */
   }
   
-  .hero-title {
+  .hero14-title {
     font-size: clamp(1.5rem, 4vh, 2.8rem);
     margin-bottom: clamp(6px, 1vh, 12px);
   }
   
-  .hero-subtitle {
+  .hero14-subtitle {
     font-size: clamp(0.7rem, 2vh, 1.2rem);
   }
 }
@@ -732,7 +732,7 @@
     padding-top: 450px; /* Specific fix for iPad landscape */
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: 35px;
   }
   
@@ -747,7 +747,7 @@
     padding-top: 550px; /* Specific for common laptop resolutions */
   }
   
-  .welcome-section {
+  .welcome14-section {
     top: clamp(55px, 11vh, 110px);
   }
   
@@ -765,7 +765,7 @@
     gap: 30px;
   }
   
-  .welcome-section {
+  .welcome14-section {
     max-width: 1000px;
   }
 }
@@ -803,7 +803,7 @@ body.popup-open {
   /* Removed position: fixed and height: 100% */
 }
 
-/* Hide welcome section when popup is open */
-body.popup-open .welcome-section {
+/* Hide welcome14 section when popup is open */
+body.popup-open .welcome14-section {
   display: none;
 }

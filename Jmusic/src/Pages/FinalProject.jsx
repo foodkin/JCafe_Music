@@ -11,17 +11,17 @@ const FinalProject = () => {
   const projects = [
     {
       id: 1,
-      title: "Project Title 1",
-      song: "Berapa?",
-      members: "[Member 1, Member 2, Member 3, Member 4, Member 5, Member 6]",
+      title: "Gen 12",
+      song: "Apa?",
+      members: "Berapa?",
       image: "/images/Comingsoon.jpg",
       route: "/FinalGen12"
     },
     {
       id: 2,
-      title: "Project Title 2",
-      song: "Berapa?",
-      members: "[Member A, Member B, Member C, Member D]",
+      title: "Gen 13",
+      song: "Apa?",
+      members: "Berapa?",
       image: "/images/Comingsoon.jpg",
       route: "/FinalGen13"
     },
@@ -112,22 +112,18 @@ const FinalProject = () => {
     const total = projects.length;
     const current = currentSlide;
 
-    // Jika total projects <= 3, tampilkan semua
     if (total <= 3) {
       return [...Array(total).keys()];
     }
 
-    // Jika current di posisi 0 atau 1, tampilkan: 1 2 ... 3
     if (current <= 1) {
       return [0, 1, 'ellipsis', 2];
     }
 
-    // Jika current di posisi terakhir atau kedua terakhir
     if (current >= total - 2) {
       return [total - 3, total - 2, 'ellipsis', total - 1];
     }
 
-    // Jika current di tengah, tampilkan: prev current ... next
     return [current - 1, current, 'ellipsis', current + 1];
   };
 
