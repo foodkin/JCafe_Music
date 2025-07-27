@@ -12,6 +12,8 @@ const FinalGen14 = () => {
     setIsLoading(false);
   };
 
+
+
   const videos = [
     {
       id: 1,
@@ -220,8 +222,12 @@ const FinalGen14 = () => {
                   <hr className="video-divider" />
                   
                   {/* Title and cover info below thumbnail */}
-                  <h3 className="video-title">{video.title}</h3>
-                  <p className="video-cover-info">{video.coverInfo}</p>
+                  <h3 className="video-title">
+                    {video.title}
+                  </h3>
+                  <p className="video-cover-info">
+                    {video.coverInfo}
+                  </p>
                 </div>
               ))}
             </div>
