@@ -242,6 +242,7 @@
   gap: clamp(10px, 2.5vw, 25px);
   margin-bottom: 20px;
   min-height: clamp(250px, 35vh, 300px);
+  width: 100%;
 }
 
 .video-card {
@@ -257,6 +258,8 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 0;
 }
 
 .video-title {
@@ -269,6 +272,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  min-width: 0;
 }
 
 .video-cover-info {
@@ -280,6 +284,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  min-width: 0;
 }
 
 .video-divider {
