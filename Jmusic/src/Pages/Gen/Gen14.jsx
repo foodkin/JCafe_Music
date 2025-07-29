@@ -29,7 +29,16 @@ function Gen14() {
       name: 'Sai',
       role: 'Vice Leader',
       roleColor: '#9E70CE',
-      desc: "Sai, the holder of lust and humility, he's the vice leader of Jmusic, Gen 14. Open, humble, and down to earth, Sai tries his best to connect with the members of Jmusic, though not always successful, you can bet that he does his best.",
+      desc: (
+        <>
+          Sai, the holder of lust and humility, he's the vice leader of Jmusic, Gen 14.
+          Open, humble, and down to earth, Sai tries his best to connect with the members of Jmusic.
+          Though not always successful,{' '}
+          <span style={{ color: '#9E70CE', fontWeight: 'bold' }}>
+            you can bet that he does his best.
+          </span>
+        </>
+      ),
       img: '/images/14Char/Sebastian.jpg'
     },
     {
@@ -74,16 +83,34 @@ function Gen14() {
       id: 4,
       name: 'Chess',
       role: 'Documentation',
-      roleColor: '#20B2AA',
-      desc: 'Dokumentasi Jmusic.',
+      roleColor: '#D82020',
+      desc: (
+        <>
+          Chess is Holder of greed and purity, he also is known for his undying love for tempe mendoan, hence where he got the gluttony title.
+          As the documentator of JMusic, he captures the life and rhythm of JMusic through his lens.
+          With moods that swing like a metronome, Chess might not always be the easiest to read, but he’s always try his best,{' '}
+          <span style={{ color: '#D82020', fontWeight: 'bold' }}>
+            trying to immortalize every single moment of the club.
+          </span>
+        </>
+      ),
       img: '/images/14Char/Lucky.jpg'
     },
     {
       id: 5,
       name: 'Sakura Inari',
       role: 'Publication',
-      roleColor: '#FF69B4',
-      desc: 'Publikasi Jmusic.',
+      roleColor: '#FFD1E1',
+      desc: (
+        <>
+          Sakura is the holder of Envy and kindness. Her job is to share the happiness within J-Music to the world.
+          She's cheerful and loves the activities within the club.
+          Although she tends to be an airhead,{' '}
+          <span style={{ color: '#FFD1E1', fontWeight: 'bold' }}>
+            she does her best in her field for the members.
+          </span>
+        </>
+      ),
       img: '/images/14Char/Sephine.jpg'
     },
     {
