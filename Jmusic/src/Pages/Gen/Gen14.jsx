@@ -123,18 +123,34 @@ function Gen14() {
     },
     {
       id: 7,
-      name: 'Gabi',
+      name: 'Gabrielle',
       role: 'Angle',
-      roleColor: '#87CEFA',
-      desc: 'Malaikat Jmusic.',
+      roleColor: '#ddb884',
+      desc: (
+        <>
+          Interested in what humans considered to be music, Gabrielle, also known by Gabi, came down from the heavens and paid a visit, bringing with them a treasured lyre to play along and explore just what exactly the humans enjoy to hear.
+          They have yet to find the appeal in the vast genres of music humans have developed, but{' '}
+          <span style={{ color: '#ddb884', fontWeight: 'bold' }}>
+            classical is a close favorite.
+          </span>
+        </>
+      ),
       img: '/images/14Char/Gabi.jpg'
     },
     {
       id: 8,
-      name: 'Pito',
+      name: 'Mephisto',
       role: 'Demon',
-      roleColor: '#FF4500',
-      desc: 'Iblis Jmusic.',
+      roleColor: '#ac1f0e',
+      desc: (
+        <>
+          Bored of the constant cracking of fire back in Hell, Memphisto, also known by Pito, sulked so far away from the borders that he just so happened to find himself on Earth, where the first thing he decided to pick up was a microphone with a peculiar shape.
+          Metal sounds a little too close to home for him, so{' '}
+          <span style={{ color: '#ac1f0e', fontWeight: 'bold' }}>
+            slow rock is where he's at.
+          </span>
+        </>
+      ),
       img: '/images/14Char/Pito.jpg'
     }
   ];

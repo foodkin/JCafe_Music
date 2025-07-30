@@ -1493,7 +1493,7 @@
 @media (max-width: 360px) {
   .gen14-members-grid,
   .gen14-team-members {
-    grid-template-columns: repeat(2, 1fr); /* atau ubah jadi 1 kalau terlalu padat */
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.6rem;
   }
 

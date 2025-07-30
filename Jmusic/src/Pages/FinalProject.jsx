@@ -35,9 +35,9 @@ const FinalProject = () => {
     },
     {
       id: 4,
-      title: "Project Title 4",
-      song: "Song 4",
-      members: "[Member W, Member X, Member Y, Member Z]",
+      title: "Gen 15",
+      song: "Alice ya?",
+      members: "Berapa?",
       image: "/images/Comingsoon.jpg",
       route: "/FinalGen15"
     },

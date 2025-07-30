@@ -15,6 +15,7 @@ import Gen15 from "../Pages/Gen/Gen15";
 import FinalGen12 from "../Pages/Final/FinalGen12";
 import FinalGen13 from "../Pages/Final/FinalGen13";
 import FinalGen14 from "../Pages/Final/FinalGen14";
+import FinalGen15 from "../Pages/Final/FinalGen15";
 
 function RouteList() {
   return (
@@ -36,6 +37,7 @@ function RouteList() {
         <Route path="finalgen12" element={<FinalGen12 />} />
         <Route path="finalgen13" element={<FinalGen13 />} />
         <Route path="finalgen14" element={<FinalGen14 />} />
+        <Route path="finalgen15" element={<FinalGen15 />} />
 
         {/* Halaman lainnya */}
         <Route path="finalproject" element={<FinalProjeck />} />
