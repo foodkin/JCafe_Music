@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './FinalProject.css';
 
@@ -6,6 +6,7 @@ const FinalProject = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showPageInput, setShowPageInput] = useState(false);
   const [pageInputValue, setPageInputValue] = useState('');
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const navigate = useNavigate();
 
   const projects = [
@@ -68,15 +69,33 @@ const FinalProject = () => {
   ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % projects.length);
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % projects.length);
+        setIsTransitioning(false);
+      }, 150);
+    }
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+        setIsTransitioning(false);
+      }, 150);
+    }
   };
 
   const goToSlide = (index) => {
-    setCurrentSlide(index);
+    if (!isTransitioning && index !== currentSlide) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentSlide(index);
+        setIsTransitioning(false);
+      }, 150);
+    }
   };
 
   const navigateToProject = (index) => {
@@ -97,7 +116,7 @@ const FinalProject = () => {
     e.preventDefault();
     const pageNumber = parseInt(pageInputValue);
     if (pageNumber >= 1 && pageNumber <= projects.length) {
-      setCurrentSlide(pageNumber - 1);
+      goToSlide(pageNumber - 1);
     }
     setShowPageInput(false);
     setPageInputValue('');
@@ -152,7 +171,7 @@ const FinalProject = () => {
                 className="pagination-ellipsis-btn"
                 onClick={handleEllipsisClick}
               >
-                ...
+                <span className="ellipsis-dots">⋯</span>
               </button>
             )}
           </div>
@@ -165,7 +184,7 @@ const FinalProject = () => {
           className={`pagination-dot ${currentSlide === item ? 'active' : ''}`}
           onClick={() => goToSlide(item)}
         >
-          {item + 1}
+          <span className="dot-number">{item + 1}</span>
         </button>
       );
     });
@@ -173,79 +192,99 @@ const FinalProject = () => {
 
   return (
     <div className="final-project-container">
-      {/* Bagian hero section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <div className="hero-box">
-            <h1
-              className="hero-subtitle"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}
-            >
-              - Final Project Of - 
+      {/* Banner Section */}
+      <section className="banner-section">
+        <div className="banner-content">
+          <div className="banner-box">
+            <h1 className="banner-subtitle">
+              -  Final Project Of  - 
             </h1>
-            <p
-              className="hero-title"
-              style={{ fontFamily: 'Romaunt Gaolines', fontWeight: 300 }}
-            >
-              J-Music
+            <p className="banner-title">
+              <span className="title-letter">J</span>
+              <span className="title-dash">-</span>
+              <span className="title-letter">Music</span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Bagian project */}
+      {/* Project Section */}
       <div className="project-header">
-        <div className="header-line"></div>
-        <h2 className="section-title">OUR GENERATION'S WORKS</h2>
-        <div className="header-line"></div>
+        <div className="header-line">
+          <div className="line-glow"></div>
+        </div>
+        <h2 className="section-title">
+          <span className="title-word">OUR</span>
+          <span className="title-word">GENERATION'S</span>
+          <span className="title-word">WORKS</span>
+        </h2>
+        <div className="header-line">
+          <div className="line-glow"></div>
+        </div>
       </div>
 
       <div className="project-content">
-        <div className="project-info">
-          <h3 className="project-title">{projects[currentSlide].title}</h3>
+        <div className={`project-info ${isTransitioning ? 'transitioning' : ''}`}>
+          <h3 className="project-title">
+            <span className="title-main">{projects[currentSlide].title}</span>
+          </h3>
           <div className="project-details">
             <div className="detail-row">
-              <span className="detail-label">Theme:</span>
+              <span className="detail-label">
+                <span className="label-icon">♪</span>
+                Theme:
+              </span>
               <span className="detail-value">{projects[currentSlide].song}</span>
             </div>
             <div className="detail-row">
-              <span className="detail-label">Members:</span>
+              <span className="detail-label">
+                <span className="label-icon">♦</span>
+                Members:
+              </span>
               <span className="detail-value">{projects[currentSlide].members}</span>
             </div>
           </div>
         </div>
 
         <div className="project-slider">
-          <button className="slider-btn prev-btn" onClick={prevSlide}>
-            <span>‹</span>
+          <button className={`slider-btn prev-btn ${isTransitioning ? 'disabled' : ''}`} onClick={prevSlide}>
+            <span className="btn-icon">‹</span>
+            <div className="btn-glow"></div>
           </button>
 
           <div className="project-image-container">
-            <div className="image-stack">
+            <div className={`image-stack ${isTransitioning ? 'transitioning' : ''}`}>
               <div className="image-shadow">
                 <img
                   src={projects[getNextSlide()].image}
                   alt="Next preview"
                   className="next-preview-image"
                 />
+                <div className="shadow-overlay"></div>
               </div>
-              <img
-                src={projects[currentSlide].image}
-                alt={projects[currentSlide].title}
-                className="project-image"
-                onClick={() => navigateToProject(currentSlide)}
-                style={{ cursor: 'pointer' }}
-              />
+              <div className="main-image-wrapper">
+                <img
+                  src={projects[currentSlide].image}
+                  alt={projects[currentSlide].title}
+                  className="project-image"
+                  onClick={() => navigateToProject(currentSlide)}
+                />
+                <div className="image-border"></div>
+                <div className="image-shine"></div>
+              </div>
             </div>
           </div>
 
-          <button className="slider-btn next-btn" onClick={nextSlide}>
-            <span>›</span>
+          <button className={`slider-btn next-btn ${isTransitioning ? 'disabled' : ''}`} onClick={nextSlide}>
+            <span className="btn-icon">›</span>
+            <div className="btn-glow"></div>
           </button>
         </div>
 
         <div className="slider-pagination">
-          {renderPaginationDots()}
+          <div className="pagination-container">
+            {renderPaginationDots()}
+          </div>
         </div>
       </div>
     </div>
