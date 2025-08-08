@@ -71,7 +71,7 @@ function Gen14() {
           Guardian of Jmusic’s treasury, he is untouched by temptation, able to judge a person’s worth in a glance.
           Facing him is like playing chess with fate...{' '}
           <span style={{ color: '#5D3A9B', fontWeight: 'bold' }}>
-            when he’s already five moves ahead.
+            while he’s already five moves ahead.
           </span>
         </>
       ),
