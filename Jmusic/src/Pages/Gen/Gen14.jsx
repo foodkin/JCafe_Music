@@ -66,14 +66,12 @@ function Gen14() {
       roleColor: '#5D3A9B',
       desc: (
         <>
-          Ren Mixe is the holder of Greed and Patience, an ironic duality only he can balance.
-          His hands do not merely manage numbers, they command the flow of fortune itself.
-          His gaze is sharp enough to slice through deception, and his silence speaks louder than a thousand coins.
-          He guards Jmusic's treasury like a dragon over its sacred hoard, unmoved by temptation.
-          It is said he can calculate a person's worth with a single glance.
-          To challenge him is to play chess with fate...{' '}
+          Ren Mixe holds both Greed and Patience, a balance only he can master.
+          His hands command fortune’s flow, his gaze cuts through deceit, and his silence speaks louder than gold.
+          Guardian of Jmusic’s treasury, he is untouched by temptation, able to judge a person’s worth in a glance.
+          Facing him is like playing chess with fate...{' '}
           <span style={{ color: '#5D3A9B', fontWeight: 'bold' }}>
-            while he's already five moves ahead.
+            when he’s already five moves ahead.
           </span>
         </>
       ),
