@@ -192,18 +192,32 @@ const FinalProject = () => {
 
   return (
     <div className="final-project-container">
+      {/* Floating particles background */}
+      <div className="floating-particles">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div key={i} className={`particle particle-${i % 3}`}></div>
+        ))}
+      </div>
+
       {/* Banner Section */}
       <section className="banner-section">
         <div className="banner-content">
           <div className="banner-box">
             <h1 className="banner-subtitle">
-              -  Final Project Of  - 
+              <span className="subtitle-accent">─</span>
+              Final Project Of
+              <span className="subtitle-accent">─</span>
             </h1>
             <p className="banner-title">
               <span className="title-letter">J</span>
-              <span className="title-dash">-</span>
+              <span className="title-dash">─</span>
               <span className="title-letter">Music</span>
             </p>
+            <div className="banner-decoration">
+              <div className="decoration-line left"></div>
+              <div className="decoration-diamond"></div>
+              <div className="decoration-line right"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -215,7 +229,7 @@ const FinalProject = () => {
         </div>
         <h2 className="section-title">
           <span className="title-word">OUR</span>
-          <span className="title-word">GENERATION'S</span>
+          <span className="title-word highlight">GENERATION'S</span>
           <span className="title-word">WORKS</span>
         </h2>
         <div className="header-line">
@@ -227,18 +241,19 @@ const FinalProject = () => {
         <div className={`project-info ${isTransitioning ? 'transitioning' : ''}`}>
           <h3 className="project-title">
             <span className="title-main">{projects[currentSlide].title}</span>
+            <div className="title-underline"></div>
           </h3>
           <div className="project-details">
             <div className="detail-row">
               <span className="detail-label">
-                <span className="label-icon">♪</span>
+                <span className="label-icon">♫</span>
                 Theme:
               </span>
               <span className="detail-value">{projects[currentSlide].song}</span>
             </div>
             <div className="detail-row">
               <span className="detail-label">
-                <span className="label-icon">♦</span>
+                <span className="label-icon">◆</span>
                 Members:
               </span>
               <span className="detail-value">{projects[currentSlide].members}</span>
@@ -250,6 +265,7 @@ const FinalProject = () => {
           <button className={`slider-btn prev-btn ${isTransitioning ? 'disabled' : ''}`} onClick={prevSlide}>
             <span className="btn-icon">‹</span>
             <div className="btn-glow"></div>
+            <div className="btn-ripple"></div>
           </button>
 
           <div className="project-image-container">
@@ -271,6 +287,7 @@ const FinalProject = () => {
                 />
                 <div className="image-border"></div>
                 <div className="image-shine"></div>
+                <div className="image-glow-ring"></div>
               </div>
             </div>
           </div>
@@ -278,12 +295,19 @@ const FinalProject = () => {
           <button className={`slider-btn next-btn ${isTransitioning ? 'disabled' : ''}`} onClick={nextSlide}>
             <span className="btn-icon">›</span>
             <div className="btn-glow"></div>
+            <div className="btn-ripple"></div>
           </button>
         </div>
 
         <div className="slider-pagination">
           <div className="pagination-container">
             {renderPaginationDots()}
+          </div>
+          <div className="pagination-progress">
+            <div 
+              className="progress-bar" 
+              style={{ width: `${((currentSlide + 1) / projects.length) * 100}%` }}
+            ></div>
           </div>
         </div>
       </div>

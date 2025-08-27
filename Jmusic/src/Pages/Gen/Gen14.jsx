@@ -7,6 +7,8 @@ function Gen14() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedMember, setSelectedMember] = useState(null);
+  // 👉 state baru buat full image modal
+  const [fullImage, setFullImage] = useState(null);
   const carouselRef = useRef(null);
 
   // Font style untuk Montserrat
@@ -67,11 +69,11 @@ function Gen14() {
       desc: (
         <>
           Ren Mixe holds both Greed and Patience, a balance only he can master.
-          His hands command fortune’s flow, his gaze cuts through deceit, and his silence speaks louder than gold.
-          Guardian of Jmusic’s treasury, he is untouched by temptation, able to judge a person’s worth in a glance.
+          His hands command fortune's flow, his gaze cuts through deceit, and his silence speaks louder than gold.
+          Guardian of Jmusic's treasury, he is untouched by temptation, able to judge a person's worth in a glance.
           Facing him is like playing chess with fate...{' '}
           <span style={{ color: '#5D3A9B', fontWeight: 'bold' }}>
-            while he’s already five moves ahead.
+            while he's already five moves ahead.
           </span>
         </>
       ),
@@ -86,7 +88,7 @@ function Gen14() {
         <>
           Chess is Holder of greed and purity, he also is known for his undying love for tempe mendoan, hence where he got the gluttony title.
           As the documentator of JMusic, he captures the life and rhythm of JMusic through his lens.
-          With moods that swing like a metronome, Chess might not always be the easiest to read, but he’s always try his best,{' '}
+          With moods that swing like a metronome, Chess might not always be the easiest to read, but he's always try his best,{' '}
           <span style={{ color: '#D82020', fontWeight: 'bold' }}>
             trying to immortalize every single moment of the club.
           </span>
@@ -158,11 +160,11 @@ function Gen14() {
     {
       name: "Youth at 08:00",
       members: [
-        { name: "NPC 1", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 2", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 3", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 4", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 5", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "Cindy", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/cindy.png" },
+        { name: "Milie", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/milie.png" },
+        { name: "Joanna", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/joanna.png" },
+        { name: "Kaori", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/kaori.png" },
+        { name: "Ayla", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/ayla.png" }
       ]
     },
     {
@@ -178,10 +180,10 @@ function Gen14() {
     {
       name: "Yottsuhanabi",
       members: [
-        { name: "NPC 11", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 12", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 13", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 14", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "Calista", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Calista.png" },
+        { name: "Clock", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Clock.png" },
+        { name: "Shiio", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Shiio.png" },
+        { name: "Sofie", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Sofie.png" }
       ]
     },
     {
@@ -225,10 +227,10 @@ function Gen14() {
     {
       name: "BIJIN TANTEIDAN!!!",
       members: [
-        { name: "NPC 33", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 34", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 35", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 36", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "Abram", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Abram.png" },
+        { name: "Cepin", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Cepin.png" },
+        { name: "Chessa", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Chessa.png" },
+        { name: "Nicol", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Nicol.png" }
       ]
     },
     {
@@ -391,7 +393,13 @@ function Gen14() {
                 <button className="gen14-modal-close" onClick={handleCloseModal}>×</button>
                 <div className="gen14-modal-member">
                   <div className="gen14-modal-image">
-                    <img src={selectedMember.img} alt={selectedMember.name} />
+                    {/* 👉 klik gambar ini buka modal full image */}
+                    <img
+                      src={selectedMember.img}
+                      alt={selectedMember.name}
+                      onClick={() => setFullImage(selectedMember.img)}
+                      style={{ cursor: 'zoom-in' }}
+                    />
                   </div>
                   <div className="gen14-modal-details">
                     <h2 className="gen14-modal-name" style={montserratStyle}>{selectedMember.name}</h2>
@@ -400,6 +408,14 @@ function Gen14() {
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* 👉 Full Image Modal */}
+          {fullImage && (
+            <div className="gen14-image-overlay" onClick={() => setFullImage(null)}>
+              <span className="gen14-image-close">×</span>
+              <img className="gen14-image-full" src={fullImage} alt="Full View" />
             </div>
           )}
         </div>
