@@ -125,7 +125,6 @@
 
 .shadow-card {
   position: absolute;
-  border-radius: 12px;
   transition: all 0.3s ease;
   background: rgba(0, 0, 0, 0.15);
 }
@@ -149,7 +148,6 @@
 .main-card {
   position: relative;
   z-index: 10;
-  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 500px;
@@ -253,12 +251,12 @@
 }
 
 .project-info-tooltip {
-  margin-top: 25px;
+  margin-top: 30px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;
+  gap: 20px;
   opacity: 0.9;
   max-width: 500px;
   margin-left: auto;
@@ -283,8 +281,313 @@
   font-weight: 600;
 }
 
-/* Tablet Responsiveness */
-@media (max-width: 768px) {
+/* Ultra Large Desktop (4K and above) - 2560px+ */
+@media (min-width: 2560px) {
+  .final-project-container {
+    padding: 80px 60px;
+    max-width: 1600px;
+  }
+  
+  .main-title-section {
+    margin-bottom: 80px;
+    padding-top: 40px;
+  }
+  
+  .final-projects-title {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+  }
+  
+  .jmusic-title {
+    font-size: 6rem;
+    letter-spacing: 4px;
+  }
+  
+  .project-title-header {
+    font-size: 2.2rem;
+    margin: 0 30px;
+  }
+  
+  .header-line {
+    max-width: 300px;
+  }
+  
+  .slider-wrapper {
+    margin-bottom: 60px;
+  }
+  
+  .slider-content {
+    gap: 50px;
+  }
+  
+  .nav-button {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+  
+  .image-stack-container {
+    width: 800px;
+    height: 500px;
+  }
+  
+  .main-card {
+    width: 800px;
+    height: 500px;
+  }
+  
+  .shadow-card-2 {
+    width: 750px;
+    height: 470px;
+    right: -45px;
+    top: 25px;
+  }
+  
+  .shadow-card-1 {
+    width: 775px;
+    height: 485px;
+    right: -22px;
+    top: 12px;
+  }
+  
+  .project-info-tooltip {
+    margin-top: 40px;
+    font-size: 18px;
+    gap: 25px;
+    max-width: 800px;
+  }
+  
+  .info-item {
+    gap: 8px;
+  }
+  
+  .pagination-section {
+    margin-top: 50px;
+    gap: 12px;
+  }
+  
+  .pagination-dot {
+    padding: 12px 16px;
+    font-size: 16px;
+    min-width: 45px;
+  }
+  
+  .pagination-ellipsis-btn {
+    padding: 12px 16px;
+    font-size: 18px;
+  }
+}
+
+/* Extra Large Desktop - 1920px to 2559px */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .final-project-container {
+    padding: 70px 50px;
+    max-width: 1400px;
+  }
+  
+  .main-title-section {
+    margin-bottom: 70px;
+    padding-top: 30px;
+  }
+  
+  .final-projects-title {
+    font-size: 1rem;
+    letter-spacing: 5px;
+  }
+  
+  .jmusic-title {
+    font-size: 5rem;
+    letter-spacing: 3.5px;
+  }
+  
+  .project-title-header {
+    font-size: 2rem;
+    margin: 0 25px;
+  }
+  
+  .header-line {
+    max-width: 250px;
+  }
+  
+  .slider-content {
+    gap: 40px;
+  }
+  
+  .nav-button {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+  
+  .image-stack-container {
+    width: 700px;
+    height: 450px;
+  }
+  
+  .main-card {
+    width: 700px;
+    height: 450px;
+  }
+  
+  .shadow-card-2 {
+    width: 660px;
+    height: 430px;
+    right: -40px;
+    top: 22px;
+  }
+  
+  .shadow-card-1 {
+    width: 680px;
+    height: 440px;
+    right: -20px;
+    top: 10px;
+  }
+  
+  .project-info-tooltip {
+    margin-top: 35px;
+    font-size: 16px;
+    gap: 22px;
+    max-width: 700px;
+  }
+  
+  .pagination-section {
+    margin-top: 40px;
+    gap: 10px;
+  }
+  
+  .pagination-dot {
+    padding: 10px 14px;
+    font-size: 15px;
+    min-width: 40px;
+  }
+}
+
+/* Large Desktop - 1200px to 1919px */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .final-project-container {
+    padding: 60px 40px;
+  }
+  
+  .main-title-section {
+    margin-bottom: 60px;
+  }
+  
+  .jmusic-title {
+    font-size: 4.5rem;
+  }
+  
+  .image-stack-container {
+    width: 600px;
+    height: 380px;
+  }
+  
+  .main-card {
+    width: 600px;
+    height: 380px;
+  }
+  
+  .shadow-card-2 {
+    width: 560px;
+    height: 360px;
+    right: -35px;
+  }
+  
+  .shadow-card-1 {
+    width: 580px;
+    height: 370px;
+    right: -18px;
+  }
+  
+  .project-info-tooltip {
+    max-width: 600px;
+  }
+}
+
+/* Standard Desktop - 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .final-project-container {
+    padding: 50px 30px;
+    max-width: 1000px;
+  }
+  
+  .main-title-section {
+    margin-bottom: 50px;
+    padding-top: 20px;
+  }
+  
+  .final-projects-title {
+    font-size: 0.85rem;
+    letter-spacing: 3.5px;
+  }
+  
+  .jmusic-title {
+    font-size: 3.8rem;
+    letter-spacing: 2.5px;
+  }
+  
+  .project-title-header {
+    font-size: 1.5rem;
+    margin: 0 18px;
+  }
+  
+  .header-line {
+    max-width: 180px;
+  }
+  
+  .slider-content {
+    gap: 25px;
+  }
+  
+  .nav-button {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+  
+  .image-stack-container {
+    width: 480px;
+    height: 310px;
+  }
+  
+  .main-card {
+    width: 480px;
+    height: 310px;
+  }
+  
+  .shadow-card-2 {
+    width: 450px;
+    height: 290px;
+    right: -28px;
+    top: 18px;
+  }
+  
+  .shadow-card-1 {
+    width: 465px;
+    height: 300px;
+    right: -14px;
+    top: 9px;
+  }
+  
+  .project-info-tooltip {
+    margin-top: 28px;
+    font-size: 13px;
+    gap: 18px;
+    max-width: 480px;
+  }
+  
+  .pagination-section {
+    margin-top: 25px;
+  }
+  
+  .pagination-dot {
+    padding: 7px 11px;
+    font-size: 13px;
+    min-width: 32px;
+  }
+}
+
+/* Tablet Responsiveness - 769px to 991px */
+@media (min-width: 769px) and (max-width: 991px) {
   .final-project-container {
     padding: 30px 15px;
   }
@@ -345,14 +648,11 @@
     right: -12px;
   }
   
-  .project-info-section {
-    margin-top: 22px;
-    margin-bottom: 18px;
-    gap: 30px;
-  }
-  
-  .info-container {
-    gap: 25px;
+  .project-info-tooltip {
+    margin-top: 25px;
+    font-size: 13px;
+    gap: 16px;
+    max-width: 400px;
   }
   
   .info-label {
@@ -363,18 +663,310 @@
     font-size: 13px;
   }
   
-  .project-info-tooltip {
-    padding-left: 0;
-    max-width: 400px;
+  .pagination-section {
+    margin-top: 20px;
   }
   
-  .pagination-section {
-    margin-top: 0;
+  .pagination-dot {
+    padding: 7px 10px;
+    font-size: 13px;
+    min-width: 30px;
   }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 480px) {
+/* Small Tablet - 601px to 768px */
+@media (min-width: 601px) and (max-width: 768px) {
+  .final-project-container {
+    padding: 25px 12px;
+  }
+  
+  .main-title-section {
+    margin-bottom: 35px;
+    padding-top: 12px;
+  }
+  
+  .final-projects-title {
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+  }
+  
+  .jmusic-title {
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .project-title-header {
+    font-size: 1.2rem;
+    margin: 0 12px;
+  }
+  
+  .header-line {
+    max-width: 120px;
+  }
+  
+  .slider-content {
+    gap: 15px;
+  }
+  
+  .nav-button {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+  
+  .image-stack-container {
+    width: 350px;
+    height: 230px;
+  }
+  
+  .main-card {
+    width: 350px;
+    height: 230px;
+  }
+  
+  .shadow-card-2 {
+    width: 325px;
+    height: 215px;
+    right: -22px;
+    top: 12px;
+  }
+  
+  .shadow-card-1 {
+    width: 338px;
+    height: 223px;
+    right: -11px;
+    top: 6px;
+  }
+  
+  .project-info-tooltip {
+    margin-top: 22px;
+    font-size: 12px;
+    gap: 14px;
+    max-width: 350px;
+  }
+  
+  .info-label {
+    font-size: 12px;
+  }
+  
+  .info-value {
+    font-size: 12px;
+  }
+  
+  .pagination-section {
+    margin-top: 18px;
+    gap: 6px;
+  }
+  
+  .pagination-dot {
+    padding: 6px 9px;
+    font-size: 12px;
+    min-width: 28px;
+  }
+}
+
+/* Large Mobile - 481px to 600px */
+@media (min-width: 481px) and (max-width: 600px) {
+  .final-project-container {
+    padding: 20px 10px;
+    max-width: 100%;
+  }
+
+  .main-title-section {
+    margin-bottom: 30px;
+    padding-top: 10px;
+  }
+
+  .final-projects-title {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .jmusic-title {
+    font-size: 2.2rem;
+    letter-spacing: 1.2px;
+  }
+
+  .project-header {
+    margin-bottom: 18px;
+    gap: 4px;
+  }
+
+  .project-title-header {
+    font-size: 0.8rem;
+    margin: 0 4px;
+  }
+
+  .header-line {
+    max-width: 30px;
+    min-width: 10px;
+  }
+
+  .slider-wrapper {
+    margin-bottom: 18px;
+    padding: 0 2px;
+  }
+
+  .slider-content {
+    gap: 6px;
+  }
+
+  .nav-button {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    min-width: 28px;
+  }
+
+  .image-stack-container {
+    max-width: 200px;
+    height: 130px;
+  }
+
+  .main-card {
+    height: 130px;
+  }
+
+  .shadow-card-2 {
+    height: 122px;
+    right: -10px;
+    top: 5px;
+  }
+
+  .shadow-card-1 {
+    height: 126px;
+    right: -5px;
+    top: 2px;
+  }
+
+  .project-info-tooltip {
+    margin-top: 15px;
+    font-size: 9px;
+    gap: 8px;
+    max-width: 200px;
+    padding: 0 6px;
+  }
+
+  .info-item {
+    gap: 2px;
+  }
+
+  .pagination-section {
+    margin-top: 15px;
+    gap: 2px;
+    padding: 0 6px;
+  }
+
+  .pagination-dot {
+    padding: 4px 6px;
+    font-size: 9px;
+    min-width: 22px;
+  }
+
+  .pagination-ellipsis-btn {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+
+  /* Bagian yang tadi salah aku masukkan ke selector yang sesuai */
+  .project-header {
+    margin-bottom: 30px;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .project-title-header {
+    font-size: 1.1rem;
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+
+  .header-line {
+    max-width: 80px;
+    min-width: 25px;
+    height: 1px;
+  }
+}
+  
+  .slider-wrapper {
+    margin-bottom: 30px;
+    padding: 0 8px;
+  }
+  
+  .slider-content {
+    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+    flex-shrink: 0;
+    min-width: 38px;
+  }
+  
+  .image-stack-container {
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+    flex-shrink: 1;
+  }
+  
+  .main-card {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .shadow-card-2 {
+    width: 96%;
+    height: 190px;
+    right: -18px;
+    top: 10px;
+  }
+  
+  .shadow-card-1 {
+    width: 98%;
+    height: 195px;
+    right: -9px;
+    top: 5px;
+  }
+  
+  .project-info-tooltip {
+    margin-top: 22px;
+    font-size: 12px;
+    gap: 14px;
+    padding: 0 12px;
+    align-items: flex-start;
+    max-width: 320px;
+  }
+  
+  .info-item {
+    align-items: flex-start;
+  }
+  
+  .pagination-section {
+    margin-top: 22px;
+    gap: 5px;
+    padding: 0 12px;
+  }
+  
+  .pagination-dot {
+    padding: 6px 8px;
+    font-size: 11px;
+    min-width: 30px;
+  }
+  
+  .pagination-ellipsis-btn {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+/* Standard Mobile - 361px to 480px */
+@media (min-width: 361px) and (max-width: 480px) {
   .final-project-container {
     padding: 15px 8px;
     max-width: 100%;
@@ -446,10 +1038,6 @@
     height: 180px;
   }
   
-  .shadow-card {
-    border-radius: 8px;
-  }
-  
   .shadow-card-2 {
     width: 95%;
     height: 170px;
@@ -462,10 +1050,6 @@
     height: 175px;
     right: -8px;
     top: 4px;
-  }
-  
-  .project-image {
-    border-radius: 8px;
   }
   
   .pagination-section {
@@ -486,10 +1070,9 @@
   }
   
   .project-info-tooltip {
-    flex-direction: column;
-    gap: 12px;
-    font-size: 11px;
     margin-top: 20px;
+    font-size: 11px;
+    gap: 12px;
     padding: 0 10px;
     align-items: flex-start;
     max-width: 280px;
@@ -500,43 +1083,106 @@
   }
 }
 
-/* Large Desktop */
-@media (min-width: 1200px) {
+/* Small Mobile - 320px to 360px */
+@media (min-width: 320px) and (max-width: 360px) {
   .final-project-container {
-    padding: 60px 40px;
+    padding: 12px 6px;
   }
   
   .main-title-section {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
+    padding-top: 6px;
+  }
+  
+  .final-projects-title {
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
   }
   
   .jmusic-title {
-    font-size: 4.5rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .project-header {
+    margin-bottom: 20px;
+    gap: 6px;
+  }
+  
+  .project-title-header {
+    font-size: 0.9rem;
+    margin: 0 6px;
+  }
+  
+  .header-line {
+    max-width: 40px;
+    min-width: 15px;
+  }
+  
+  .slider-wrapper {
+    margin-bottom: 20px;
+    padding: 0 3px;
+  }
+  
+  .slider-content {
+    gap: 8px;
+  }
+  
+  .nav-button {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    min-width: 32px;
   }
   
   .image-stack-container {
-    width: 600px;
-    height: 380px;
+    max-width: 240px;
+    height: 150px;
   }
   
   .main-card {
-    width: 600px;
-    height: 380px;
+    height: 150px;
   }
   
   .shadow-card-2 {
-    width: 560px;
-    height: 360px;
-    right: -35px;
+    height: 140px;
+    right: -12px;
+    top: 6px;
   }
   
   .shadow-card-1 {
-    width: 580px;
-    height: 370px;
-    right: -18px;
+    height: 145px;
+    right: -6px;
+    top: 3px;
   }
   
   .project-info-tooltip {
-    max-width: 600px;
+    margin-top: 18px;
+    font-size: 10px;
+    gap: 10px;
+    max-width: 240px;
+    padding: 0 8px;
+  }
+  
+  .info-item {
+    gap: 3px;
+  }
+  
+  .pagination-section {
+    margin-top: 18px;
+    gap: 3px;
+    padding: 0 8px;
+  }
+  
+  .pagination-dot {
+    padding: 5px 7px;
+    font-size: 10px;
+    min-width: 25px;
+  }
+  
+  .pagination-ellipsis-btn {
+    padding: 5px 7px;
+    font-size: 12px;
   }
 }
