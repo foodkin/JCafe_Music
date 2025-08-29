@@ -285,7 +285,7 @@ function Gen14() {
       ) : (
         <div className="gen14-content fade-in" style={montserratStyle}>
           <div className="gen14-welcome-section">
-            <h1 className="gen14-welcome-title" style={montserratStyle}>Sins & Virtue🎶</h1>
+            <h1 className="gen14-welcome-title" style={montserratStyle}>Sins & Virtue</h1>
             <p className="gen14-subtitle" style={montserratStyle}>J Cafe Music Gen 14</p>
           </div>
 
@@ -393,7 +393,7 @@ function Gen14() {
                 <button className="gen14-modal-close" onClick={handleCloseModal}>×</button>
                 <div className="gen14-modal-member">
                   <div className="gen14-modal-image">
-                    {/* 👉 klik gambar ini buka modal full image */}
+                  
                     <img
                       src={selectedMember.img}
                       alt={selectedMember.name}
@@ -411,7 +411,6 @@ function Gen14() {
             </div>
           )}
 
-          {/* 👉 Full Image Modal */}
           {fullImage && (
             <div className="gen14-image-overlay" onClick={() => setFullImage(null)}>
               <span className="gen14-image-close">×</span>

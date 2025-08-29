@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './FinalProject.css';
+import './FinalProject.css'; // file CSS di folder yang sama
 
 const FinalProject = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -74,7 +74,7 @@ const FinalProject = () => {
       setTimeout(() => {
         setCurrentSlide((prev) => (prev + 1) % projects.length);
         setIsTransitioning(false);
-      }, 150);
+      }, 300);
     }
   };
 
@@ -84,7 +84,7 @@ const FinalProject = () => {
       setTimeout(() => {
         setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
         setIsTransitioning(false);
-      }, 150);
+      }, 300);
     }
   };
 
@@ -94,7 +94,7 @@ const FinalProject = () => {
       setTimeout(() => {
         setCurrentSlide(index);
         setIsTransitioning(false);
-      }, 150);
+      }, 300);
     }
   };
 
@@ -102,10 +102,6 @@ const FinalProject = () => {
     if (index < projects.length) {
       navigate(projects[index].route);
     }
-  };
-
-  const getNextSlide = () => {
-    return (currentSlide + 1) % projects.length;
   };
 
   const handleEllipsisClick = () => {
@@ -131,19 +127,19 @@ const FinalProject = () => {
     const total = projects.length;
     const current = currentSlide;
 
-    if (total <= 3) {
+    if (total <= 5) {
       return [...Array(total).keys()];
     }
 
-    if (current <= 1) {
-      return [0, 1, 'ellipsis', 2];
+    if (current <= 2) {
+      return [0, 1, 2, 'ellipsis'];
     }
 
-    if (current >= total - 2) {
-      return [total - 3, total - 2, 'ellipsis', total - 1];
+    if (current >= total - 3) {
+      return ['ellipsis', total - 3, total - 2, total - 1];
     }
 
-    return [current - 1, current, 'ellipsis', current + 1];
+    return ['ellipsis', current - 1, current, current + 1, 'ellipsis'];
   };
 
   const renderPaginationDots = () => {
@@ -164,6 +160,7 @@ const FinalProject = () => {
                   min="1"
                   max={projects.length}
                   className="page-input"
+                  placeholder="..."
                 />
               </form>
             ) : (
@@ -171,7 +168,7 @@ const FinalProject = () => {
                 className="pagination-ellipsis-btn"
                 onClick={handleEllipsisClick}
               >
-                <span className="ellipsis-dots">⋯</span>
+                ...
               </button>
             )}
           </div>
@@ -184,7 +181,7 @@ const FinalProject = () => {
           className={`pagination-dot ${currentSlide === item ? 'active' : ''}`}
           onClick={() => goToSlide(item)}
         >
-          <span className="dot-number">{item + 1}</span>
+          {item + 1}
         </button>
       );
     });
@@ -192,124 +189,78 @@ const FinalProject = () => {
 
   return (
     <div className="final-project-container">
-      {/* Floating particles background */}
-      <div className="floating-particles">
-        {Array.from({ length: 50 }).map((_, i) => (
-          <div key={i} className={`particle particle-${i % 3}`}></div>
-        ))}
+      {/* Main Title Section */}
+      <div className="main-title-section">
+        <h1 className="final-projects-title">- FINAL PROJECTS OF -</h1>
+        <h2 className="jmusic-title">JMUSIC</h2>
       </div>
 
-      {/* Banner Section */}
-      <section className="banner-section">
-        <div className="banner-content">
-          <div className="banner-box">
-            <h1 className="banner-subtitle">
-              <span className="subtitle-accent">─</span>
-              Final Project Of
-              <span className="subtitle-accent">─</span>
-            </h1>
-            <p className="banner-title">
-              <span className="title-letter">J</span>
-              <span className="title-dash">─</span>
-              <span className="title-letter">Music</span>
-            </p>
-            <div className="banner-decoration">
-              <div className="decoration-line left"></div>
-              <div className="decoration-diamond"></div>
-              <div className="decoration-line right"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Project Section */}
+      {/* Project Title Header */}
       <div className="project-header">
-        <div className="header-line">
-          <div className="line-glow"></div>
-        </div>
-        <h2 className="section-title">
-          <span className="title-word">OUR</span>
-          <span className="title-word highlight">GENERATION'S</span>
-          <span className="title-word">WORKS</span>
+        <div className="header-line left-line"></div>
+        <h2 className="project-title-header">
+          {projects[currentSlide].title}
         </h2>
-        <div className="header-line">
-          <div className="line-glow"></div>
-        </div>
+        <div className="header-line right-line"></div>
       </div>
 
-      <div className="project-content">
-        <div className={`project-info ${isTransitioning ? 'transitioning' : ''}`}>
-          <h3 className="project-title">
-            <span className="title-main">{projects[currentSlide].title}</span>
-            <div className="title-underline"></div>
-          </h3>
-          <div className="project-details">
-            <div className="detail-row">
-              <span className="detail-label">
-                <span className="label-icon">♫</span>
-                Theme:
-              </span>
-              <span className="detail-value">{projects[currentSlide].song}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">
-                <span className="label-icon">◆</span>
-                Members:
-              </span>
-              <span className="detail-value">{projects[currentSlide].members}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="project-slider">
-          <button className={`slider-btn prev-btn ${isTransitioning ? 'disabled' : ''}`} onClick={prevSlide}>
-            <span className="btn-icon">‹</span>
-            <div className="btn-glow"></div>
-            <div className="btn-ripple"></div>
+      {/* Main Slider Content */}
+      <div className="slider-wrapper">
+        <div className="slider-content">
+          {/* Left Navigation Button */}
+          <button 
+            className={`nav-button nav-left ${isTransitioning ? 'disabled' : ''}`} 
+            onClick={prevSlide}
+            disabled={isTransitioning}
+          >
+            ‹
           </button>
 
-          <div className="project-image-container">
+          {/* Image Stack Container */}
+          <div className="image-stack-container">
             <div className={`image-stack ${isTransitioning ? 'transitioning' : ''}`}>
-              <div className="image-shadow">
-                <img
-                  src={projects[getNextSlide()].image}
-                  alt="Next preview"
-                  className="next-preview-image"
-                />
-                <div className="shadow-overlay"></div>
-              </div>
-              <div className="main-image-wrapper">
+              {/* Background shadow cards */}
+              <div className="shadow-card shadow-card-2"></div>
+              <div className="shadow-card shadow-card-1"></div>
+              
+              {/* Main image card */}
+              <div className="main-card">
                 <img
                   src={projects[currentSlide].image}
                   alt={projects[currentSlide].title}
                   className="project-image"
                   onClick={() => navigateToProject(currentSlide)}
                 />
-                <div className="image-border"></div>
-                <div className="image-shine"></div>
-                <div className="image-glow-ring"></div>
               </div>
             </div>
           </div>
 
-          <button className={`slider-btn next-btn ${isTransitioning ? 'disabled' : ''}`} onClick={nextSlide}>
-            <span className="btn-icon">›</span>
-            <div className="btn-glow"></div>
-            <div className="btn-ripple"></div>
+          {/* Right Navigation Button */}
+          <button 
+            className={`nav-button nav-right ${isTransitioning ? 'disabled' : ''}`} 
+            onClick={nextSlide}
+            disabled={isTransitioning}
+          >
+            ›
           </button>
         </div>
+      </div>
 
-        <div className="slider-pagination">
-          <div className="pagination-container">
-            {renderPaginationDots()}
-          </div>
-          <div className="pagination-progress">
-            <div 
-              className="progress-bar" 
-              style={{ width: `${((currentSlide + 1) / projects.length) * 100}%` }}
-            ></div>
-          </div>
+      {/* Project Info - Moved here to be directly below the card */}
+      <div className="project-info-tooltip">
+        <div className="info-item">
+          <span className="info-label">Theme</span>
+          <span className="info-value">{projects[currentSlide].song}</span>
         </div>
+        <div className="info-item">
+          <span className="info-label">Members</span>
+          <span className="info-value">{projects[currentSlide].members}</span>
+        </div>
+      </div>
+
+      {/* Pagination */}
+      <div className="pagination-section">
+        {renderPaginationDots()}
       </div>
     </div>
   );
