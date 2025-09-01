@@ -196,13 +196,13 @@ function Gen14() {
       ]
     },
     {
-      name: "Galileo Galiei",
+      name: "Galileo Galieli",
       members: [
-        { name: "NPC 19", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 20", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 21", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 22", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 23", race: "Galileo Galiei", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "Lima", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Lima.png" },
+        { name: "Flint", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Flint.png"  },
+        { name: "Faiz", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Faiz.png"  },
+        { name: "Kevin", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Kevin.png"  },
+        { name: "Mahawira", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Mahawira.png"  }
       ]
     },
     {
@@ -313,6 +313,8 @@ function Gen14() {
                   src={characterList[activeIndex].img}
                   alt={characterList[activeIndex].name}
                   className="gen14-character-main-image"
+                  onClick={() => setFullImage(characterList[activeIndex].img)}
+                  style={{ cursor: "zoom-in" }}
                 />
               </div>
 
@@ -340,7 +342,15 @@ function Gen14() {
                           className={`gen14-character-thumb ${char.originalIndex === activeIndex ? 'active' : ''}`}
                           onClick={() => setActiveIndex(char.originalIndex)}
                         >
-                          <img src={char.img} alt={char.name} />
+                          <img 
+                            src={char.img} 
+                            alt={char.name}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setFullImage(char.img);
+                            }}
+                            style={{ cursor: "zoom-in" }}
+                          />
                         </div>
                       ))}
                     </div>
