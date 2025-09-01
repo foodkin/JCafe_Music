@@ -295,7 +295,7 @@ function Gen14() {
               </div>
               <div className="gen14-intro-description">
                 <h3 className="gen14-intro-title" style={montserratStyle}>Welcome to Gen 14</h3>
-                <p className="gen14-intro-text" style={montserratStyle}>Belum kepikiran apa"</p>
+                <p className="gen14-intro-text" style={montserratStyle}>We are the 14th Generation JCAFE Music Club, part of JCAFE UMN, where we create music covers and share the joy of singing Japanese songs! Active in 2024–2025, our generation carries the theme Sins and Virtue (because our BPH is just too chuunibyou).</p>
               </div>
             </div>
 
