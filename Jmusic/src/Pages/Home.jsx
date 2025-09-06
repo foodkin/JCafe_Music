@@ -10,28 +10,28 @@ const WhatWeDoSlider = () => {
       title: "WEEKLY KARAOKE",
       subtitle: "Our weekly scheduled karaoke session!",
       description: "Every Thursday and Friday, we'd get together and sing songs based on themes set beforehand, a challenging but fun time for our members.",
-      image: "/images/Weekly.jpg"
+      image: "/images/Weekly.webp"
     },
     {
       id: 2,
       title: "BONDING J-MUSIC",
       subtitle: "Building stronger connections within our community!",
       description: "Regular bonding activities that bring our J-Music family closer together through games, discussions, and shared experiences.",
-      image: "/images/showcase2.jpg"
+      image: "/images/showcase2.webp"
     },
     {
       id: 3,
       title: "BONDING INTI",
       subtitle: "Core team bonding sessions!",
       description: "Special bonding activities for the entire Jcafe family to strengthen unity, teamwork, and shared spirit within the club.",
-      image: "/images/bonding-inti.jpg"
+      image: "/images/bonding-inti.webp"
     },
     {
       id: 4,
       title: "FINAL PROJECT",
       subtitle: "Our culminating showcase event!",
       description: "A celebration of our members' dedication and creativity throughout the semester, presented through MV covers and exciting collaborations.",
-      image: "/images/Final.jpg"
+      image: "/images/Final.webp"
     }
   ];
 
@@ -236,10 +236,10 @@ const Home = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const showcaseImages = [
-    { src: 'images/showcase1.jpg', title: 'Gen 13 Bonding' },
-    { src: 'images/showcase2.jpg', title: 'Gen 14 Bonding' },
-    { src: 'images/showcase3.jpg', title: 'Istri Bendahara Gen 14' },
-    { src: 'images/showcase4.jpg', title: 'Istri Bendahara Gen 14' }
+    { src: 'images/showcase1.webp', title: 'Gen 13 Bonding' },
+    { src: 'images/showcase2.webp', title: 'Gen 14 Bonding' },
+    { src: 'images/showcase3.webp', title: 'Istri Bendahara Gen 14' },
+    { src: 'images/showcase4.webp', title: 'Istri Bendahara Gen 14' }
   ];
 
   useEffect(() => {
@@ -282,7 +282,7 @@ const Home = () => {
         <section className="jmusic-intro-section">
           <div className="jmusic-intro-content">
             <div className="jmusic-intro-image">
-              <img src="/images/jmusic-logo.png" alt="J-Music Community" className="jmusic-intro-img" />
+              <img src="/images/jmusic-logo.webp" alt="J-Music Community" className="jmusic-intro-img" />
             </div>
             <div className="jmusic-intro-description">
               <h3 className="jmusic-intro-title">ABOUT US</h3>

@@ -24,7 +24,7 @@ function Gen14() {
       role: 'Leader',
       roleColor: '#FFD700',
       desc: 'Ketua Jmusic.',
-      img: '/images/14Char/Nadine.jpg'
+      img: '/images/14Char/Nadine.webp'
     },
     {
       id: 1,
@@ -41,7 +41,7 @@ function Gen14() {
           </span>
         </>
       ),
-      img: '/images/14Char/Sebastian.jpg'
+      img: '/images/14Char/Sebastian.webp'
     },
     {
       id: 2,
@@ -59,7 +59,7 @@ function Gen14() {
           – One of his favorite quotes.
         </>
       ),
-      img: '/images/14Char/Wishley.jpg'
+      img: '/images/14Char/Wishley.webp'
     },
     {
       id: 3,
@@ -77,7 +77,7 @@ function Gen14() {
           </span>
         </>
       ),
-      img: '/images/14Char/Jeferson.jpg'
+      img: '/images/14Char/Jeferson.webp'
     },
     {
       id: 4,
@@ -94,7 +94,7 @@ function Gen14() {
           </span>
         </>
       ),
-      img: '/images/14Char/Lucky.jpg'
+      img: '/images/14Char/Lucky.webp'
     },
     {
       id: 5,
@@ -111,7 +111,7 @@ function Gen14() {
           </span>
         </>
       ),
-      img: '/images/14Char/Sephine.jpg'
+      img: '/images/14Char/Sephine.webp'
     },
     {
       id: 6,
@@ -119,7 +119,7 @@ function Gen14() {
       role: 'Logistic',
       roleColor: '#FFA500',
       desc: 'Perlengkapan Jmusic.',
-      img: '/images/14Char/Gwendy.jpg'
+      img: '/images/14Char/Gwendy.webp'
     },
     {
       id: 7,
@@ -135,7 +135,7 @@ function Gen14() {
           </span>
         </>
       ),
-      img: '/images/14Char/Gabi.jpg'
+      img: '/images/14Char/Gabi.webp'
     },
     {
       id: 8,
@@ -151,7 +151,7 @@ function Gen14() {
           </span>
         </>
       ),
-      img: '/images/14Char/Pito.jpg'
+      img: '/images/14Char/Pito.webp'
     }
   ];
 
@@ -160,96 +160,96 @@ function Gen14() {
     {
       name: "Youth at 08:00",
       members: [
-        { name: "Cindy", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/cindy.png" },
-        { name: "Milie", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/milie.png" },
-        { name: "Joanna", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/joanna.png" },
-        { name: "Kaori", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/kaori.png" },
-        { name: "Ayla", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/ayla.png" }
+        { name: "Cindy", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/cindy.webp" },
+        { name: "Milie", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/milie.webp" },
+        { name: "Joanna", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/joanna.webp" },
+        { name: "Kaori", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/kaori.webp" },
+        { name: "Ayla", race: "Youth at 08:00", desc: "Ongoing", img: "/images/14Char/Youth/ayla.webp" }
       ]
     },
     {
       name: "Kurukurumawaru",
       members: [
-        { name: "NPC 6", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 7", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 8", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 9", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 10", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 6", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 7", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 8", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 9", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 10", race: "Kurukurumawaru", desc: "Ongoing", img: "/images/14Char/NPC.webp" }
       ]
     },
     {
       name: "Yottsuhanabi",
       members: [
-        { name: "Calista", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Calista.png" },
-        { name: "Clock", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Clock.png" },
-        { name: "Shiio", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Shiio.png" },
-        { name: "Sofie", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Sofie.png" }
+        { name: "Calista", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Calista.webp" },
+        { name: "Clock", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Clock.webp" },
+        { name: "Shiio", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Shiio.webp" },
+        { name: "Sofie", race: "Yottsuhanabi", desc: "Ongoing", img: "/images/14Char/Yottsuhanabi/Sofie.webp" }
       ]
     },
     {
       name: "Happyaku-ichi",
       members: [
-        { name: "NPC 15", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 16", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 17", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 18", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 15", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 16", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 17", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 18", race: "Happyaku-ichi", desc: "Ongoing", img: "/images/14Char/NPC.webp" }
       ]
     },
     {
       name: "Galileo Galieli",
       members: [
-        { name: "Lima", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Lima.png" },
-        { name: "Flint", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Flint.png"  },
-        { name: "Faiz", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Faiz.png"  },
-        { name: "Kevin", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Kevin.png"  },
-        { name: "Mahawira", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Mahawira.png"  }
+        { name: "Lima", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Lima.webp" },
+        { name: "Flint", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Flint.webp"  },
+        { name: "Faiz", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Faiz.webp"  },
+        { name: "Kevin", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Kevin.webp"  },
+        { name: "Mahawira", race: "Galileo Galieli", desc: "Ongoing", img: "/images/14Char/Galileo/Mahawira.webp"  }
       ]
     },
     {
       name: "Tsuki No Usagi",
       members: [
-        { name: "NPC 24", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 25", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 26", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 27", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 28", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 24", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 25", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 26", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 27", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 28", race: "Tsuki No Usagi", desc: "Ongoing", img: "/images/14Char/NPC.webp" }
       ]
     },
     {
       name: "Youfuu Kanon",
       members: [
-        { name: "NPC 29", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 30", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 31", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 32", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 29", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 30", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 31", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 32", race: "Youfuu Kanon", desc: "Ongoing", img: "/images/14Char/NPC.webp" }
       ]
     },
     {
       name: "BIJIN TANTEIDAN!!!",
       members: [
-        { name: "Abram", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Abram.png" },
-        { name: "Cepin", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Cepin.png" },
-        { name: "Chessa", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Chessa.png" },
-        { name: "Nicol", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Nicol.png" }
+        { name: "Abram", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Abram.webp" },
+        { name: "Cepin", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Cepin.webp" },
+        { name: "Chessa", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Chessa.webp" },
+        { name: "Nicol", race: "BIJIN TANTEIDAN!!!", desc: "Ongoing", img: "/images/14Char/Bijin/Nicol.webp" }
       ]
     },
     {
       name: "Irohana",
       members: [
-        { name: "NPC 37", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 38", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 39", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 40", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 41", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 37", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 38", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 39", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 40", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 41", race: "Irohana", desc: "Ongoing", img: "/images/14Char/NPC.webp" }
       ]
     },
     {
       name: "Tsukaretachi",
       members: [
-        { name: "NPC 42", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 43", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 44", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" },
-        { name: "NPC 45", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.jpg" }
+        { name: "NPC 42", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 43", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 44", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.webp" },
+        { name: "NPC 45", race: "Tsukaretachi", desc: "Ongoing", img: "/images/14Char/NPC.webp" }
       ]
     }
   ];
@@ -281,7 +281,7 @@ function Gen14() {
       <div className="gen14-background-layer"></div>
 
       {isLoading ? (
-        <Gen14Loading onLoadingComplete={handleLoadingComplete} imageSrc="/images/Gen14Load.jpg" />
+        <Gen14Loading onLoadingComplete={handleLoadingComplete} imageSrc="/images/Gen14Load.webp" />
       ) : (
         <div className="gen14-content fade-in" style={montserratStyle}>
           <div className="gen14-welcome-section">
@@ -291,7 +291,7 @@ function Gen14() {
 
             <div className="gen14-intro-content">
               <div className="gen14-intro-image">
-                <img src="/images/jmusic-logo14.png" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
+                <img src="/images/jmusic-logo14.webp" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
               </div>
               <div className="gen14-intro-description">
                 <h3 className="gen14-intro-title" style={montserratStyle}>Welcome to Gen 14</h3>

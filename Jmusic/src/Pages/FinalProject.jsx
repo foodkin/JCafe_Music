@@ -15,7 +15,7 @@ const FinalProject = () => {
       title: "Gen 12",
       song: "Apa?",
       members: "Berapa?",
-      image: "/images/Comingsoon.jpg",
+      image: "/images/Comingsoon.webp",
       route: "/FinalGen12"
     },
     {
@@ -23,7 +23,7 @@ const FinalProject = () => {
       title: "Gen 13",
       song: "Apa?",
       members: "Berapa?",
-      image: "/images/Comingsoon.jpg",
+      image: "/images/Comingsoon.webp",
       route: "/FinalGen13"
     },
     {
@@ -31,7 +31,7 @@ const FinalProject = () => {
       title: "Gen 14",
       song: "Sins & Virtue",
       members: "52",
-      image: "/images/bg-gen14.jpg",
+      image: "/images/bg-gen14.webp",
       route: "/FinalGen14"
     },
     {
@@ -39,7 +39,7 @@ const FinalProject = () => {
       title: "Gen 15",
       song: "Alice ya?",
       members: "Berapa?",
-      image: "/images/Comingsoon.jpg",
+      image: "/images/Comingsoon.webp",
       route: "/FinalGen15"
     },
     {
@@ -47,7 +47,7 @@ const FinalProject = () => {
       title: "Project Title 5",
       song: "Song 5",
       members: "[Member P, Member Q, Member R, Member S]",
-      image: "/images/Comingsoon.jpg",
+      image: "/images/Comingsoon.webp",
       route: "/FinalGen16"
     },
     {
@@ -55,7 +55,7 @@ const FinalProject = () => {
       title: "Project Title 6",
       song: "Song 6",
       members: "[Member I, Member J, Member K, Member L]",
-      image: "/images/Comingsoon.jpg",
+      image: "/images/Comingsoon.webp",
       route: "/FinalGen17"
     },
     {
@@ -63,7 +63,7 @@ const FinalProject = () => {
       title: "Project Title 7",
       song: "Song 7",
       members: "[Member E, Member F, Member G, Member H]",
-      image: "/images/Comingsoon.jpg",
+      image: "/images/Comingsoon.webp",
       route: "/FinalGen18"
     }
   ];

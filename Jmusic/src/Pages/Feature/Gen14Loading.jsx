@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import './Gen14Loading.css';
 
-const Gen14Loading = ({ onLoadingComplete, imageSrc = '/images/Gen14Load.jpg' }) => {
+const Gen14Loading = ({ onLoadingComplete, imageSrc = '/images/Gen14Load.webp' }) => {
   const [loadingText, setLoadingText] = useState('Memuat JMusic...');
   const [isComplete, setIsComplete] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -20,7 +20,7 @@ const Gen14Loading = ({ onLoadingComplete, imageSrc = '/images/Gen14Load.jpg' })
   };
 
   const handleImageError = () => {
-    console.error('Failed to load image:', imageSrc);
+    console.error('Failed to load WebP image:', imageSrc);
     setImageLoaded(false);
   };
 

@@ -40,7 +40,8 @@ function Layout() {
 
       <div className="layout-container">
         <div className="layout-fixed-logo">
-          <img src="/images/jmusic-logo.png" alt="JMusic Logo" className="layout-logo-img" />
+          {/* ganti png -> webp */}
+          <img src="/images/jmusic-logo.webp" alt="JMusic Logo" className="layout-logo-img" />
         </div>
 
         <header>

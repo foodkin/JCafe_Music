@@ -172,7 +172,7 @@ const FinalGen14 = () => {
   return (
     <>
       {isLoading ? (
-        <Gen14Loading onLoadingComplete={handleLoadingComplete} imageSrc="/images/Gen14Load.jpg" />
+        <Gen14Loading onLoadingComplete={handleLoadingComplete} imageSrc="/images/Gen14Load.webp" />
       ) : (
         <>
           {/* Animated Background Layer */}
@@ -189,7 +189,7 @@ const FinalGen14 = () => {
                   Gen 14
                 </p>
                 <div className="gen14-intro-image">
-                  <img src="/images/jmusic-logo14.png" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
+                  <img src="/images/jmusic-logo14.webp" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
                 </div>
               </div>
             </div>

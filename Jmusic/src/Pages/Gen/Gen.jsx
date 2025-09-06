@@ -20,7 +20,7 @@ export default function Gen() {
         <Link to="/gen12" className="gen-banner">
           <div className="gen-image-wrapper">
             <img 
-              src="/images/gen12.png" 
+              src="/images/gen12.webp" 
               alt="Generation 12"
               onError={handleImageError}
               onLoad={handleImageLoad}
@@ -35,7 +35,7 @@ export default function Gen() {
         <Link to="/gen13" className="gen-banner">
           <div className="gen-image-wrapper">
             <img 
-              src="/images/gen13.png" 
+              src="/images/gen13.webp" 
               alt="Generation 13"
               onError={handleImageError}
               onLoad={handleImageLoad}
@@ -49,14 +49,14 @@ export default function Gen() {
 {/* Gen 14 */}
         <Link to="/gen14" className="gen-banner gen-banner--with-overflow">
           <img
-            src="/images/bg-gen14.jpg"
+            src="/images/bg-gen14.webp"
             alt="Background GEN 14"
             className="background-image"
           />
 
           <div className="gen-image-wrapper gen-image-wrapper--overflow">
             <img
-              src="/images/gen14.png"
+              src="/images/gen14.webp"
               alt="Overlay GEN 14"
               className="overlay-image"
               style={{
@@ -76,14 +76,14 @@ export default function Gen() {
 {/* Gen 15 */}
         <Link to="/gen15" className="gen-banner gen-banner--with-overflow">
           <img
-            src="/images/bg-gen15.jpg"
+            src="/images/bg-gen15.webp"
             alt="Background GEN 15"
             className="background-image"
           />
 
          <div className="gen-image-wrapper gen-image-wrapper--overflow">
             <img
-              src="/images/gen15.png"
+              src="/images/gen15.webp"
               alt="Overlay GEN 15"
               className="overlay-image overlay-image--overflow"
               onError={handleImageError}
@@ -99,7 +99,7 @@ export default function Gen() {
 {/* Coming Soon */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
-            {/* <img src="/images/comingsoon.png" alt="Coming Soon" /> */}
+            {/* <img src="/images/comingsoon.webp" alt="Coming Soon" /> */}
           </div>
           <div className="gen-box">
             <h2>COMING SOON</h2>
