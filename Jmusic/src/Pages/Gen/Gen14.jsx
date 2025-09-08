@@ -204,7 +204,7 @@ function Gen14() {
           style: { transform: "translateY(10px)", height: "160%" }
         },
         { 
-          name: "Komik", 
+          name: "Comik", 
           race: "Happyaku-ichi", 
           desc: "One of the Happyaku-ichi members", 
           img: "/images/14Char/Happyaku/KOMIK.webp",
