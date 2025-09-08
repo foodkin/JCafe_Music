@@ -189,10 +189,34 @@ function Gen14() {
     {
       name: "Happyaku-ichi",
       members: [
-        { name: "NPC 15", race: "Happyaku-ichi", desc: "One of the Happyaku-ichi members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 16", race: "Happyaku-ichi", desc: "One of the Happyaku-ichi members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 17", race: "Happyaku-ichi", desc: "One of the Happyaku-ichi members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 18", race: "Happyaku-ichi", desc: "One of the Happyaku-ichi members", img: "/images/14Char/NPC.webp" }
+        { 
+          name: "Gio", 
+          race: "Happyaku-ichi", 
+          desc: "One of the Happyaku-ichi members", 
+          img: "/images/14Char/Happyaku/GIO.webp",
+          style: { transform: "translateY(10px)", height: "160%" }
+        },
+        { 
+          name: "Klir", 
+          race: "Happyaku-ichi", 
+          desc: "One of the Happyaku-ichi members", 
+          img: "/images/14Char/Happyaku/KLIR.webp",
+          style: { transform: "translateY(10px)", height: "160%" }
+        },
+        { 
+          name: "Komik", 
+          race: "Happyaku-ichi", 
+          desc: "One of the Happyaku-ichi members", 
+          img: "/images/14Char/Happyaku/KOMIK.webp",
+          style: { transform: "translateY(10px)" }
+        },
+        { 
+          name: "Tito", 
+          race: "Happyaku-ichi", 
+          desc: "One of the Happyaku-ichi members", 
+          img: "/images/14Char/Happyaku/TITO.webp",
+          style: { transform: "translateY(10px)", height: "250%" }
+        }
       ]
     },
     {
@@ -383,7 +407,7 @@ function Gen14() {
                         onClick={() => handleMemberClick(member)}
                       >
                         <div className="gen14-member-image">
-                          <img src={member.img} alt={member.name} />
+                          <img src={member.img} alt={member.name} style={member.style} />
                         </div>
                         <div className="gen14-member-info">
                           <h4 className="gen14-member-name" style={montserratStyle}>{member.name}</h4>
