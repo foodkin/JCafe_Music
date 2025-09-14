@@ -1,5 +1,5 @@
-// Gen14.jsx
-import { useRef, useState } from 'react';
+// Gen14.jsx - Optimized Version
+import { useRef, useState, useMemo, useCallback } from 'react';
 import Gen14Loading from '../Feature/Gen14Loading';
 import '../CSS/Gen14.css';
 
@@ -7,17 +7,16 @@ function Gen14() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedMember, setSelectedMember] = useState(null);
-  // 👉 state baru buat full image modal
   const [fullImage, setFullImage] = useState(null);
   const carouselRef = useRef(null);
 
-  // Font style untuk Montserrat
-  const montserratStyle = {
+  // Memoized font style
+  const montserratStyle = useMemo(() => ({
     fontFamily: 'Montserrat, sans-serif'
-  };
+  }), []);
 
-  // BPH Character List
-  const characterList = [
+  // Memoized character list untuk menghindari re-creation setiap render
+  const characterList = useMemo(() => [
     {
       id: 0,
       name: 'Bathory',
@@ -153,10 +152,10 @@ function Gen14() {
       ),
       img: '/images/14Char/Pito.webp'
     }
-  ];
+  ], []);
 
-  // Member Teams Data (Tanpa subname)
-  const memberTeams = [
+  // Memoized member teams data
+  const memberTeams = useMemo(() => [
     {
       name: "Youth at 08:00",
       members: [
@@ -170,11 +169,11 @@ function Gen14() {
     {
       name: "Kurukurumawaru",
       members: [
-        { name: "NPC 6", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 7", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 8", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 9", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 10", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/NPC.webp" }
+        { name: "Isabelle", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/Kuru/Isabelle.webp" },
+        { name: "Jess", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/Kuru/Jess.webp" },
+        { name: "Kevin", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/Kuru/Kevin.webp" },
+        { name: "Nana", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/Kuru/Nana.webp" },
+        { name: "Rafa", race: "Kurukurumawaru", desc: "One of the Kurukurumawaru members", img: "/images/14Char/Kuru/Rafa.webp" }
       ]
     },
     {
@@ -282,29 +281,38 @@ function Gen14() {
         { name: "Ren", race: "Tsukaretachi", desc: "One of the Tsukaretachi members", img: "/images/14Char/Tsukaretachi/Ren.webp" }
       ]
     }
-  ];
+  ], []);
 
-  const handleLoadingComplete = () => setIsLoading(false);
+  // Callback functions dengan useCallback untuk menghindari re-creation
+  const handleLoadingComplete = useCallback(() => setIsLoading(false), []);
 
-  const handleScroll = (direction) => {
+  const handleScroll = useCallback((direction) => {
     setActiveIndex(prev =>
       direction === 'left'
         ? (prev === 0 ? characterList.length - 1 : prev - 1)
         : (prev === characterList.length - 1 ? 0 : prev + 1)
     );
-  };
+  }, [characterList.length]);
 
-  const getVisibleCharacters = () => {
+  // Memoized visible characters calculation
+  const visibleCharacters = useMemo(() => {
     const visible = [];
     for (let i = -1; i <= 1; i++) {
       let index = (activeIndex + i + characterList.length) % characterList.length;
       visible.push({ ...characterList[index], originalIndex: index });
     }
     return visible;
-  };
+  }, [activeIndex, characterList]);
 
-  const handleMemberClick = (member) => setSelectedMember(member);
-  const handleCloseModal = () => setSelectedMember(null);
+  const handleMemberClick = useCallback((member) => setSelectedMember(member), []);
+  const handleCloseModal = useCallback(() => setSelectedMember(null), []);
+
+  // Callback untuk full image
+  const handleImageClick = useCallback((imgSrc) => setFullImage(imgSrc), []);
+  const handleCloseFullImage = useCallback(() => setFullImage(null), []);
+
+  // Current character memoized
+  const currentCharacter = useMemo(() => characterList[activeIndex], [characterList, activeIndex]);
 
   return (
     <>
@@ -319,15 +327,15 @@ function Gen14() {
             <p className="gen14-subtitle" style={montserratStyle}>J Cafe Music Gen 14</p>
           </div>
 
-            <div className="gen14-intro-content">
-              <div className="gen14-intro-image">
-                <img src="/images/jmusic-logo14.webp" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
-              </div>
-              <div className="gen14-intro-description">
-                <h3 className="gen14-intro-title" style={montserratStyle}>Welcome to Gen 14</h3>
-                <p className="gen14-intro-text" style={montserratStyle}>We are the 14th Generation JCAFE Music Club, part of JCAFE UMN, where we create music covers and share the joy of singing Japanese songs! Active in 2024–2025, our generation carries the theme Sins and Virtue (because our BPH is just too chuunibyou).</p>
-              </div>
+          <div className="gen14-intro-content">
+            <div className="gen14-intro-image">
+              <img src="/images/jmusic-logo14.webp" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
             </div>
+            <div className="gen14-intro-description">
+              <h3 className="gen14-intro-title" style={montserratStyle}>Welcome to Gen 14</h3>
+              <p className="gen14-intro-text" style={montserratStyle}>We are the 14th Generation JCAFE Music Club, part of JCAFE UMN, where we create music covers and share the joy of singing Japanese songs! Active in 2024–2025, our generation carries the theme Sins and Virtue (because our BPH is just too chuunibyou).</p>
+            </div>
+          </div>
 
           <div className="gen14-bph-section">
             <div className="gen14-bph-line"></div>
@@ -340,10 +348,10 @@ function Gen14() {
             <div className="gen14-character-main">
               <div className="gen14-character-image-container">
                 <img
-                  src={characterList[activeIndex].img}
-                  alt={characterList[activeIndex].name}
+                  src={currentCharacter.img}
+                  alt={currentCharacter.name}
                   className="gen14-character-main-image"
-                  onClick={() => setFullImage(characterList[activeIndex].img)}
+                  onClick={() => handleImageClick(currentCharacter.img)}
                   style={{ cursor: "zoom-in" }}
                 />
               </div>
@@ -351,14 +359,14 @@ function Gen14() {
               <div className="gen14-character-details-wrapper">
                 <div className="gen14-character-details">
                   <div className="gen14-character-info">
-                    <h2 className="gen14-character-name" style={montserratStyle}>{characterList[activeIndex].name}</h2>
+                    <h2 className="gen14-character-name" style={montserratStyle}>{currentCharacter.name}</h2>
                     <p
                       className="gen14-character-role"
-                      style={{ color: characterList[activeIndex].roleColor, ...montserratStyle }}
+                      style={{ color: currentCharacter.roleColor, ...montserratStyle }}
                     >
-                      {characterList[activeIndex].role}
+                      {currentCharacter.role}
                     </p>
-                    <p className="gen14-character-description" style={montserratStyle}>{characterList[activeIndex].desc}</p>
+                    <p className="gen14-character-description" style={montserratStyle}>{currentCharacter.desc}</p>
                   </div>
                 </div>
 
@@ -366,7 +374,7 @@ function Gen14() {
                   <button className="gen14-carousel-button" onClick={() => handleScroll('left')}>‹</button>
                   <div className="gen14-carousel-scroll" ref={carouselRef}>
                     <div className="gen14-carousel">
-                      {getVisibleCharacters().map((char, i) => (
+                      {visibleCharacters.map((char, i) => (
                         <div
                           key={`${char.originalIndex}-${i}`}
                           className={`gen14-character-thumb ${char.originalIndex === activeIndex ? 'active' : ''}`}
@@ -377,7 +385,7 @@ function Gen14() {
                             alt={char.name}
                             onClick={(e) => {
                               e.stopPropagation();
-                              setFullImage(char.img);
+                              handleImageClick(char.img);
                             }}
                             style={{ cursor: "zoom-in" }}
                           />
@@ -433,11 +441,10 @@ function Gen14() {
                 <button className="gen14-modal-close" onClick={handleCloseModal}>×</button>
                 <div className="gen14-modal-member">
                   <div className="gen14-modal-image">
-                  
                     <img
                       src={selectedMember.img}
                       alt={selectedMember.name}
-                      onClick={() => setFullImage(selectedMember.img)}
+                      onClick={() => handleImageClick(selectedMember.img)}
                       style={{ cursor: 'zoom-in' }}
                     />
                   </div>
@@ -452,7 +459,7 @@ function Gen14() {
           )}
 
           {fullImage && (
-            <div className="gen14-image-overlay" onClick={() => setFullImage(null)}>
+            <div className="gen14-image-overlay" onClick={handleCloseFullImage}>
               <span className="gen14-image-close">×</span>
               <img className="gen14-image-full" src={fullImage} alt="Full View" />
             </div>

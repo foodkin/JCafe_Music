@@ -1,20 +1,26 @@
+import { useMemo, useCallback } from "react";
 import "./Gen.css";
 import GenLayout from "./GenLayout";
 
 export default function GenPage2() {
-  const handleImageError = (e) => {
-    console.log(`Image failed to load: ${e.target.src}`);
-  };
+  const layoutProps = useMemo(() => ({
+    currentPage: 2,
+    totalPages: 2
+  }), []);
 
-  const handleImageLoad = (e) => {
+  const handleImageError = useCallback((e) => {
+    console.log(`Image failed to load: ${e.target.src}`);
+  }, []);
+
+  const handleImageLoad = useCallback((e) => {
     console.log(`Image loaded successfully: ${e.target.src}`);
-  };
+  }, []);
 
   return (
     <div className="gen-container">
       <h1 className="gen-title">GENERATIONS</h1>
       <div className="gen-section">
-        {/* 5 kotak Coming Soon */}
+        {/* Coming Soon 1 */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
             {/* <img 
@@ -29,6 +35,7 @@ export default function GenPage2() {
           </div>
         </div>
 
+        {/* Coming Soon 2 */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
             {/* <img 
@@ -43,6 +50,7 @@ export default function GenPage2() {
           </div>
         </div>
 
+        {/* Coming Soon 3 */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
             {/* <img 
@@ -57,6 +65,7 @@ export default function GenPage2() {
           </div>
         </div>
 
+        {/* Coming Soon 4 */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
             {/* <img 
@@ -71,6 +80,7 @@ export default function GenPage2() {
           </div>
         </div>
 
+        {/* Coming Soon 5 */}
         <div className="gen-banner">
           <div className="gen-image-wrapper">
             {/* <img 
@@ -86,7 +96,7 @@ export default function GenPage2() {
         </div>
       </div>
 
-      <GenLayout currentPage={2} totalPages={2} />
+      <GenLayout {...layoutProps} />
     </div>
   );
 }

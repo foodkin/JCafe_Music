@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './FinalProject.css'; // file CSS di folder yang sama
 
@@ -9,7 +9,7 @@ const FinalProject = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const navigate = useNavigate();
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: "Gen 12",
@@ -66,9 +66,11 @@ const FinalProject = () => {
       image: "/images/Comingsoon.webp",
       route: "/FinalGen18"
     }
-  ];
+  ], []);
 
-  const nextSlide = () => {
+  const currentProject = useMemo(() => projects[currentSlide], [projects, currentSlide]);
+
+  const nextSlide = useCallback(() => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setTimeout(() => {
@@ -76,9 +78,9 @@ const FinalProject = () => {
         setIsTransitioning(false);
       }, 300);
     }
-  };
+  }, [isTransitioning, projects.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setTimeout(() => {
@@ -86,9 +88,9 @@ const FinalProject = () => {
         setIsTransitioning(false);
       }, 300);
     }
-  };
+  }, [isTransitioning, projects.length]);
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     if (!isTransitioning && index !== currentSlide) {
       setIsTransitioning(true);
       setTimeout(() => {
@@ -96,19 +98,19 @@ const FinalProject = () => {
         setIsTransitioning(false);
       }, 300);
     }
-  };
+  }, [isTransitioning, currentSlide]);
 
-  const navigateToProject = (index) => {
+  const navigateToProject = useCallback((index) => {
     if (index < projects.length) {
       navigate(projects[index].route);
     }
-  };
+  }, [navigate, projects]);
 
-  const handleEllipsisClick = () => {
+  const handleEllipsisClick = useCallback(() => {
     setShowPageInput(true);
-  };
+  }, []);
 
-  const handlePageInputSubmit = (e) => {
+  const handlePageInputSubmit = useCallback((e) => {
     e.preventDefault();
     const pageNumber = parseInt(pageInputValue);
     if (pageNumber >= 1 && pageNumber <= projects.length) {
@@ -116,14 +118,22 @@ const FinalProject = () => {
     }
     setShowPageInput(false);
     setPageInputValue('');
-  };
+  }, [pageInputValue, projects.length, goToSlide]);
 
-  const handlePageInputCancel = () => {
+  const handlePageInputCancel = useCallback(() => {
     setShowPageInput(false);
     setPageInputValue('');
-  };
+  }, []);
 
-  const getPaginationRange = () => {
+  const handlePageInputChange = useCallback((e) => {
+    setPageInputValue(e.target.value);
+  }, []);
+
+  const handleImageClick = useCallback(() => {
+    navigateToProject(currentSlide);
+  }, [navigateToProject, currentSlide]);
+
+  const getPaginationRange = useCallback(() => {
     const total = projects.length;
     const current = currentSlide;
 
@@ -140,12 +150,12 @@ const FinalProject = () => {
     }
 
     return ['ellipsis', current - 1, current, current + 1, 'ellipsis'];
-  };
+  }, [projects.length, currentSlide]);
 
-  const renderPaginationDots = () => {
-    const range = getPaginationRange();
-    
-    return range.map((item, index) => {
+  const paginationRange = useMemo(() => getPaginationRange(), [getPaginationRange]);
+
+  const renderPaginationDots = useCallback(() => {
+    return paginationRange.map((item, index) => {
       if (item === 'ellipsis') {
         return (
           <div key={`ellipsis-${index}`} className="pagination-ellipsis">
@@ -154,7 +164,7 @@ const FinalProject = () => {
                 <input
                   type="number"
                   value={pageInputValue}
-                  onChange={(e) => setPageInputValue(e.target.value)}
+                  onChange={handlePageInputChange}
                   onBlur={handlePageInputCancel}
                   autoFocus
                   min="1"
@@ -185,7 +195,22 @@ const FinalProject = () => {
         </button>
       );
     });
-  };
+  }, [paginationRange, showPageInput, handlePageInputSubmit, pageInputValue, handlePageInputChange, handlePageInputCancel, projects.length, handleEllipsisClick, currentSlide, goToSlide]);
+
+  const navLeftClass = useMemo(() => 
+    `nav-button nav-left ${isTransitioning ? 'disabled' : ''}`, 
+    [isTransitioning]
+  );
+
+  const navRightClass = useMemo(() => 
+    `nav-button nav-right ${isTransitioning ? 'disabled' : ''}`, 
+    [isTransitioning]
+  );
+
+  const imageStackClass = useMemo(() => 
+    `image-stack ${isTransitioning ? 'transitioning' : ''}`, 
+    [isTransitioning]
+  );
 
   return (
     <div className="final-project-container">
@@ -199,7 +224,7 @@ const FinalProject = () => {
       <div className="project-header">
         <div className="header-line left-line"></div>
         <h2 className="project-title-header">
-          {projects[currentSlide].title}
+          {currentProject.title}
         </h2>
         <div className="header-line right-line"></div>
       </div>
@@ -209,7 +234,7 @@ const FinalProject = () => {
         <div className="slider-content">
           {/* Left Navigation Button */}
           <button 
-            className={`nav-button nav-left ${isTransitioning ? 'disabled' : ''}`} 
+            className={navLeftClass} 
             onClick={prevSlide}
             disabled={isTransitioning}
           >
@@ -218,7 +243,7 @@ const FinalProject = () => {
 
           {/* Image Stack Container */}
           <div className="image-stack-container">
-            <div className={`image-stack ${isTransitioning ? 'transitioning' : ''}`}>
+            <div className={imageStackClass}>
               {/* Background shadow cards */}
               <div className="shadow-card shadow-card-2"></div>
               <div className="shadow-card shadow-card-1"></div>
@@ -226,10 +251,10 @@ const FinalProject = () => {
               {/* Main image card */}
               <div className="main-card">
                 <img
-                  src={projects[currentSlide].image}
-                  alt={projects[currentSlide].title}
+                  src={currentProject.image}
+                  alt={currentProject.title}
                   className="project-image"
-                  onClick={() => navigateToProject(currentSlide)}
+                  onClick={handleImageClick}
                 />
               </div>
             </div>
@@ -237,7 +262,7 @@ const FinalProject = () => {
 
           {/* Right Navigation Button */}
           <button 
-            className={`nav-button nav-right ${isTransitioning ? 'disabled' : ''}`} 
+            className={navRightClass} 
             onClick={nextSlide}
             disabled={isTransitioning}
           >
@@ -250,11 +275,11 @@ const FinalProject = () => {
       <div className="project-info-tooltip">
         <div className="info-item">
           <span className="info-label">Theme</span>
-          <span className="info-value">{projects[currentSlide].song}</span>
+          <span className="info-value">{currentProject.song}</span>
         </div>
         <div className="info-item">
           <span className="info-label">Members</span>
-          <span className="info-value">{projects[currentSlide].members}</span>
+          <span className="info-value">{currentProject.members}</span>
         </div>
       </div>
 

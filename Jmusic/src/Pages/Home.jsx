@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import './Home.css';
 
 const WhatWeDoSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const activities = [
+  const activities = useMemo(() => [
     {
       id: 1,
       title: "WEEKLY KARAOKE",
@@ -33,28 +33,34 @@ const WhatWeDoSlider = () => {
       description: "A celebration of our members' dedication and creativity throughout the semester, presented through MV covers and exciting collaborations.",
       image: "/images/Final.webp"
     }
-  ];
+  ], []);
 
-  const nextSlide = () => {
+  const currentActivity = useMemo(() => activities[currentSlide], [activities, currentSlide]);
+
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % activities.length);
-  };
+  }, [activities.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + activities.length) % activities.length);
-  };
+  }, [activities.length]);
+
+  const montserratStyle = useMemo(() => ({
+    fontFamily: "'Montserrat', sans-serif"
+  }), []);
 
   return (
     <div className="what-we-do-slider">
       <div className="slider-container">
         <div className="slide-wrapper">
           <div className="slide-image">
-            <img src={activities[currentSlide].image} alt={activities[currentSlide].title} />
+            <img src={currentActivity.image} alt={currentActivity.title} />
           </div>
           <div className="slide-overlay">
-            <div className="slide-content" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              <h3 className="slide-title">{activities[currentSlide].title}</h3>
-              <p className="slide-subtitle">{activities[currentSlide].subtitle}</p>
-              <p className="slide-description">{activities[currentSlide].description}</p>
+            <div className="slide-content" style={montserratStyle}>
+              <h3 className="slide-title">{currentActivity.title}</h3>
+              <p className="slide-subtitle">{currentActivity.subtitle}</p>
+              <p className="slide-description">{currentActivity.description}</p>
             </div>
           </div>
           <button className="nav-arrow next" onClick={nextSlide}>
@@ -81,12 +87,57 @@ const YouTubePlayer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showTitle, setShowTitle] = useState(true);
 
-  const videos = [
+  const videos = useMemo(() => [
     { id: "oUxpK0WnOEU", title: "【オトノナルホウへ→ // Oto no naru hou e→】 Cover by Nijisetsu (BPH Gen 13)" },
     { id: "H08xfaJnYrQ", title: "BPH Gen 14" },
-  ];
+  ], []);
 
-  const channelUrl = "https://youtube.com/@jcafemusic?si=tkCJbhX4HPMftVJm";
+  const channelUrl = useMemo(() => "https://youtube.com/@jcafemusic?si=tkCJbhX4HPMftVJm", []);
+
+  const currentVideo = useMemo(() => videos[currentVideoIndex], [videos, currentVideoIndex]);
+
+  const handleVideoEnd = useCallback(() => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  }, [videos.length]);
+
+  const handlePlayerReady = useCallback((event) => {
+    setIsPlayerReady(true);
+    setIsLoading(false);
+    playerRef.current = event.target;
+  }, []);
+
+  const toggleMute = useCallback(() => {
+    if (playerRef.current) {
+      if (isMuted) {
+        playerRef.current.unMute();
+        setIsMuted(false);
+      } else {
+        playerRef.current.mute();
+        setIsMuted(true);
+      }
+    }
+  }, [isMuted]);
+
+  const handleChannelClick = useCallback(() => {
+    window.open(channelUrl, '_blank', 'noopener,noreferrer');
+  }, [channelUrl]);
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.stopPropagation();
+      handleChannelClick();
+    }
+  }, [handleChannelClick]);
+
+  const handleMuteClick = useCallback((e) => {
+    e.stopPropagation();
+    toggleMute();
+  }, [toggleMute]);
+
+  const handleChannelButtonClick = useCallback((e) => {
+    e.stopPropagation();
+    handleChannelClick();
+  }, [handleChannelClick]);
 
   useEffect(() => {
     const tag = document.createElement('script');
@@ -98,7 +149,7 @@ const YouTubePlayer = () => {
       const player = new window.YT.Player('youtube-player', {
         height: '500',
         width: '100%',
-        videoId: videos[currentVideoIndex].id,
+        videoId: currentVideo.id,
         playerVars: {
           autoplay: 1,
           mute: 1,
@@ -112,14 +163,10 @@ const YouTubePlayer = () => {
           playsinline: 1
         },
         events: {
-          onReady: (event) => {
-            setIsPlayerReady(true);
-            setIsLoading(false);
-            playerRef.current = event.target;
-          },
+          onReady: handlePlayerReady,
           onStateChange: (event) => {
             if (event.data === window.YT.PlayerState.ENDED) {
-              setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+              handleVideoEnd();
             }
           }
         }
@@ -136,10 +183,10 @@ const YouTubePlayer = () => {
   useEffect(() => {
     if (isPlayerReady && playerRef.current) {
       setIsLoading(true);
-      playerRef.current.loadVideoById(videos[currentVideoIndex].id);
+      playerRef.current.loadVideoById(currentVideo.id);
       setTimeout(() => setIsLoading(false), 1000);
     }
-  }, [currentVideoIndex, isPlayerReady]);
+  }, [currentVideoIndex, isPlayerReady, currentVideo.id]);
 
   useEffect(() => {
     setShowTitle(true);
@@ -149,44 +196,20 @@ const YouTubePlayer = () => {
     return () => clearTimeout(timer);
   }, [currentVideoIndex]);
 
-  const toggleMute = () => {
-    if (playerRef.current) {
-      if (isMuted) {
-        playerRef.current.unMute();
-        setIsMuted(false);
-      } else {
-        playerRef.current.mute();
-        setIsMuted(true);
-      }
-    }
-  };
-
-  const handleChannelClick = () => {
-    window.open(channelUrl, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <div className="youtube-showcase-container">
       <div 
         className={`youtube-main-player ${isLoading ? 'loading' : 'loaded'}`}
         role="button"
         tabIndex="0"
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.stopPropagation();
-            handleChannelClick();
-          }
-        }}
+        onKeyDown={handleKeyDown}
         aria-label="Click to visit J-Music YouTube channel"
       >
         <div id="youtube-player"></div>
 
         {/* Mute/Unmute Button */}
         <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleMute();
-          }}
+          onClick={handleMuteClick}
           className="mute-button"
           aria-label={isMuted ? "Unmute video" : "Mute video"}
         >
@@ -206,10 +229,7 @@ const YouTubePlayer = () => {
 
         {/* Channel Link Button */}
         <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            handleChannelClick();
-          }}
+          onClick={handleChannelButtonClick}
           className="channel-button"
           aria-label="Visit J-Music YouTube channel"
         >
@@ -223,7 +243,7 @@ const YouTubePlayer = () => {
         {showTitle && (
           <div className="video-overlay">
             <div className="video-info">
-              <h4 className="video-title">{videos[currentVideoIndex].title}</h4>
+              <h4 className="video-title">{currentVideo.title}</h4>
             </div>
           </div>
         )}
@@ -235,36 +255,60 @@ const YouTubePlayer = () => {
 const Home = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  const showcaseImages = [
+  const showcaseImages = useMemo(() => [
     { src: 'images/showcase1.webp', title: 'Gen 13 Bonding' },
     { src: 'images/showcase2.webp', title: 'Gen 14 Bonding' },
     { src: 'images/showcase3.webp', title: 'Istri Bendahara Gen 14' },
     { src: 'images/showcase4.webp', title: 'Istri Bendahara Gen 14' }
-  ];
+  ], []);
+
+  const currentShowcaseImage = useMemo(() => showcaseImages[activeImageIndex], [showcaseImages, activeImageIndex]);
+
+  const montserratStyle = useMemo(() => ({
+    fontFamily: "'Montserrat', sans-serif"
+  }), []);
+
+  const romauntStyle = useMemo(() => ({
+    fontFamily: 'Romaunt Gaolines',
+    fontWeight: 300
+  }), []);
+
+  const welcomeSubtitleStyle = useMemo(() => ({
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 300
+  }), []);
+
+  const handlePrevImage = useCallback(() => {
+    setActiveImageIndex((activeImageIndex - 1 + showcaseImages.length) % showcaseImages.length);
+  }, [activeImageIndex, showcaseImages.length]);
+
+  const handleNextImage = useCallback(() => {
+    setActiveImageIndex((activeImageIndex + 1) % showcaseImages.length);
+  }, [activeImageIndex, showcaseImages.length]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveImageIndex((prev) => (prev + 1) % showcaseImages.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [showcaseImages.length]);
 
   return (
     <div className="home-container">
       <section className="hero-image-section">
         <img
-          src={showcaseImages[activeImageIndex].src}
-          alt={showcaseImages[activeImageIndex].title}
+          src={currentShowcaseImage.src}
+          alt={currentShowcaseImage.title}
           className="hero-main-image"
         />
 
         <section className="welcome-section">
           <div className="welcome-content">
             <div className="welcome-box">
-              <h1 className="hero-subtitle" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
+              <h1 className="hero-subtitle" style={welcomeSubtitleStyle}>
                 - Welcome to -
               </h1>
-              <p className="hero-title" style={{ fontFamily: 'Romaunt Gaolines', fontWeight: 300 }}>
+              <p className="hero-title" style={romauntStyle}>
                 J-Music
               </p>
             </div>
@@ -272,13 +316,13 @@ const Home = () => {
         </section>
 
         <div className="arrow-navigation">
-          <button onClick={() => setActiveImageIndex((activeImageIndex - 1 + showcaseImages.length) % showcaseImages.length)}>◀</button>
+          <button onClick={handlePrevImage}>◀</button>
           <span>{activeImageIndex + 1} / {showcaseImages.length}</span>
-          <button onClick={() => setActiveImageIndex((activeImageIndex + 1) % showcaseImages.length)}>▶</button>
+          <button onClick={handleNextImage}>▶</button>
         </div>
       </section>
 
-      <div className="content-box" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <div className="content-box" style={montserratStyle}>
         <section className="jmusic-intro-section">
           <div className="jmusic-intro-content">
             <div className="jmusic-intro-image">
@@ -296,14 +340,14 @@ const Home = () => {
         </section>
       </div>
 
-      <div className="content-box" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <div className="content-box" style={montserratStyle}>
         <section className="what-we-do-section">
           <h2 className="what-we-do-title">WHAT WE DO</h2>
           <WhatWeDoSlider />
         </section>
       </div>
 
-      <div className="youtube-section-container" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <div className="youtube-section-container" style={montserratStyle}>
         <section className="youtube-section">
           <h2 className="youtube-section-title">YOUTUBE</h2>
           <YouTubePlayer />
