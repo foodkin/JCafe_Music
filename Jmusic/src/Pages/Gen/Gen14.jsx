@@ -232,11 +232,17 @@ function Gen14() {
     {
       name: "Tsuki No Usagi",
       members: [
-        { name: "NPC 24", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 25", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 26", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 27", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 28", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/NPC.webp" }
+        { name: "Ang", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/Tsuki/Ang.webp" },
+        { name: "Daniel Yurusen", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/Tsuki/Daniel.webp" },
+        { 
+          name: "Kaka Yurusu", 
+          race: "Tsuki No Usagi", 
+          desc: "One of the Tsuki No Usagi members", 
+          img: "/images/14Char/Tsuki/kaka.webp",
+          style: { transform: "translateY(0px)"}
+        },
+        { name: "Michelle", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/Tsuki/michelle.webp" },
+        { name: "Xel Kawaii Kowai", race: "Tsuki No Usagi", desc: "One of the Tsuki No Usagi members", img: "/images/14Char/Tsuki/xel.webp" }
       ]
     },
     {

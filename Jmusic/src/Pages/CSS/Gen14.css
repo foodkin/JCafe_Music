@@ -1279,7 +1279,7 @@
   min-height: 100%;       /* pastikan tetap nutup container */
   object-fit: cover;
   object-position: top;   /* bisa diganti top, center, bottom, atau 0% 70% */
-  transform: translateY(10px); /* geser turun manual */
+  transform: translateY(0px); /* geser turun manual */
 }
 
 .gen14-modal-name {
