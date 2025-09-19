@@ -247,10 +247,10 @@ function Gen14() {
     {
       name: "Youfuu Kanon",
       members: [
-        { name: "NPC 29", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 30", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 31", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/NPC.webp" },
-        { name: "NPC 32", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/NPC.webp" }
+        { name: "Jia", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/Youfuu/Jia.webp" },
+        { name: "Eleonora", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/Youfuu/Eleonora.webp" },
+        { name: "Akmal", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/Youfuu/Akmal.webp" },
+        { name: "Mario", race: "Youfuu Kanon", desc: "One of the Youfuu Kanon members", img: "/images/14Char/Youfuu/Mario.webp" }
       ]
     },
     {
