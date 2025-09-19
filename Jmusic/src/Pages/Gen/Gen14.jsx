@@ -21,8 +21,19 @@ function Gen14() {
       id: 0,
       name: 'Bathory',
       role: 'Leader',
-      roleColor: '#FFD700',
-      desc: 'Ketua Jmusic.',
+      roleColor: '#FEDCBD',
+      desc: (
+        <>
+          Once feared as a symbol of blasphemy and imbalance, Bathory was cast as a scapegoat by mortals and demonized by both Heaven and Hell.
+          <span style={{ color: '#FEDCBD', fontWeight: 'bold' }}>
+            In truth, Baphomet embodied duality light and dark, chaos and order and was never meant to be a force of destruction.
+          </span>{' '}
+          Centuries of exile left her bitter, yet still bound to her role as guardian of balance.
+          When humanity's whimsy began to fracture under endless obstacles, Bathory emerged from obscurity, torn between resentment toward those who condemned her and a duty to restore equilibrium.
+          Confronted with mortal compassion and divine hostility alike, Bathory’s journey shifted from vengeance to reconciliation.
+          No longer content to be a misunderstood figure of fear, it sought redemption not by rejecting her nature, but by embracing its purpose as a bridge between extremes.
+        </>
+      ),
       img: '/images/14Char/Nadine.webp'
     },
     {
@@ -116,8 +127,8 @@ function Gen14() {
       id: 6,
       name: 'Moppo',
       role: 'Logistic',
-      roleColor: '#FFA500',
-      desc: 'Perlengkapan Jmusic.',
+      roleColor: '#FFCC33',
+      desc: 'just a normal guy that always ready for any promblems.',
       img: '/images/14Char/Gwendy.webp'
     },
     {

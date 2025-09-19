@@ -867,7 +867,7 @@
 
 /* BPH Section Styles */
 .gen14-bph-section {
-  max-width: 1200px;
+  max-width: 2000px;
   margin: 4rem auto 6rem auto;
   padding: 0 2rem;
   position: relative;
@@ -880,68 +880,23 @@
 .gen14-bph-line {
   flex: 1;
   height: 3px;
-  background: linear-gradient(90deg, 
-    transparent 0%,
-    rgba(220, 53, 69, 0.4) 15%,
-    rgba(220, 53, 69, 0.9) 30%,
-    #dc3545 50%,
-    rgba(220, 53, 69, 0.9) 70%,
-    rgba(220, 53, 69, 0.4) 85%,
+  background: linear-gradient(
+    rgba(220, 53, 69, 0.3) 15%,  
+    rgba(220, 53, 69, 0.8) 30%,   
+    #ff2e44 50%,                  
+    rgba(220, 53, 69, 0.8) 70%,  
+    rgba(220, 53, 69, 0.3) 85%,   
     transparent 100%
   );
   position: relative;
-  box-shadow: 
-    0 0 10px rgba(220, 53, 69, 0.6),
-    0 0 20px rgba(220, 53, 69, 0.3);
-}
-
-.gen14-bph-line::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: 0;
-  right: 0;
-  height: 7px;
-  background: linear-gradient(90deg, 
-    transparent 0%,
-    rgba(83, 52, 131, 0.3) 15%,
-    rgba(83, 52, 131, 0.7) 30%,
-    #533483 50%,
-    rgba(83, 52, 131, 0.7) 70%,
-    rgba(83, 52, 131, 0.3) 85%,
-    transparent 100%
-  );
-  filter: blur(3px);
-  opacity: 0.8;
 }
 
 .gen14-bph-title {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   text-transform: uppercase;
   padding: 0 2rem;
-  white-space: nowrap;
   position: relative;
-
-  background: linear-gradient(45deg, 
-    #ffffff 0%, 
-    #dc3545 25%, 
-    #533483 50%, 
-    #ffffff 75%, 
-    #dc3545 100%);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  animation: fadeInUp 2s ease-out, neonFlicker 2s ease-in-out infinite;
-
-  text-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.5),
-    0 0 20px rgba(220, 53, 69, 0.7),
-    0 0 30px rgba(83, 52, 131, 0.5),
-    0 4px 15px rgba(0, 0, 0, 0.8);
+  animation: neonFlicker 1s ease-in-out infinite;
 }
 
 /* Responsive Design untuk BPH Section */
