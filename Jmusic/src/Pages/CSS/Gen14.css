@@ -1,1410 +1,747 @@
-/* Gen14.css - Independent background styling with improved responsive design */
-.gen14-background-layer {
+/* Variables for easy color management */
+:root {
+  --background-dark: #1A1A2E;
+  --primary-color: #6C5CE7;
+  --secondary-color: #00BCD4;
+  --text-light: #EBEBEB;
+  --text-mid: #A9A9B0;
+  --card-background: #232943;
+  --box-shadow-light: rgba(0, 0, 0, 0.5);
+  --box-shadow-heavy: rgba(0, 0, 0, 0.8);
+  --border-color-light: rgba(108, 92, 231, 0.4); 
+  --border-color-strong: rgba(108, 92, 231, 0.6); 
+
+  /* Warna BPH Showcase */
+  --char-bg-showcase: rgba(35, 41, 67, 0.7);
+  --char-text-main: var(--text-light); 
+  --char-text-secondary: var(--text-mid); 
+  --char-active-thumb-border: #FFD700;
+  --char-button-bg: var(--primary-color); 
+  --char-button-hover: var(--secondary-color); 
+
+  /* Role Colors */
+  --role-bathory: #FEDCBD;
+  --role-sai: #9E70CE;
+  --role-yuzu: #A0A0A0; 
+  --role-renmixe: #5D3A9B;
+  --role-chess: #D82020;
+  --role-sakura: #FFD1E1;
+  --role-moppo: #FFCC33;
+  --role-gabrielle: #ddb884;
+  --role-mephisto: #ac1f0e;
+}
+
+/* Background wrapper untuk Gen14 - mirip dengan body di layout.css */
+.gen14-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  z-index: 0;
+}
+
+.gen14-wrapper::before {
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, 
-    #1a1a2e 0%, #16213e 25%, #0f3460 50%);
-  background-attachment: fixed;
-  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-dark);
+  z-index: -1;
   pointer-events: none;
-  overflow: hidden; /* Supaya ::before tidak bocor keluar */
 }
 
-/* efek glowing/particle bergerak */
-.gen14-background-layer::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at 40% 60%, rgba(220, 53, 69, 0.1) 2px, transparent 2px);
-  background-size: 100px 100px, 150px 150px, 200px 200px;
-  animation: float 20s infinite linear;
-  pointer-events: none;
-  z-index: 0;
+.gen14-background-layer {
+  display: none;
 }
 
-/* Fade in animation */
-.fade-in {
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animasi partikel melayang */
-@keyframes float {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(25%, 25%);
-  }
-}
-
-/* Content styling */
 .gen14-content {
   position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+  margin: 0;
+  text-align: center;
+  color: var(--text-light); 
+  font-family: 'Montserrat', sans-serif;
+  background: none;
+  box-sizing: border-box;
   z-index: 1;
-  padding-top: 10vh;
-  text-align: center;
-  color: white;
 }
 
-.gen14-content h1,
-.gen14-welcome-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 2px;
-  background: linear-gradient(45deg, #ffffff, #350183, #51005c);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.gen14-subtitle {
-  font-size: clamp(1.2rem, 4vw, 2rem);
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: 
-    0 0 15px rgba(220, 53, 69, 0.6),
-    0 4px 8px rgba(0, 0, 0, 0.3);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-/* Additional styling for welcome section */
 /* Welcome Section */
 .gen14-welcome-section {
   text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
+  margin-bottom: 60px;
 }
 
-.gen14-welcome-section h1,
-.gen14-welcome-section p {
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
+.gen14-welcome-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
 }
 
-/* Character Showcase Container */
-.gen14-character-showcase {
-  max-width: 1200px;
-  margin: 3rem auto;
-  padding: 0 2rem;
-}
-
-/* Main Character Display */
-.gen14-character-main {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  min-height: 65vh;
-  background: transparent;
-  border-radius: 0;
-  padding: 2rem;
-  border: none;
-}
-
-/* Character Image Container */
-.gen14-character-image-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.gen14-character-main-image {
-  max-width: 140%;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 0;
-  box-shadow: none;
-  transition: transform 0.3s ease;
-}
-
-.gen14-character-main-image:hover {
-  transform: scale(1.02);
-}
-
-/* Character Details */
-.gen14-character-details {
-  flex: 1;
-  text-align: left;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.gen14-character-info {
-  margin-bottom: 2.5rem;
-}
-
-.gen14-character-name {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1rem;
+.gen14-subtitle {
+  font-size: 1.8rem;
+  color: var(--text-mid);
+  margin-bottom: 0;
   letter-spacing: 1px;
 }
 
-.gen14-character-role {
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  font-weight: 600;
-  color: #ff6b6b;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-.gen14-character-role::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(0deg, #ff6b6b, transparent);
-}
-
-.gen14-character-description {
-  font-size: clamp(0.8rem, 1.8vw, 1rem);
-  color: #e0e0e0;
-  line-height: 1.6;
-  font-weight: 300;
-  max-width: 400px;
-  text-align: justify;
-}
-
-/* Character Carousel */
-.gen14-carousel-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: transparent;
-  border-radius: 0;
-  border: none;
-  justify-content: center;
-}
-
-.gen14-carousel-scroll {
-  overflow: hidden;
-  max-width: 300px;
-  padding: 10px;
-  position: relative;
-}
-
-.gen14-carousel {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-/* Character Thumbnails */
-.gen14-character-thumb {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.gen14-character-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: all 0.3s ease;
-  filter: brightness(0.9);
-}
-
-.gen14-character-thumb:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.gen14-character-thumb:hover img {
-  filter: brightness(1.1);
-}
-
-.gen14-character-thumb.active {
-  border: 3px solid #ff6b6b;
-  box-shadow: 0 0 20px rgba(255, 107, 107, 0.4), 0 8px 20px rgba(0, 0, 0, 0.4);
-  transform: scale(1.1);
-}
-
-.gen14-character-thumb.active img {
-  filter: brightness(1.2) saturate(1.1);
-}
-
-/* Carousel Navigation Buttons */
-.gen14-carousel-button {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 10px 14px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0;
-}
-
-.gen14-carousel-button:hover {
-  background: rgba(255, 107, 107, 0.2);
-  border-color: rgba(255, 107, 107, 0.4);
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.2);
-}
-
-.gen14-carousel-button:active {
-  transform: scale(0.95);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .gen14-character-main {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-    min-height: auto;
-    padding: 1.5rem;
-  }
-  
-  .gen14-character-details {
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .gen14-character-description {
-    max-width: 100%;
-    text-align: center;
-  }
-  
-  .gen14-character-image-container {
-    order: -1;
-    flex: 1.2;
-  }
-  
-  .gen14-character-main-image {
-    max-width: 120%;
-    max-height: 60vh;
-  }
-  
-  .gen14-character-details {
-    flex: 0.8;
-  }
-}
-
-@media (max-width: 768px) {
-  .gen14-character-showcase {
-    padding: 0 1rem;
-    margin: 2rem auto;
-  }
-  
-  .gen14-character-main {
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-  
-  .gen14-character-details {
-    padding: 0.5rem;
-  }
-  
-  .gen14-character-info {
-    margin-bottom: 2rem;
-  }
-  
-  .gen14-character-name {
-    font-size: clamp(1.8rem, 7vw, 2.8rem);
-    text-align: center;
-    line-height: 1.2;
-  }
-  
-  .gen14-character-role {
-    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .gen14-character-description {
-    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-    text-align: center;
-    line-height: 1.5;
-    margin: 0 auto;
-    max-width: 85%;
-  }
-  
-  .gen14-carousel-wrapper {
-    justify-content: center;
-    padding: 1rem;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .gen14-carousel-scroll {
-    max-width: 250px;
-  }
-  
-  .gen14-character-thumb {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .gen14-carousel-button {
-    padding: 8px 12px;
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gen14-character-showcase {
-    margin: 1rem auto;
-    padding: 0 0.5rem;
-  }
-  
-  .gen14-character-main {
-    gap: 1rem;
-    padding: 0.75rem;
-    border-radius: 15px;
-  }
-  
-  .gen14-character-main-image {
-    max-width: 110%;
-    max-height: 50vh;
-    min-height: 250px;
-  }
-  
-  .gen14-character-details {
-    padding: 0.25rem;
-  }
-  
-  .gen14-character-info {
-    margin-bottom: 1.5rem;
-  }
-  
-  .gen14-character-name {
-    font-size: clamp(1.5rem, 8vw, 2.2rem);
-    margin-bottom: 0.5rem;
-  }
-  
-  .gen14-character-role {
-    font-size: clamp(0.8rem, 4vw, 1rem);
-    margin-bottom: 0.75rem;
-  }
-  
-  .gen14-character-description {
-    font-size: clamp(0.75rem, 3vw, 0.85rem);
-    line-height: 1.4;
-    max-width: 90%;
-  }
-  
-  .gen14-carousel-wrapper {
-    padding: 1rem;
-    gap: 0.75rem;
-    margin-top: 1rem;
-    border-radius: 0;
-  }
-  
-  .gen14-carousel-scroll {
-    max-width: 200px;
-    padding: 8px;
-  }
-  
-  .gen14-character-thumb {
-    width: 50px;
-    height: 50px;
-    border-width: 2px;
-  }
-  
-  .gen14-character-thumb.active {
-    transform: scale(1.08);
-  }
-  
-  .gen14-carousel-button {
-    padding: 6px 10px;
-    font-size: 1.1rem;
-  }
-  
-  .gen14-carousel {
-    gap: 0.8rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .gen14-character-description {
-    font-size: 0.75rem;
-    line-height: 1.3;
-  }
-  
-  .gen14-carousel-wrapper {
-    padding: 0.5rem;
-    gap: 0.5rem;
-  }
-  
-  .gen14-carousel-scroll {
-    max-width: 170px;
-  }
-  
-  .gen14-character-thumb {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .gen14-carousel-button {
-    padding: 5px 8px;
-    font-size: 1rem;
-  }
-  
-  .gen14-character-main-image {
-    max-width: 100%;
-  }
-}
-
-/* Color variables for Gen14 theme */
-:root {
-  --gen14-dark-blue: #1a1a2e;
-  --gen14-navy: #16213e;
-  --gen14-medium-blue: #0f3460;
-  --gen14-purple: #533483;
-  --gen14-red: #dc3545;
-  --gen14-white: #ffffff;
-  --gen14-light-gray: #e8e8e8;
-}
-
-/* Additional responsive fixes */
-@media (max-width: 768px) {
-  .gen14-content {
-    padding: 1rem;
-  }
-  
-}
-
-@media (max-width: 480px) {  
-  .gen14-nav-button {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
-}
-
-/* Gen14 Introduction Section Styles - New Circular Design */
+/* Intro Section */
 .gen14-intro-section {
-  max-width: 1200px;
-  margin: 4rem auto;
-  padding: 3rem 2rem;
-  position: relative;
-}
-
-.gen14-intro-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(220, 53, 69, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(83, 52, 131, 0.15) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(26, 26, 46, 0.3) 0%, rgba(15, 52, 96, 0.2) 100%);
-  border-radius: 30px;
-  z-index: -1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
 }
 
 .gen14-intro-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6rem;
-  padding: 2rem 0;
-  position: relative;
-}
-
-.gen14-intro-image {
-  flex: 0 0 280px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gen14-intro-image::before {
-  content: '';
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #dc3545 0deg,
-    #533483 72deg,
-    #0f3460 144deg,
-    #16213e 216deg,
-    #1a1a2e 288deg,
-    #dc3545 360deg
-  );
-  animation: rotateGradient 8s linear infinite;
-  z-index: 1;
-}
-
-.gen14-intro-image::after {
-  content: '';
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  z-index: 2;
-}
-
-@keyframes rotateGradient {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.gen14-intro-img {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 50%;
-  position: relative;
-  z-index: 3;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 0 40px rgba(220, 53, 69, 0.3),
-    inset 0 0 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: brightness(1.1) contrast(1.2);
-}
-
-.gen14-intro-img:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 0 60px rgba(220, 53, 69, 0.5),
-    0 0 100px rgba(83, 52, 131, 0.3),
-    inset 0 0 30px rgba(0, 0, 0, 0.3);
-  filter: brightness(1.2) contrast(1.3) saturate(1.1);
+  text-align: center;
+  background-color: var(--card-background);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px var(--box-shadow-light); 
+  max-width: 800px;
+  border: 1px solid var(--border-color-light);
 }
 
 .gen14-intro-description {
-  flex: 1;
-  color: #e8e8e8;
-  position: relative;
-}
-
-.gen14-intro-description::before {
-  content: '';
-  position: absolute;
-  left: -30px;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, 
-    #dc3545 0%, 
-    #533483 50%, 
-    #0f3460 100%);
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+  text-align: center;
 }
 
 .gen14-intro-title {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 800;
-  margin-bottom: 2rem;
-  letter-spacing: 2px;
-  position: relative;
-  background: linear-gradient(45deg, #ffffff, #dc3545, #533483);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  /* Animasi gradasi + neon kejet-kejet */
-  animation: fadeInUp 2s ease-out, neonFlicker 2s ease-in-out infinite;
-
-  /* Tambahan efek glow sekitar huruf */
-  text-shadow:
-    0 0 10px rgba(255, 255, 255, 0.6),
-    0 0 20px rgba(220, 53, 69, 0.8),
-    0 0 30px rgba(83, 52, 131, 0.6);
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .gen14-intro-text {
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-size: 1.15rem;
   line-height: 1.8;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-  text-align: justify;
-  position: relative;
-  padding-left: 15px;
+  color: var(--text-mid);
 }
 
-.gen14-intro-text::before {
-  content: '♪';
-  position: absolute;
-  left: -5px;
-  top: 0;
-  color: #dc3545;
-  font-size: 1.2em;
-  text-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
-}
-
-.gen14-intro-text:nth-child(3)::before {
-  content: '♫';
-}
-
-.gen14-intro-text:last-child {
-  margin-bottom: 0;
-}
-
-/* Responsive Design for Introduction Section */
-@media (max-width: 1024px) {
-  .gen14-intro-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 3rem;
-    padding: 1.5rem 0;
-  }
-  
-  .gen14-intro-image {
-    flex: none;
-  }
-  
-  .gen14-intro-image::before {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .gen14-intro-image::after {
-    width: 230px;
-    height: 230px;
-  }
-  
-  .gen14-intro-img {
-    width: 210px;
-    height: 210px;
-  }
-  
-  .gen14-intro-description {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .gen14-intro-description::before {
-    display: none;
-  }
-  
-  .gen14-intro-text {
-    text-align: center;
-    padding-left: 0;
-  }
-  
-  .gen14-intro-text::before {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .gen14-intro-section {
-    margin: 2.5rem auto;
-    padding: 2rem 1rem;
-  }
-  
-  .gen14-intro-content {
-    gap: 2rem;
-  }
-  
-  .gen14-intro-image::before {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .gen14-intro-image::after {
-    width: 185px;
-    height: 185px;
-  }
-  
-  .gen14-intro-img {
-    width: 170px;
-    height: 170px;
-  }
-  
-  .gen14-intro-title {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin-bottom: 1.5rem;
-  }
-  
-  .gen14-intro-title::after {
-    font-size: 2rem;
-    right: -30px;
-  }
-  
-  .gen14-intro-text {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    margin-bottom: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gen14-intro-section {
-    margin: 2rem auto;
-    padding: 1.5rem 0.5rem;
-  }
-  
-  .gen14-intro-content {
-    gap: 1.5rem;
-  }
-  
-  .gen14-intro-image::before {
-    width: 160px;
-    height: 160px;
-  }
-  
-  .gen14-intro-image::after {
-    width: 145px;
-    height: 145px;
-  }
-  
-  .gen14-intro-img {
-    width: 130px;
-    height: 130px;
-  }
-  
-  .gen14-intro-title {
-    font-size: clamp(1.3rem, 6vw, 1.8rem);
-    margin-bottom: 1rem;
-  }
-  
-  .gen14-intro-title::after {
-    font-size: 1.5rem;
-    right: -25px;
-  }
-  
-  .gen14-intro-text {
-    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .gen14-intro-section {
-    padding: 1rem 0.3rem;
-  }
-  
-  .gen14-intro-image::before {
-    width: 140px;
-    height: 140px;
-  }
-  
-  .gen14-intro-image::after {
-    width: 125px;
-    height: 125px;
-  }
-  
-  .gen14-intro-img {
-    width: 110px;
-    height: 110px;
-  }
-  
-  .gen14-intro-title::after {
-    display: none;
-  }
-  
-  .gen14-intro-text {
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-}
-
-/* BPH Section Styles */
+/* Section Dividers (BPH & Member) */
 .gen14-bph-section {
-  max-width: 2000px;
-  margin: 4rem auto 6rem auto;
-  padding: 0 2rem;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 20px;
+  margin: 80px 0 60px 0;
 }
 
 .gen14-bph-line {
-  flex: 1;
-  height: 3px;
-  background: linear-gradient(
-    rgba(220, 53, 69, 0.3) 15%,  
-    rgba(220, 53, 69, 0.8) 30%,   
-    #ff2e44 50%,                  
-    rgba(220, 53, 69, 0.8) 70%,  
-    rgba(220, 53, 69, 0.3) 85%,   
-    transparent 100%
-  );
-  position: relative;
+  height: 2px;
+  width: 150px;
+  background-color: var(--primary-color);
+  opacity: 0.5;
 }
 
 .gen14-bph-title {
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  padding: 0 2rem;
-  position: relative;
-  animation: neonFlicker 1s ease-in-out infinite;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
 }
 
-/* Responsive Design untuk BPH Section */
-@media (max-width: 768px) {
-  .gen14-bph-section {
-    margin: 3rem auto 4rem auto;
-    padding: 0 1rem;
-    gap: 1.5rem;
-  }
-  
-  .gen14-bph-title {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    letter-spacing: 3px;
-    padding: 0 1.5rem;
-  }
+/* BPH SHOWCASE (Revisi Layout & Ukuran Kontainer) */
+
+.gen14-character-showcase-wrapper {
+    position: relative;
+    max-width: 1400px; /* Lebar maksimum kontainer BPH */
+    margin: 0 auto 80px auto;
+    background-color: var(--char-bg-showcase); /* Background gelap (BPH awal) */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px var(--box-shadow-heavy);
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 650px; /* Tinggi minimum yang lebih besar */
 }
 
-@media (max-width: 480px) {
-  .gen14-bph-section {
-    margin: 2rem auto 3rem auto;
-    padding: 0 0.5rem;
-    gap: 1rem;
-  }
-  
-  .gen14-bph-title {
-    font-size: clamp(1.2rem, 6vw, 1.8rem);
+.gen14-character-showcase {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 1300px; 
+    height: 600px;
+    background: transparent; 
+    border: 1px solid var(--border-color-strong); 
+    z-index: 1; 
+}
+
+/* Bagian Kiri: Detail Karakter */
+.gen14-character-details-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-align: left;
+    color: var(--char-text-main);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4); 
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color-light);
+}
+
+.gen14-char-stars {
+    font-size: 1.2rem;
+    color: var(--char-active-thumb-border); 
     letter-spacing: 2px;
-    padding: 0 1rem;
-  }
+    margin-bottom: 10px;
 }
 
-@media (max-width: 360px) {
-  .gen14-bph-section {
-    gap: 0.5rem;
-  }
-  
-  .gen14-bph-title {
-    font-size: 1rem;
-    letter-spacing: 1px;
-    padding: 0 0.5rem;
-  }
+.gen14-char-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    color: var(--char-text-main);
+    text-transform: uppercase;
 }
 
-/* Gen14 Member Showcase Styles */
-.gen14-member-section {
+.gen14-char-role { 
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 5px 0 0 0;
+}
+
+
+.gen14-detail-btn { 
+    background-color: var(--char-button-bg);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s;
+    text-transform: uppercase;
+}
+
+.gen14-detail-btn:hover {
+    background-color: var(--char-button-hover);
+    transform: scale(1.05);
+}
+
+/* Bagian Tengah: Gambar Karakter Utama (Dibuat lebih besar) */
+.gen14-character-main-image-area {
+    position: absolute;
+    width: calc(100% - 140px);
+    height: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    overflow: hidden;
+    z-index: 1;
+    padding-right: 0px;
+    padding-left: 150px;
+    box-sizing: border-box; 
+}
+
+.gen14-character-main-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain; 
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Bagian Kanan: Daftar Thumbnails */
+.gen14-character-thumbnails-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 140px; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
+    border-left: 1px solid var(--border-color-light);
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-y: auto; 
+}
+
+.gen14-character-thumbnail {
+    width: 100px;
+    height: 100px;
+    background-color: #121523; 
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.gen14-character-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gen14-character-thumbnail.active {
+    border-color: var(--char-active-thumb-border); 
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.gen14-character-thumbnail:hover:not(.active) {
+    border-color: var(--primary-color);
+    transform: scale(1.02);
+}
+
+.gen14-thumbnail-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gen14-more-btn {
+    background-color: var(--primary-color); 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    width: 100px;
+}
+
+.gen14-more-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Member Showcase (Teams Grid) - Improved UI */
+
+.gen14-member-showcase {
+  padding-bottom: 80px;
+}
+
+.gen14-teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
   max-width: 1400px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-  position: relative;
+  margin: 0 auto;
 }
 
-.gen14-team-showcase {
-  margin-bottom: 4rem;
+.gen14-team-card {
+  background: linear-gradient(145deg, var(--card-background), rgba(35, 41, 67, 0.6));
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 30px var(--box-shadow-light);
+  border: 2px solid var(--border-color-light);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gen14-team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.gen14-team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(108, 92, 231, 0.3);
+  border-color: var(--primary-color);
 }
 
 .gen14-team-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .gen14-team-name {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  margin: 0;
   font-weight: 700;
-  letter-spacing: 3px;
-  margin-bottom: 1rem;
-  color: #ffffff;
-  text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.6),
-    0 0 40px rgba(220, 53, 69, 0.4),
-    0 4px 15px rgba(0, 0, 0, 0.8);
-  background: linear-gradient(
-    45deg,
-    #ffffff 0%,
-    #dc3545 25%,
-    #533483 50%,
-    #ffffff 75%,
-    #dc3545 100%
-  );
-  background-size: 400% 400%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
 }
 
 .gen14-team-count {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: #dc3545;
-  text-shadow: 0 0 15px rgba(220, 53, 69, 0.6);
+  font-size: 1rem;
+  color: var(--text-mid);
+  font-weight: 500;
+  background: rgba(108, 92, 231, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color-light);
 }
 
 .gen14-team-members {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
   justify-items: center;
 }
 
-/* Member Card */
 .gen14-member-card {
-  position: relative;
-  width: 200px;
-  height: 280px;
-  border-radius: 20px;
-  overflow: hidden;
+  text-align: center;
+  width: 140px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background: linear-gradient(
-    135deg,
-    rgba(26, 26, 46, 0.9) 0%,
-    rgba(15, 52, 96, 0.8) 50%,
-    rgba(83, 52, 131, 0.9) 100%
-  );
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .gen14-member-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(220, 53, 69, 0) 0%,
-    rgba(220, 53, 69, 0.1) 50%,
-    rgba(220, 53, 69, 0) 100%
-  );
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 12px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.gen14-member-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: rgba(220, 53, 69, 0.5);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(220, 53, 69, 0.3),
-    0 0 0 1px rgba(220, 53, 69, 0.2);
+  z-index: -1;
 }
 
 .gen14-member-card:hover::before {
-  opacity: 1;
+  opacity: 0.3;
 }
 
-/* Member Image */
+.gen14-member-card:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
 .gen14-member-image {
-  position: relative;
   width: 100%;
-  height: 200px;
+  height: 140px;
+  background: linear-gradient(135deg, #1a1f35, #232943);
+  border-radius: 12px;
   overflow: hidden;
-  z-index: 2;
-  border-radius: 15px 15px 0 0;
-  background: linear-gradient(
-    135deg,
-    rgba(83, 52, 131, 0.5) 0%,
-    rgba(15, 52, 96, 0.7) 100%
-  );
+  border: 3px solid var(--border-color-light);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gen14-member-card:hover .gen14-member-image {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
 }
 
 .gen14-member-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 5%;
-  transition: all 0.4s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .gen14-member-card:hover .gen14-member-image img {
-  transform: scale(1.05);
-  filter: brightness(1.1) contrast(1.2) saturate(1.1);
-}
-
-/* Member Info */
-.gen14-member-info {
-  position: relative;
-  z-index: 3;
-  height: auto;
-  min-height: 30px;
-  padding: 0.3rem 1rem 0.2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  text-align: center;
+  transform: scale(1.1);
+  filter: brightness(1.1);
 }
 
 .gen14-member-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 1px;
-  margin: 0 auto;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Member Detail Modal */
-.gen14-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
-}
-
-.gen14-modal-content {
-  background: linear-gradient(135deg, 
-    rgba(26, 26, 46, 0.95) 0%, 
-    rgba(15, 52, 96, 0.95) 50%, 
-    rgba(83, 52, 131, 0.95) 100%);
-  border-radius: 25px;
-  padding: 2rem;
-  max-width: 500px;
-  width: 90%;
-  position: relative;
-  border: 2px solid rgba(220, 53, 69, 0.3);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.5),
-    0 0 50px rgba(220, 53, 69, 0.2);
-  backdrop-filter: blur(20px);
-  animation: modalSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-@keyframes modalSlideIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.gen14-modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(220, 53, 69, 0.2);
-  border: 2px solid rgba(220, 53, 69, 0.5);
-  color: white;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.gen14-modal-close:hover {
-  background: rgba(220, 53, 69, 0.4);
-  border-color: rgba(220, 53, 69, 0.8);
-  transform: scale(1.1);
-}
-
-.gen14-modal-image {
-  width: 150px;
-  height: 200px;
-  border-radius: 15px;
-  margin: 0 auto 1.5rem auto;
-  display: block;
-  border: 3px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-}
-
-.gen14-modal-image img {
-  width: 100%;
-  height: auto;           /* biar proporsional */
-  min-height: 100%;       /* pastikan tetap nutup container */
-  object-fit: cover;
-  object-position: top;   /* bisa diganti top, center, bottom, atau 0% 70% */
-  transform: translateY(0px); /* geser turun manual */
-}
-
-.gen14-modal-name {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-align: center;
-  text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.4),
-    0 4px 15px rgba(0, 0, 0, 0.6);
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
-}
-
-.gen14-modal-race {
   font-size: 1.1rem;
-  color: #533483;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(83, 52, 131, 0.6);
-  margin-bottom: 1.5rem;
+  color: var(--text-light);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.gen14-modal-description {
-  font-size: 1rem;
-  color: #e8e8e8;
-  line-height: 1.6;
-  text-align: justify;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-weight: 300;
+  transition: color 0.3s ease;
+  text-align: center;
 }
 
-/* Full image modal */
-.gen14-image-overlay {
-  position: fixed;
-  z-index: 3000;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.3s ease;
+.gen14-member-card:hover .gen14-member-name {
+  color: var(--secondary-color);
 }
 
-.gen14-image-full {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-  animation: zoomIn 0.3s ease;
-}
-
-.gen14-image-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Responsive Design */
-
-/* Tablet landscape dan bawah (≤ 1024px) */
-@media (max-width: 1024px) {
-  .gen14-members-grid,
-  .gen14-team-members {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
+/* Tablet Landscape dan ke bawah (≤1200px) */
+@media (max-width: 1200px) {
+  .gen14-character-showcase-wrapper {
+    max-width: 1000px;
+    min-height: 550px;
   }
 
-  .gen14-member-card {
-    width: 180px;
-    height: 250px;
+  .gen14-character-showcase {
+    height: 500px;
   }
 
-  .gen14-member-image {
-    height: 170px;
+  .gen14-character-main-image-area {
+    padding-left: 100px;
   }
 
-  .gen14-member-name {
+  .gen14-character-thumbnails-right {
+    width: 120px;
+  }
+
+  .gen14-character-thumbnail {
+    width: 90px;
+    height: 90px;
+  }
+
+  .gen14-char-title {
+    font-size: 2rem;
+  }
+
+  .gen14-welcome-title {
+    font-size: 3.2rem;
+  }
+}
+
+/* Tablet Potrait dan layar sedang (≤992px) */
+@media (max-width: 992px) {
+  .gen14-content {
+    padding: 30px 15px;
+  }
+
+  .gen14-intro-content {
+    padding: 30px 25px;
+    max-width: 650px;
+  }
+
+  .gen14-character-showcase-wrapper {
+    flex-direction: column;
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .gen14-character-showcase {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    border: none;
+  }
+
+  /* Gambar utama di tengah */
+  .gen14-character-main-image-area {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    height: auto;
+  }
+
+  .gen14-character-main-image {
+    max-height: 400px;
+    width: auto;
+  }
+
+  /* Detail karakter di bawah gambar */
+  .gen14-character-details-left {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    margin-top: 20px;
     text-align: center;
   }
+
+  /* Thumbnails geser ke bawah */
+  .gen14-character-thumbnails-right {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-left: none;
+    border-top: 1px solid var(--border-color-light);
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .gen14-character-thumbnail {
+    width: 90px;
+    height: 90px;
+  }
+
+  .gen14-bph-section {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .gen14-bph-line {
+    width: 80px;
+  }
 }
 
-/* Tablet potrait & HP besar (≤ 768px) */
+/* Mobile besar (≤768px) */
 @media (max-width: 768px) {
-  .gen14-member-section {
-    padding: 0 1rem;
-    margin: 3rem auto;
+  .gen14-welcome-title {
+    font-size: 2.5rem;
   }
 
-  .gen14-team-showcase {
-    margin-bottom: 3rem;
+  .gen14-subtitle {
+    font-size: 1.2rem;
   }
 
-  .gen14-members-grid,
-  .gen14-team-members {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  .gen14-intro-content {
+    padding: 25px 20px;
   }
 
-  .gen14-member-card {
-    width: 160px;
-    height: 220px;
+  .gen14-intro-title {
+    font-size: 1.8rem;
   }
 
-  .gen14-member-image {
-    height: 140px;
-  }
-
-  .gen14-member-info {
-    padding: 0.8rem;
-    height: 80px;
-  }
-
-  .gen14-member-name {
+  .gen14-intro-text {
     font-size: 1rem;
-    text-align: center;
   }
 
-  .gen14-modal-content {
-    padding: 1.5rem;
-    max-width: 400px;
+  .gen14-team-card {
+    padding: 20px;
   }
 
-  .gen14-modal-name {
+  .gen14-team-name {
     font-size: 1.5rem;
   }
-}
 
-/* HP kecil (≤ 480px) */
-@media (max-width: 480px) {
-  .gen14-members-grid,
   .gen14-team-members {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
   }
 
   .gen14-member-card {
-    width: 140px;
-    height: 200px;
+    width: 120px;
   }
 
   .gen14-member-image {
     height: 120px;
   }
 
-.gen14-member-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-  .gen14-member-name {
-    font-size: 0.9rem;
-    text-align: center;
-    width: 100%;
-  }
-
-  .gen14-modal-content {
-    padding: 1rem;
-    width: 95%;
-  }
-
-  .gen14-modal-image {
-    width: 120px;
-    height: 160px;
-  }
-
-  .gen14-modal-name {
-    font-size: 1.3rem;
-  }
-
-  .gen14-modal-description {
-    font-size: 0.9rem;
+  .gen14-character-main-image {
+    max-height: 350px;
   }
 }
 
-/* HP super kecil (≤ 360px) */
-@media (max-width: 360px) {
-  .gen14-members-grid,
+/* Mobile kecil (≤576px) */
+@media (max-width: 576px) {
+  .gen14-content {
+    padding: 20px 10px;
+  }
+
+  .gen14-welcome-title {
+    font-size: 2rem;
+  }
+
+  .gen14-subtitle {
+    font-size: 1rem;
+  }
+
+  .gen14-intro-content {
+    padding: 20px 15px;
+  }
+
+  .gen14-intro-title {
+    font-size: 1.5rem;
+  }
+
+  .gen14-intro-text {
+    font-size: 0.95rem;
+  }
+
+  .gen14-character-showcase-wrapper {
+    padding: 10px;
+  }
+
+  .gen14-character-main-image {
+    max-height: 300px;
+  }
+
+  .gen14-character-thumbnail {
+    width: 70px;
+    height: 70px;
+  }
+
+  .gen14-char-title {
+    font-size: 1.8rem;
+  }
+
+  .gen14-detail-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .gen14-teams-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .gen14-team-members {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
   }
 
   .gen14-member-card {
-    width: 120px;
-    height: 180px;
+    width: 100px;
   }
 
   .gen14-member-image {
     height: 100px;
   }
 
-  .gen14-member-info {
-    padding: 0.5rem;
-    height: 80px;
+  .gen14-member-name {
+    font-size: 0.9rem;
+  }
+}
+
+/* Sangat kecil (≤400px) */
+@media (max-width: 400px) {
+  .gen14-welcome-title {
+    font-size: 1.7rem;
   }
 
-  .gen14-member-name {
-    font-size: 0.8rem;
-    text-align: center;
+  .gen14-intro-text {
+    font-size: 0.9rem;
+  }
+
+  .gen14-char-title {
+    font-size: 1.5rem;
+  }
+
+  .gen14-character-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+
+  .gen14-more-btn {
+    width: 80px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
   }
 }

@@ -754,6 +754,7 @@
 /* High DPI/Retina displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .gen14-intro-img {
+    image-rendering: -webkit-optimize-contrast;
   }
 }
 

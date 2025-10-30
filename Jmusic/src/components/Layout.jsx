@@ -28,19 +28,8 @@ function Layout() {
 
   return (
     <>
-      {/* Floating musical notes */}
-      <div className="floating-notes">
-        <span>🎵</span>
-        <span>🎶</span>
-        <span>🎵</span>
-        <span>🎶</span>
-        <span>🎵</span>
-        <span>🎶</span>
-      </div>
-
       <div className="layout-container">
         <div className="layout-fixed-logo">
-          {/* ganti png -> webp */}
           <img src="/images/jmusic-logo.webp" alt="JMusic Logo" className="layout-logo-img" />
         </div>
 
@@ -61,8 +50,7 @@ function Layout() {
                 <li><Link to="/gen" onClick={closeMenu}>Gen</Link></li>
                 <li><Link to="/finalproject" onClick={closeMenu}>Final Project</Link></li>
 
-                {/* Tambahan Link Sosial Media */}
-                <div className="layout-social-links layout-social-nav" style={{ marginTop: "2rem" }}>
+                <div className="layout-social-links layout-social-nav">
                   <a
                     href="https://youtube.com/@jcafemusic?si=pdMLfO1gTR7Zvjf1"
                     target="_blank"

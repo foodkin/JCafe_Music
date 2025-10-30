@@ -17,17 +17,17 @@ const FinalGen14 = () => {
   const videos = [
     {
       id: 1,
-      title: 'Judul',
+      title: '【カレンダーガール/Calender Girl】Cover by 青春、8時で / Youth at 08 00 (Kelompok 1)',
       coverInfo: 'Covered by: Youth at 08:00',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: 'yOF4RnzJ-xQ',
+      thumbnail: `https://img.youtube.com/vi/yOF4RnzJ-xQ/hqdefault.jpg`
     },
     {
       id: 2,
-      title: 'Judul',
+      title: '【Donut Hole】Cover by くるくる回る / Kuru-kuru Mawaru (Kelompok 2)',
       coverInfo: 'Covered by: Kurukurumawaru',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: 'LjRq5fm-DN8',
+      thumbnail: `https://img.youtube.com/vi/LjRq5fm-DN8/hqdefault.jpg`
     },
     {
       id: 3,
@@ -38,59 +38,59 @@ const FinalGen14 = () => {
     },
     {
       id: 4,
-      title: 'Judul',
+      title: '【海へ/Umi e】Cover by 801 (Kelompok 4)',
       coverInfo: 'Covered by: Happyaku-ichi',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: '8BJZXH88g0Q',
+      thumbnail: `https://img.youtube.com/vi/8BJZXH88g0Q/hqdefault.jpg`
     },
     {
       id: 5,
-      title: 'Judul',
+      title: '【怪獣/ Kaijuu】Cover by Galileo Galilei (Kelompok 5)',
       coverInfo: 'Covered by: Galileo Galiei',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: 'jDZu9YCxWaI',
+      thumbnail: `https://img.youtube.com/vi/jDZu9YCxWaI/hqdefault.jpg`
     },
     {
       id: 6,
-      title: 'Judul',
+      title: '【㋰責任集合体/Outlaws】Cover by 月のウサギ / Tsuki no Usagi (Kelompok 6)',
       coverInfo: 'Covered by: Tsuki No Usagi',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: 'jdI9JcsIsc4',
+      thumbnail: `https://img.youtube.com/vi/jdI9JcsIsc4/hqdefault.jpg`
     },
     {
       id: 7,
-      title: 'Judul',
+      title: '【君に晴れ / Kimi ni Hare】Cover by 洋風カノン / Youfuu Kanon (Kelompok 7)',
       coverInfo: 'Covered by: Youfuu Kanon',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: 'eESqrfvO1E8',
+      thumbnail: `https://img.youtube.com/vi/eESqrfvO1E8/hqdefault.jpg`
     },
     {
       id: 8,
-      title: 'Judul',
+      title: '【Shake & Shake】Cover by 美人探偵団 / Bijin Tanteidan (Kelompok 8)',
       coverInfo: 'Covered by: Bijin Tanteidan!!!',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: '8u9CdtkMD20',
+      thumbnail: `https://img.youtube.com/vi/8u9CdtkMD20/hqdefault.jpg`
     },
     {
       id: 9,
-      title: 'Judul',
+      title: '【セカイ/Sekai】Cover by 色花 / Iro Hana (Kelompok 9)',
       coverInfo: 'Covered by: Irohana',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: 'Fys5TWnq3L8',
+      thumbnail: `https://img.youtube.com/vi/Fys5TWnq3L8/hqdefault.jpg`
     },
     {
       id: 10,
-      title: 'Judul',
+      title: '【Bye Bye YESTERDAY】Cover by Tsukaretachi (Kelompok 10)',
       coverInfo: 'Covered by: Tsukaretachi',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: '6K19utQZtUE',
+      thumbnail: `https://img.youtube.com/vi/6K19utQZtUE/hqdefault.jpg`
     },
     {
       id: 11,
-      title: 'Judul',
+      title: '【Angel With A Shotgun】JP Cover by 魔天撃/ Matengeki (BPH Gen 14)',
       coverInfo: 'Covered by: Sins & Virtue',
-      youtubeId: 'MzEFeIRJ0eQ',
-      thumbnail: `https://img.youtube.com/vi/MzEFeIRJ0eQ/hqdefault.jpg`
+      youtubeId: 'XK8IZhCfk_0',
+      thumbnail: `https://img.youtube.com/vi/XK8IZhCfk_0/hqdefault.jpg`
     }
   ];
 
@@ -188,9 +188,6 @@ const FinalGen14 = () => {
                 <p className="hero14-title" style={{ fontFamily: 'Romaunt Gaolines', fontWeight: 300 }}>
                   Gen 14
                 </p>
-                <div className="gen14-intro-image">
-                  <img src="/images/jmusic-logo14.webp" alt="J Cafe Music Gen 14" className="gen14-intro-img" />
-                </div>
               </div>
             </div>
           </section>

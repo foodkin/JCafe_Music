@@ -1,294 +1,227 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './FinalProject.css'; // file CSS di folder yang sama
+import './FinalProject.css';
 
-const FinalProject = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [showPageInput, setShowPageInput] = useState(false);
-  const [pageInputValue, setPageInputValue] = useState('');
-  const [isTransitioning, setIsTransitioning] = useState(false);
+const FinalProjectPremium = () => {
   const navigate = useNavigate();
-
+  
+  // --- DEFINISI PROYEK ---
   const projects = useMemo(() => [
-    {
-      id: 1,
-      title: "Gen 12",
-      song: "Apa?",
-      members: "Berapa?",
-      image: "/images/Comingsoon.webp",
-      route: "/FinalGen12"
-    },
-    {
-      id: 2,
-      title: "Gen 13",
-      song: "Apa?",
-      members: "Berapa?",
-      image: "/images/Comingsoon.webp",
-      route: "/FinalGen13"
-    },
-    {
-      id: 3,
-      title: "Gen 14",
-      song: "Sins & Virtue",
-      members: "52",
-      image: "/images/bg-gen14.webp",
-      route: "/FinalGen14"
-    },
-    {
-      id: 4,
-      title: "Gen 15",
-      song: "Alice ya?",
-      members: "Berapa?",
-      image: "/images/Comingsoon.webp",
-      route: "/FinalGen15"
-    },
-    {
-      id: 5,
-      title: "Project Title 5",
-      song: "Song 5",
-      members: "[Member P, Member Q, Member R, Member S]",
-      image: "/images/Comingsoon.webp",
-      route: "/FinalGen16"
-    },
-    {
-      id: 6,
-      title: "Project Title 6",
-      song: "Song 6",
-      members: "[Member I, Member J, Member K, Member L]",
-      image: "/images/Comingsoon.webp",
-      route: "/FinalGen17"
-    },
-    {
-      id: 7,
-      title: "Project Title 7",
-      song: "Song 7",
-      members: "[Member E, Member F, Member G, Member H]",
-      image: "/images/Comingsoon.webp",
-      route: "/FinalGen18"
-    }
+    { id: 1, title: "Gen 13", song: "Project 2: The Side Story", members: "Berapa?", image: "/images/Comingsoon.webp", route: "/FinalGen13", badge: "Coming Soon", theme_id: 1, readText: "READ >" },
+    { id: 2, title: "Gen 14", song: "Sins & Virtue", members: "52", image: "/images/bg-gen14.webp", route: "/FinalGen14", badge: "Available", theme_id: 2, readText: "VIEW >" },
+    { id: 3, title: "Gen 15", song: "Alice ya? The Small Project", members: "Berapa?", image: "/images/Comingsoon.webp", route: "/FinalGen15", badge: "Coming Soon", theme_id: 2, readText: "READ >" },
+    { id: 4, title: "Gen 16", song: "Song 5: Test Card", members: "[P,Q,R,S]", image: "/images/Comingsoon.webp", route: "/FinalGen16", badge: "Coming Soon", theme_id: 3, readText: "READ >" },
+    { id: 5, title: "Gen 17", song: "Another Small Card Test", members: "[P,Q,R,S]", image: "/images/Comingsoon.webp", route: "/FinalGen17", badge: "Coming Soon", theme_id: 3, readText: "READ >" }
   ], []);
+  
+  const themes = useMemo(() => [
+      { id: 'All', name: 'All Themes' },
+      { id: 1, name: 'Thematic 1' },
+      { id: 2, name: 'Thematic 2' },
+      { id: 3, name: 'Thematic 3' }
+  ], []);
+  
+  // --- STATE ---
+  const [searchTerm, setSearchTerm] = useState('');
+  const [themeFilter, setThemeFilter] = useState('All'); 
+  const [statusFilter, setStatusFilter] = useState('All'); 
+  const [activeProjectId, setActiveProjectId] = useState(projects[0]?.id || null); 
 
-  const currentProject = useMemo(() => projects[currentSlide], [projects, currentSlide]);
+  // --- LOGIKA FILTER ---
+  const filteredAndSortedProjects = useMemo(() => {
+    let list = [...projects];
 
-  const nextSlide = useCallback(() => {
-    if (!isTransitioning) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentSlide((prev) => (prev + 1) % projects.length);
-        setIsTransitioning(false);
-      }, 300);
-    }
-  }, [isTransitioning, projects.length]);
-
-  const prevSlide = useCallback(() => {
-    if (!isTransitioning) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
-        setIsTransitioning(false);
-      }, 300);
-    }
-  }, [isTransitioning, projects.length]);
-
-  const goToSlide = useCallback((index) => {
-    if (!isTransitioning && index !== currentSlide) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentSlide(index);
-        setIsTransitioning(false);
-      }, 300);
-    }
-  }, [isTransitioning, currentSlide]);
-
-  const navigateToProject = useCallback((index) => {
-    if (index < projects.length) {
-      navigate(projects[index].route);
-    }
-  }, [navigate, projects]);
-
-  const handleEllipsisClick = useCallback(() => {
-    setShowPageInput(true);
-  }, []);
-
-  const handlePageInputSubmit = useCallback((e) => {
-    e.preventDefault();
-    const pageNumber = parseInt(pageInputValue);
-    if (pageNumber >= 1 && pageNumber <= projects.length) {
-      goToSlide(pageNumber - 1);
-    }
-    setShowPageInput(false);
-    setPageInputValue('');
-  }, [pageInputValue, projects.length, goToSlide]);
-
-  const handlePageInputCancel = useCallback(() => {
-    setShowPageInput(false);
-    setPageInputValue('');
-  }, []);
-
-  const handlePageInputChange = useCallback((e) => {
-    setPageInputValue(e.target.value);
-  }, []);
-
-  const handleImageClick = useCallback(() => {
-    navigateToProject(currentSlide);
-  }, [navigateToProject, currentSlide]);
-
-  const getPaginationRange = useCallback(() => {
-    const total = projects.length;
-    const current = currentSlide;
-
-    if (total <= 5) {
-      return [...Array(total).keys()];
-    }
-
-    if (current <= 2) {
-      return [0, 1, 2, 'ellipsis'];
-    }
-
-    if (current >= total - 3) {
-      return ['ellipsis', total - 3, total - 2, total - 1];
-    }
-
-    return ['ellipsis', current - 1, current, current + 1, 'ellipsis'];
-  }, [projects.length, currentSlide]);
-
-  const paginationRange = useMemo(() => getPaginationRange(), [getPaginationRange]);
-
-  const renderPaginationDots = useCallback(() => {
-    return paginationRange.map((item, index) => {
-      if (item === 'ellipsis') {
-        return (
-          <div key={`ellipsis-${index}`} className="pagination-ellipsis">
-            {showPageInput ? (
-              <form onSubmit={handlePageInputSubmit} className="page-input-form">
-                <input
-                  type="number"
-                  value={pageInputValue}
-                  onChange={handlePageInputChange}
-                  onBlur={handlePageInputCancel}
-                  autoFocus
-                  min="1"
-                  max={projects.length}
-                  className="page-input"
-                  placeholder="..."
-                />
-              </form>
-            ) : (
-              <button
-                className="pagination-ellipsis-btn"
-                onClick={handleEllipsisClick}
-              >
-                ...
-              </button>
-            )}
-          </div>
-        );
-      }
-
-      return (
-        <button
-          key={item}
-          className={`pagination-dot ${currentSlide === item ? 'active' : ''}`}
-          onClick={() => goToSlide(item)}
-        >
-          {item + 1}
-        </button>
+    if (statusFilter !== 'All') {
+      list = list.filter(project => 
+        project.badge.toLowerCase().includes(statusFilter.toLowerCase())
       );
-    });
-  }, [paginationRange, showPageInput, handlePageInputSubmit, pageInputValue, handlePageInputChange, handlePageInputCancel, projects.length, handleEllipsisClick, currentSlide, goToSlide]);
+    }
+    
+    if (themeFilter !== 'All') {
+        const themeId = parseInt(themeFilter);
+        list = list.filter(project => project.theme_id === themeId);
+    }
 
-  const navLeftClass = useMemo(() => 
-    `nav-button nav-left ${isTransitioning ? 'disabled' : ''}`, 
-    [isTransitioning]
-  );
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      list = list.filter(project => 
+        project.title.toLowerCase().includes(term) ||
+        project.song.toLowerCase().includes(term) ||
+        String(project.members).toLowerCase().includes(term)
+      );
+    }
 
-  const navRightClass = useMemo(() => 
-    `nav-button nav-right ${isTransitioning ? 'disabled' : ''}`, 
-    [isTransitioning]
-  );
+    return list;
+  }, [projects, searchTerm, statusFilter, themeFilter]);
 
-  const imageStackClass = useMemo(() => 
-    `image-stack ${isTransitioning ? 'transitioning' : ''}`, 
-    [isTransitioning]
-  );
+  const featuredProject = useMemo(() => {
+    const active = filteredAndSortedProjects.find(p => p.id === activeProjectId);
+    return active || filteredAndSortedProjects[0];
+  }, [filteredAndSortedProjects, activeProjectId]);
+
+  const sideProjects = useMemo(() => {
+    return filteredAndSortedProjects.filter(p => p.id !== featuredProject?.id);
+  }, [filteredAndSortedProjects, featuredProject]);
+
+  const selectSideProject = useCallback((projectId) => {
+    setActiveProjectId(projectId);
+  }, []);
+
+  React.useEffect(() => {
+    if (filteredAndSortedProjects.length > 0 && 
+        (!activeProjectId || !filteredAndSortedProjects.some(p => p.id === activeProjectId))
+    ) {
+      setActiveProjectId(filteredAndSortedProjects[0].id);
+    }
+  }, [filteredAndSortedProjects, activeProjectId]);
 
   return (
     <div className="final-project-container">
-      {/* Main Title Section */}
-      <div className="main-title-section">
-        <h1 className="final-projects-title">- FINAL PROJECTS OF -</h1>
-        <h2 className="jmusic-title">JMUSIC</h2>
-      </div>
+      <div className="final-project-wrapper">
+        
+        {/* HEADER */}
+        <div className="final-project-header">
+          <h1 className="final-project-title">JMUSIC Final Projects</h1>
+          <div className="title-divider"></div>
+        </div>
+        
+        {/* FILTERS */}
+        <div className="filter-section">
+          <div className="filter-controls">
+            
+            <select 
+              className="filter-dropdown"
+              value={themeFilter} 
+              onChange={(e) => setThemeFilter(e.target.value)}
+            >
+              {themes.map(theme => (
+                <option key={theme.id} value={theme.id}>{theme.name}</option>
+              ))}
+            </select>
+            
+            <select 
+              className="filter-dropdown"
+              value={statusFilter} 
+              onChange={(e) => setStatusFilter(e.target.value)}
+            >
+              <option value="All">Status (All)</option>
+              <option value="available">Available</option>
+              <option value="coming soon">Coming Soon</option>
+            </select>
 
-      {/* Project Title Header */}
-      <div className="project-header">
-        <div className="header-line left-line"></div>
-        <h2 className="project-title-header">
-          {currentProject.title}
-        </h2>
-        <div className="header-line right-line"></div>
-      </div>
-
-      {/* Main Slider Content */}
-      <div className="slider-wrapper">
-        <div className="slider-content">
-          {/* Left Navigation Button */}
-          <button 
-            className={navLeftClass} 
-            onClick={prevSlide}
-            disabled={isTransitioning}
-          >
-            ‹
-          </button>
-
-          {/* Image Stack Container */}
-          <div className="image-stack-container">
-            <div className={imageStackClass}>
-              {/* Background shadow cards */}
-              <div className="shadow-card shadow-card-2"></div>
-              <div className="shadow-card shadow-card-1"></div>
-              
-              {/* Main image card */}
-              <div className="main-card">
-                <img
-                  src={currentProject.image}
-                  alt={currentProject.title}
-                  className="project-image"
-                  onClick={handleImageClick}
-                />
+            <div className="search-group">
+              <input 
+                type="text" 
+                placeholder="Search Gen/Theme..." 
+                className="search-input"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button className="search-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* MAIN GRID */}
+        <div className="projects-grid">
+          
+          {/* FEATURED CARD - LEFT */}
+          <div className="featured-column">
+            {featuredProject ? (
+              <div 
+                className="featured-card"
+                onClick={() => navigate(featuredProject.route)}
+              >
+                {/* IMAGE */}
+                <div className="featured-image-wrapper">
+                  <img 
+                    src={featuredProject.image} 
+                    alt={featuredProject.title}
+                    className="featured-image"
+                  />
+                </div>
+                
+                {/* BADGE */}
+                <div className={`project-badge ${featuredProject.badge === 'Available' ? 'badge-available' : 'badge-coming-soon'}`}>
+                  {featuredProject.badge}
+                </div>
+                
+                {/* OVERLAY BOTTOM */}
+                <div className="featured-overlay">
+                  <div className="featured-content">
+                    <div className="featured-text">
+                      <p className="featured-song">
+                        {featuredProject.song}{' '}
+                        <span className="featured-title">[{featuredProject.title}]</span>
+                      </p>
+                    </div>
+                    <button 
+                      className="read-button"
+                      onClick={(e) => { 
+                        e.stopPropagation(); 
+                        navigate(featuredProject.route);
+                      }}
+                    >
+                      {featuredProject.readText}
+                    </button>
+                  </div>
+                </div>
               </div>
+            ) : (
+              <div className="no-featured">
+                <p>No featured project available.</p>
+              </div>
+            )}
+          </div>
+
+          {/* SIDE PROJECTS - RIGHT */}
+          <div className="side-column">
+            <div className="side-projects-list">
+              {sideProjects.length > 0 ? (
+                sideProjects.map((project) => (
+                  <div 
+                    key={project.id} 
+                    className={`side-project-card ${project.id === activeProjectId ? 'active-card' : ''}`}
+                    onClick={() => selectSideProject(project.id)}
+                  >
+                    {/* IMAGE */}
+                    <div className="side-image-wrapper">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="side-image"
+                      />
+                    </div>
+                    
+                    {/* CONTENT */}
+                    <div className="side-content">
+                      <div className={`project-badge ${project.badge === 'Available' ? 'badge-available' : 'badge-coming-soon'}`}>
+                        {project.badge}
+                      </div>
+                      <p className="side-text">
+                        {project.song}{' '}
+                        <span className="side-title">[{project.title}]</span>
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="no-results">
+                  <p>No other projects match your criteria.</p>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Right Navigation Button */}
-          <button 
-            className={navRightClass} 
-            onClick={nextSlide}
-            disabled={isTransitioning}
-          >
-            ›
-          </button>
         </div>
-      </div>
-
-      {/* Project Info - Moved here to be directly below the card */}
-      <div className="project-info-tooltip">
-        <div className="info-item">
-          <span className="info-label">Theme</span>
-          <span className="info-value">{currentProject.song}</span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">Members</span>
-          <span className="info-value">{currentProject.members}</span>
-        </div>
-      </div>
-
-      {/* Pagination */}
-      <div className="pagination-section">
-        {renderPaginationDots()}
       </div>
     </div>
   );
 };
 
-export default FinalProject;
+export default FinalProjectPremium;

@@ -1,11 +1,28 @@
+@font-face {
+  font-family: 'Romaunt Gaolines';
+  src: url('/fonts/RomauntGaolines.woff2') format('woff2'),
+       url('/fonts/RomauntGaolines.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {
   overflow-x: hidden;
 }
 
 .gen-container {
-  min-height: 100vh;
+  width: 100%;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  margin: 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  margin-top: -80px;
+  margin-bottom: 0;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 100px 0 0 0;
+  box-sizing: border-box;
 }
 
 .gen-title {
@@ -18,7 +35,7 @@ html, body {
   font-weight: 300;
   padding-top: 5px;
   position: relative;
-  color: #ffffff;
+  color: #2B3B52;
   text-shadow: 
     0 0 5px #ffffff,
     0 0 10px #ffffff,
@@ -26,8 +43,9 @@ html, body {
     0 0 20px #ffffff,
     0 0 35px #ffffff,
     0 0 40px #ffffff;
-  animation: fadeInUp 1s ease-out, neonFlicker 1.5s ease-in-out infinite;
+  animation: fadeInUp 1s ease-out;
   font-family: 'Romaunt Gaolines', serif;
+  margin-bottom: 60px;
 }
 
 .gen-section {
@@ -58,9 +76,9 @@ html, body {
   background-repeat: no-repeat;
   animation: fadeInUp 0.6s ease forwards;
   clip-path: inset(-100px 0px 0px 0px);
+  background-color: #acddeb;
 }
 
-/* Delay per banner */
 .gen-banner:nth-child(1) { animation-delay: 0.1s; }
 .gen-banner:nth-child(2) { animation-delay: 0.2s; }
 .gen-banner:nth-child(3) { animation-delay: 0.3s; }
@@ -69,7 +87,7 @@ html, body {
 
 .gen-banner:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(228, 38, 48, 0.3);
 }
 
 .gen-image-wrapper {
@@ -91,6 +109,11 @@ html, body {
   display: block;
   position: relative;
   top: 30px;
+  transition: transform 0.4s ease;
+}
+
+.gen-banner:hover .overlay-image {
+  transform: scale(1.05);
 }
 
 .gen-box {
@@ -104,9 +127,9 @@ html, body {
 }
 
 .gen-box h2 {
-  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-size: 2.5rem;
   font-weight: 500;
-  color: #fff;
+  color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
   letter-spacing: 3px;
   text-align: center;
@@ -120,12 +143,11 @@ html, body {
   width: 100%;
 }
 
-/* Optional hover h2 effect */
 .gen-banner:hover .gen-box h2 {
   transform: translateX(-50%) scale(1.1);
+  color: #E42630;
 }
 
-/* Background image (from <img>) */
 .background-image {
   position: absolute;
   top: 0;
@@ -136,7 +158,6 @@ html, body {
   z-index: 1;
 }
 
-/* Entry Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -148,7 +169,6 @@ html, body {
   }
 }
 
-/* Glassmorphism effect */
 .gen-banner::before {
   content: '';
   position: absolute;
@@ -156,12 +176,11 @@ html, body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  background: rgba(0, 0, 0, 0.2);
   z-index: 0;
   pointer-events: none;
 }
 
-/* Shine hover effect */
 .gen-banner::after {
   content: '';
   position: absolute;
@@ -169,7 +188,7 @@ html, body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: rgba(255, 255, 255, 0.1);
   transition: left 0.6s ease;
   z-index: 4;
   pointer-events: none;
@@ -179,7 +198,6 @@ html, body {
   left: 100%;
 }
 
-/* Untuk banner dengan background image terpisah */
 .gen-banner--with-overflow {
   position: relative;
   overflow: visible;
@@ -191,12 +209,69 @@ html, body {
   height: 100%;
 }
 
-/* Enhanced Responsive Design */
-@media (max-width: 1024px) {
+.overlay-image--overflow {
+  max-height: 300%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+  padding-bottom: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.pagination-button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000000;
+  background-color: #2B3B52;
+  border: 2px solid #2B3B52;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.pagination-button:hover {
+  background-color: #2B3B52;
+  color: #2B3B52;
+  transform: translateY(-2px);
+}
+
+.pagination-button.active {
+  background-color: #E42630;
+  border: 2px solid #E42630;
+  color: #2B3B52;
+  font-weight: 600;
+}
+
+.pagination-button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #2B3B52;
+  border-color: #2B3B52;
+}
+
+/* ===================================================
+   RESPONSIVE DESIGN
+   =================================================== */
+
+/* Tablet - 768px to 1023px */
+@media (max-width: 1023px) {
+  .gen-container {
+    margin-top: -60px;
+    padding: 80px 0 0 0;
+  }
+
   .gen-title {
     font-size: 2.8rem;
-    margin: 35px 20px 50px 20px;
-    letter-spacing: 1.5px;
+    margin-bottom: 50px;
+    padding: 0 20px;
   }
 
   .gen-section {
@@ -204,148 +279,88 @@ html, body {
   }
 
   .gen-banner {
-    min-height: 140px;
-    max-height: 140px;
-    clip-path: inset(-90px 0px 0px 0px);
+    min-height: 130px;
+    max-height: 130px;
   }
 
   .gen-box h2 {
-    font-size: clamp(1.1rem, 2.8vw, 2.2rem);
-    letter-spacing: 2.5px;
-  }
-
-  .gen-image-wrapper {
-    width: 140%;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    bottom: 1.2rem;
   }
 
   .overlay-image {
     max-height: 280%;
     top: 25px;
   }
+
+  .pagination {
+    margin-top: 50px;
+    gap: 8px;
+  }
+
+  .pagination-button {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
 }
 
-@media (max-width: 768px) {
+/* Mobile Landscape - 481px to 767px */
+@media (max-width: 767px) {
   .gen-container {
-    padding: 15px 0;
+    margin-top: -50px;
+    padding: 70px 0 0 0;
   }
 
   .gen-title {
-    font-size: 2.4rem;
-    margin: 25px 15px 40px 15px;
-    letter-spacing: 1px;
-  }
-
-  .gen-title::before {
-    width: 80px;
-    height: 3px;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    padding: 0 15px;
+    text-shadow: 
+      0 0 3px #ffffff,
+      0 0 8px #ffffff,
+      0 0 12px #ffffff,
+      0 0 15px #ffffff;
   }
 
   .gen-section {
-    gap: 50px;
+    gap: 60px;
   }
 
   .gen-banner {
-    min-height: 120px;
-    max-height: 120px;
-    clip-path: inset(-80px 0px 0px 0px);
-  }
-
-  .gen-box {
-    padding-bottom: 1rem;
+    min-height: 110px;
+    max-height: 110px;
   }
 
   .gen-box h2 {
-    font-size: clamp(1rem, 2.5vw, 1.8rem);
-    letter-spacing: 2px;
-  }
-
-  .gen-image-wrapper {
-    width: 130%;
+    font-size: 1.6rem;
+    letter-spacing: 1.5px;
+    bottom: 1rem;
   }
 
   .overlay-image {
     max-height: 250%;
     top: 20px;
   }
-}
-
-@media (max-width: 640px) {
-  .gen-title {
-    font-size: 2rem;
-    margin: 20px 15px 35px 15px;
-  }
-
-  .gen-section {
-    gap: 40px;
-  }
-
-  .gen-banner {
-    min-height: 110px;
-    max-height: 110px;
-    clip-path: inset(-70px 0px 0px 0px);
-  }
-
-  .gen-box h2 {
-    font-size: clamp(0.9rem, 2.2vw, 1.6rem);
-    letter-spacing: 1.5px;
-  }
 
   .gen-image-wrapper {
-    width: 120%;
+    width: 180%;
   }
 
-  .overlay-image {
-    max-height: 220%;
-    top: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gen-title {
-    font-size: 1.8rem;
-    margin: 15px 10px 30px 10px;
+  .pagination {
+    margin-top: 40px;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 0 10px;
   }
 
-  .gen-title::before {
-    width: 60px;
+  .pagination-button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
   }
 
-  .gen-section {
-    gap: 30px;
-  }
-
-  .gen-banner {
-    min-height: 100px;
-    max-height: 100px;
-    clip-path: inset(-60px 0px 0px 0px);
-  }
-
-  .gen-box {
-    padding-bottom: 0.8rem;
-  }
-
-  .gen-box h2 {
-    font-size: clamp(0.8rem, 2vw, 1.4rem);
-    letter-spacing: 1px;
-    bottom: 0.8rem;
-  }
-
-  .gen-image-wrapper {
-    width: 110%;
-  }
-
-  .overlay-image {
-    max-height: 200%;
-    top: 15px;
-  }
-
-  /* Reduce hover effects on mobile */
   .gen-banner:hover {
-    transform: none;
-  }
-
-  .gen-banner:hover .overlay-image {
-    transform: scale(1.02);
+    transform: translateY(-1px);
   }
 
   .gen-banner:hover .gen-box h2 {
@@ -353,83 +368,121 @@ html, body {
   }
 }
 
-@media (max-width: 360px) {
+/* Mobile Portrait - up to 480px */
+@media (max-width: 480px) {
+  .gen-container {
+    margin-top: -40px;
+    padding: 60px 0 0 0;
+  }
+
   .gen-title {
-    font-size: 1.6rem;
-    margin: 12px 8px 25px 8px;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    text-shadow: 
+      0 0 2px #ffffff,
+      0 0 5px #ffffff,
+      0 0 10px #ffffff;
   }
 
   .gen-section {
-    gap: 25px;
+    gap: 50px;
   }
 
   .gen-banner {
     min-height: 90px;
     max-height: 90px;
-    clip-path: inset(-50px 0px 0px 0px);
+  }
+
+  .gen-box {
+    padding-bottom: 1rem;
   }
 
   .gen-box h2 {
-    font-size: clamp(0.7rem, 1.8vw, 1.2rem);
-    bottom: 0.6rem;
-  }
-
-  .gen-image-wrapper {
-    width: 100%;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    bottom: 0.8rem;
+    padding: 0 10px;
   }
 
   .overlay-image {
-    max-height: 180%;
-    top: 12px;
+    max-height: 220%;
+    top: 15px;
   }
 
-  /* Disable hover effects on very small screens */
-  .gen-banner:hover,
-  .gen-banner:hover .overlay-image,
-  .gen-banner:hover .gen-box h2 {
-    transform: none;
+  .gen-image-wrapper {
+    width: 200%;
   }
-  
+
+  .pagination {
+    margin-top: 35px;
+    gap: 5px;
+    padding: 0 10px;
+  }
+
+  .pagination-button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-width: 1px;
+  }
+
+  /* Disable hover effects on mobile */
+  .gen-banner:hover {
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .gen-banner:hover .overlay-image {
+    transform: scale(1);
+  }
+
   .gen-banner:hover .gen-box h2 {
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(1);
+    color: #ffffff;
+  }
+
+  .gen-banner:hover::after {
+    left: -100%;
+  }
+
+  .pagination-button:hover {
+    transform: none;
   }
 }
 
-/* Landscape orientation adjustments for mobile */
-@media (max-width: 896px) and (orientation: landscape) and (max-height: 500px) {
+/* Extra Small Mobile - up to 360px */
+@media (max-width: 360px) {
   .gen-title {
-    font-size: 1.8rem;
-    margin: 10px 15px 20px 15px;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
   }
 
   .gen-section {
-    gap: 20px;
+    gap: 40px;
   }
 
   .gen-banner {
     min-height: 80px;
     max-height: 80px;
-    clip-path: inset(-45px 0px 0px 0px);
   }
 
   .gen-box h2 {
-    font-size: 1.2rem;
-    bottom: 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    bottom: 0.6rem;
   }
 
   .overlay-image {
-    max-height: 160%;
-    top: 10px;
-  }
-}
-
-/* High DPI displays optimization */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .gen-title {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    max-height: 200%;
+    top: 12px;
   }
 
-  .gen-box h2 {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  .pagination {
+    margin-top: 30px;
+  }
+
+  .pagination-button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
 }
