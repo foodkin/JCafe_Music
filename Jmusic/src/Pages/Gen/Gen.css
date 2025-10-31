@@ -257,10 +257,7 @@ html, body {
   border-color: #2B3B52;
 }
 
-/* ===================================================
-   RESPONSIVE DESIGN
-   =================================================== */
-
+/* RESPONSIVE DESIGN */
 /* Tablet - 768px to 1023px */
 @media (max-width: 1023px) {
   .gen-container {

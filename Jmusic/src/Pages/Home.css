@@ -15,11 +15,10 @@
   margin-right: calc(-50vw + 50%);
   margin-top: -80px;
   margin-bottom: -50px;
+  overflow-x: hidden;
 }
 
-/* ------------------------------ */
 /* HEADER SECTION */
-/* ------------------------------ */
 .home-header {
   position: relative;
   width: 100%;
@@ -61,9 +60,7 @@
   animation: slideFromLeft 1.2s ease-out;
 }
 
-/* ------------------------------ */
 /* ANIMATION KEYFRAMES */
-/* ------------------------------ */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -97,9 +94,7 @@
   animation: fadeUp 0.8s ease forwards;
 }
 
-/* ------------------------------ */
 /* SECTION BASE STYLES */
-/* ------------------------------ */
 section {
   width: 100%;
   padding: 80px 40px;
@@ -127,16 +122,17 @@ section > * {
   font-weight: 700;
   text-align: center;
   color: #000;
-  margin: 0 0 60px 0;
+  margin: 0 auto 60px;
   position: relative;
   display: inline-block;
   border-bottom: 4px solid #E42630;
   padding-bottom: 10px;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* ------------------------------ */
 /* ABOUT US */
-/* ------------------------------ */
 .home-about {
   background: #B0FFFF;
 }
@@ -174,9 +170,7 @@ section > * {
   text-align: justify;
 }
 
-/* ------------------------------ */
 /* WHAT WE DO */
-/* ------------------------------ */
 .home-activities {
   background: #71f1f1;
 }
@@ -283,9 +277,7 @@ section > * {
   text-align: justify;
 }
 
-/* ------------------------------ */
 /* YOUTUBE SECTION */
-/* ------------------------------ */
 .home-youtube {
   background: #2B3B52;
 }
@@ -345,18 +337,14 @@ section > * {
   box-shadow: 3px 3px 0 #2B3B52;
 }
 
-/* ------------------------------ */
 /* SECTION DIVIDER */
-/* ------------------------------ */
 .section-divider {
   width: 100%;
   height: 6px;
   background: #2B3B52;
 }
 
-/* ------------------------------ */
 /* RESPONSIVE DESIGN */
-/* ------------------------------ */
 
 /* Tablet (max-width: 992px) */
 @media (max-width: 992px) {
@@ -368,8 +356,16 @@ section > * {
     font-size: 3.5rem;
   }
 
+  .home-section-title {
+    font-size: 2.5rem;
+  }
+
   .home-about-content {
     flex-direction: column;
+    text-align: center;
+  }
+
+  .home-about-description p {
     text-align: center;
   }
 
@@ -383,14 +379,51 @@ section > * {
     text-align: center;
   }
 
+  .home-carousel-description p {
+    text-align: center;
+  }
+
   .home-carousel-main img {
     width: 250px;
     height: 250px;
   }
 }
 
+/* Mobile Large (max-width: 768px) */
+@media (max-width: 768px) {
+  .home-header {
+    height: 450px;
+  }
+
+  .home-title {
+    font-size: 3rem;
+  }
+
+  .home-carousel-thumbnails {
+    gap: 15px;
+  }
+
+  .home-thumbnail {
+    width: 100px;
+    height: 100px;
+  }
+
+  .home-carousel-content {
+    gap: 15px;
+  }
+
+  .home-youtube-player {
+    border-width: 3px;
+    box-shadow: 4px 4px 0 #000;
+  }
+}
+
 /* Mobile (max-width: 600px) */
 @media (max-width: 600px) {
+  .home-container {
+    margin-top: -60px;
+  }
+
   .home-header {
     height: 400px;
   }
@@ -398,23 +431,27 @@ section > * {
   .home-header-text {
     left: 20px;
     bottom: 20px;
+    right: 20px;
   }
 
   .home-welcome {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .home-title {
     font-size: 2.5rem;
+    line-height: 1.1;
   }
 
   section {
-    padding: 60px 20px;
+    padding: 50px 20px;
   }
 
   .home-section-title {
     font-size: 2rem;
     margin-bottom: 40px;
+    padding-bottom: 8px;
+    border-bottom-width: 3px;
   }
 
   .home-about-content {
@@ -424,30 +461,244 @@ section > * {
   .home-about-logo img {
     width: 180px;
     height: 180px;
+    border-width: 4px;
+  }
+
+  .home-about-description p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  /* Carousel Mobile Optimization */
+  .home-carousel-thumbnails {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .home-thumbnail {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+  }
+
+  .home-carousel-content {
+    flex-direction: column;
+    gap: 20px;
   }
 
   .home-carousel-btn {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     font-size: 2rem;
   }
 
   .home-carousel-main {
     gap: 20px;
     padding: 20px;
+    box-shadow: 4px 4px 0 #2B3B52;
   }
 
   .home-carousel-main img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 1;
   }
 
   .home-carousel-description h3 {
     font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .home-carousel-description p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* YouTube Mobile */
+  .home-youtube-player {
+    border-width: 2px;
+    box-shadow: 3px 3px 0 #000;
+  }
+
+  .home-youtube-controls {
+    gap: 15px;
+    margin-top: 30px;
   }
 
   .home-youtube-btn {
-    padding: 10px 25px;
-    font-size: 1rem;
+    padding: 12px 25px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .section-divider {
+    height: 4px;
+  }
+}
+
+/* Mobile Small (max-width: 480px) */
+@media (max-width: 480px) {
+  .home-header {
+    height: 350px;
+  }
+
+  .home-header-text {
+    left: 15px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .home-welcome {
+    font-size: 0.9rem;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .home-section-title {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+  }
+
+  .home-about-logo img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .home-about-description p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .home-thumbnail {
+    width: 70px;
+    height: 70px;
+  }
+
+  .home-carousel-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.75rem;
+  }
+
+  .home-carousel-main {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .home-carousel-main img {
+    max-width: 200px;
+  }
+
+  .home-carousel-description h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .home-carousel-description p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .home-youtube-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Extra Small (max-width: 360px) */
+@media (max-width: 360px) {
+  .home-header {
+    height: 300px;
+  }
+
+  .home-title {
+    font-size: 1.75rem;
+  }
+
+  .home-section-title {
+    font-size: 1.5rem;
+  }
+
+  .home-about-logo img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .home-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+
+  .home-carousel-main img {
+    max-width: 180px;
+  }
+
+  .home-carousel-description h3 {
+    font-size: 1.2rem;
+  }
+
+  .home-carousel-description p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .home-thumbnail:hover {
+    transform: none;
+  }
+
+  .home-thumbnail:active {
+    transform: scale(0.95);
+  }
+
+  .home-carousel-btn:hover {
+    background: #E42630;
+    color: #fff;
+    transform: none;
+  }
+
+  .home-carousel-btn:active {
+    transform: scale(0.95);
+  }
+
+  .home-youtube-btn:hover {
+    background: #E42630;
+    color: #fff;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .home-youtube-btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-width: 900px) and (orientation: landscape) {
+  .home-header {
+    height: 100vh;
+    max-height: 500px;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+
+  .home-section-title {
+    margin-bottom: 30px;
   }
 }
