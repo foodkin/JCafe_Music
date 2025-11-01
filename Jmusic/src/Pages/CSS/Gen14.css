@@ -538,12 +538,6 @@ body {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Hover di member card hanya mengubah border dan shadow, tidak perlu mengubah scale img di sini karena bisa bentrok dengan inline style */
-/* .gen14-member-card:hover .gen14-member-image img {
-     transform: scale(1.1);
-     filter: brightness(1.1);
-} */
-
 .gen14-member-name {
     font-size: 1.1rem;
     color: var(--text-light);
@@ -557,9 +551,7 @@ body {
     color: var(--secondary-color);
 }
 
-/* =======================================
-    1. CSS UNTUK MODAL DETAIL (BPH)
-    ======================================= */
+/* 1. CSS UNTUK MODAL DETAIL (BPH) */
 
 .gen14-modal-overlay {
     position: fixed; 
@@ -652,9 +644,7 @@ body {
     color: var(--text-mid);
 }
 
-/* =======================================
-    2. Full Image Pop-up Overlay (dengan Toggle)
-    ======================================= */
+/* 2. Full Image Pop-up Overlay (dengan Toggle) */
 .gen14-image-overlay {
     position: fixed; 
     top: 0;
@@ -753,3 +743,625 @@ body {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Extra Large Screens (1400px+) - Already handled by default styles */
+
+/* Large Screens (1200px - 1399px) */
+@media screen and (max-width: 1399px) {
+    .gen14-character-showcase-wrapper {
+        max-width: 1200px;
+        min-height: 600px;
+    }
+    
+    .gen14-character-showcase {
+        max-width: 1100px;
+        height: 550px;
+    }
+    
+    .gen14-teams-grid {
+        max-width: 1200px;
+    }
+}
+
+/* Medium-Large Screens (992px - 1199px) */
+@media screen and (max-width: 1199px) {
+    .gen14-welcome-title {
+        font-size: 3.5rem;
+    }
+    
+    .gen14-subtitle {
+        font-size: 1.6rem;
+    }
+    
+    .gen14-character-showcase-wrapper {
+        max-width: 1000px;
+        min-height: 550px;
+    }
+    
+    .gen14-character-showcase {
+        max-width: 950px;
+        height: 500px;
+    }
+    
+    .gen14-char-title {
+        font-size: 2.2rem;
+    }
+    
+    .gen14-character-main-image-area {
+        padding-left: 120px;
+    }
+    
+    .gen14-teams-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+    }
+}
+
+/* Medium Screens (768px - 991px) */
+@media screen and (max-width: 991px) {
+    .gen14-content {
+        padding: 30px 15px;
+    }
+    
+    .gen14-welcome-title {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+    
+    .gen14-subtitle {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+    
+    .gen14-intro-content {
+        padding: 30px;
+        max-width: 700px;
+    }
+    
+    .gen14-intro-title {
+        font-size: 2rem;
+    }
+    
+    .gen14-intro-text {
+        font-size: 1.05rem;
+    }
+    
+    .gen14-bph-title {
+        font-size: 2.2rem;
+    }
+    
+    .gen14-bph-line {
+        width: 100px;
+    }
+    
+    /* BPH Showcase - Stack Layout */
+    .gen14-character-showcase-wrapper {
+        max-width: 100%;
+        min-height: auto;
+        padding: 15px;
+    }
+    
+    .gen14-character-showcase {
+        flex-direction: column;
+        height: auto;
+        max-width: 100%;
+    }
+    
+    .gen14-character-details-left {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .gen14-char-title {
+        font-size: 2rem;
+    }
+    
+    .gen14-character-main-image-area {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+    
+    .gen14-character-main-image {
+        max-height: 400px;
+    }
+    
+    .gen14-character-thumbnails-right {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        border-left: none;
+        border-top: 1px solid var(--border-color-light);
+        padding: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+    }
+    
+    .gen14-character-thumbnails-right::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .gen14-more-btn {
+        margin-top: 0;
+        margin-left: 10px;
+    }
+    
+    .gen14-teams-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    .gen14-team-card {
+        padding: 25px;
+    }
+    
+    .gen14-team-name {
+        font-size: 1.6rem;
+    }
+    
+    .gen14-team-members {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .gen14-member-card {
+        width: 120px;
+    }
+    
+    .gen14-member-image {
+        height: 120px;
+    }
+    
+    /* Modal Adjustments */
+    .gen14-modal-content {
+        width: 95%;
+        padding: 25px;
+    }
+    
+    .gen14-modal-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .gen14-modal-image img {
+        max-width: 180px;
+    }
+    
+    .gen14-modal-name {
+        font-size: 2.2rem;
+    }
+}
+
+/* Small-Medium Screens (576px - 767px) */
+@media screen and (max-width: 767px) {
+    .gen14-logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .gen14-welcome-title {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .gen14-subtitle {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .gen14-intro-content {
+        padding: 25px;
+    }
+    
+    .gen14-intro-title {
+        font-size: 1.8rem;
+    }
+    
+    .gen14-intro-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .gen14-bph-section {
+        gap: 15px;
+        margin: 60px 0 40px 0;
+    }
+    
+    .gen14-bph-title {
+        font-size: 1.8rem;
+    }
+    
+    .gen14-bph-line {
+        width: 60px;
+    }
+    
+    .gen14-char-title {
+        font-size: 1.8rem;
+    }
+    
+    .gen14-char-role {
+        font-size: 1rem;
+    }
+    
+    .gen14-detail-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .gen14-character-main-image-area {
+        height: 350px;
+    }
+    
+    .gen14-character-main-image {
+        max-height: 350px;
+    }
+    
+    .gen14-character-thumbnail {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .gen14-teams-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gen14-team-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .gen14-team-name {
+        font-size: 1.5rem;
+    }
+    
+    .gen14-team-members {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 12px;
+    }
+    
+    .gen14-member-card {
+        width: 110px;
+    }
+    
+    .gen14-member-image {
+        height: 110px;
+    }
+    
+    .gen14-member-name {
+        font-size: 1rem;
+    }
+    
+    /* Modal */
+    .gen14-modal-content {
+        padding: 20px;
+    }
+    
+    .gen14-modal-name {
+        font-size: 2rem;
+    }
+    
+    .gen14-modal-race {
+        font-size: 1.1rem;
+    }
+    
+    .gen14-modal-description {
+        font-size: 0.95rem;
+    }
+    
+    .gen14-image-close {
+        font-size: 2.5rem;
+        right: 20px;
+    }
+    
+    .gen14-image-bg-toggle {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Extra Small Screens (480px - 575px) */
+@media screen and (max-width: 575px) {
+    .gen14-content {
+        padding: 20px 10px;
+    }
+    
+    .gen14-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .gen14-welcome-title {
+        font-size: 2rem;
+    }
+    
+    .gen14-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .gen14-intro-content {
+        padding: 20px;
+    }
+    
+    .gen14-intro-title {
+        font-size: 1.5rem;
+    }
+    
+    .gen14-intro-text {
+        font-size: 0.95rem;
+    }
+    
+    .gen14-bph-title {
+        font-size: 1.5rem;
+    }
+    
+    .gen14-bph-line {
+        width: 40px;
+    }
+    
+    .gen14-character-showcase-wrapper {
+        padding: 10px;
+    }
+    
+    .gen14-character-details-left {
+        padding: 12px 15px;
+    }
+    
+    .gen14-char-stars {
+        font-size: 1rem;
+    }
+    
+    .gen14-char-title {
+        font-size: 1.5rem;
+    }
+    
+    .gen14-char-role {
+        font-size: 0.95rem;
+    }
+    
+    .gen14-detail-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        margin-top: 20px;
+    }
+    
+    .gen14-character-main-image-area {
+        height: 300px;
+    }
+    
+    .gen14-character-main-image {
+        max-height: 300px;
+    }
+    
+    .gen14-character-thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .gen14-thumbnail-name {
+        font-size: 0.65rem;
+    }
+    
+    .gen14-more-btn {
+        width: 90px;
+        padding: 7px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .gen14-team-card {
+        padding: 20px;
+    }
+    
+    .gen14-team-name {
+        font-size: 1.3rem;
+    }
+    
+    .gen14-team-count {
+        font-size: 0.9rem;
+        padding: 4px 12px;
+    }
+    
+    .gen14-team-members {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+    
+    .gen14-member-card {
+        width: 100px;
+    }
+    
+    .gen14-member-image {
+        height: 100px;
+    }
+    
+    .gen14-member-name {
+        font-size: 0.95rem;
+    }
+    
+    /* Modal */
+    .gen14-modal-content {
+        padding: 15px;
+        max-width: 95%;
+    }
+    
+    .gen14-modal-close {
+        font-size: 1.5rem;
+        top: 10px;
+        right: 15px;
+    }
+    
+    .gen14-modal-image img {
+        max-width: 150px;
+    }
+    
+    .gen14-modal-name {
+        font-size: 1.8rem;
+    }
+    
+    .gen14-modal-race {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .gen14-modal-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+/* Mobile Small (375px - 479px) */
+@media screen and (max-width: 479px) {
+    .gen14-logo {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .gen14-welcome-title {
+        font-size: 1.8rem;
+    }
+    
+    .gen14-subtitle {
+        font-size: 1rem;
+    }
+    
+    .gen14-intro-title {
+        font-size: 1.3rem;
+    }
+    
+    .gen14-bph-title {
+        font-size: 1.3rem;
+    }
+    
+    .gen14-char-title {
+        font-size: 1.3rem;
+    }
+    
+    .gen14-character-main-image-area {
+        height: 280px;
+    }
+    
+    .gen14-character-main-image {
+        max-height: 280px;
+    }
+    
+    .gen14-character-thumbnail {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .gen14-team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gen14-member-card {
+        width: 95px;
+    }
+    
+    .gen14-member-image {
+        height: 95px;
+    }
+    
+    .gen14-modal-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Extra Small (320px - 374px) */
+@media screen and (max-width: 374px) {
+    .gen14-welcome-title {
+        font-size: 1.5rem;
+    }
+    
+    .gen14-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .gen14-intro-content {
+        padding: 15px;
+    }
+    
+    .gen14-intro-title {
+        font-size: 1.2rem;
+    }
+    
+    .gen14-intro-text {
+        font-size: 0.85rem;
+    }
+    
+    .gen14-bph-title {
+        font-size: 1.2rem;
+    }
+    
+    .gen14-char-title {
+        font-size: 1.2rem;
+    }
+    
+    .gen14-character-main-image-area {
+        height: 250px;
+    }
+    
+    .gen14-character-main-image {
+        max-height: 250px;
+    }
+    
+    .gen14-character-thumbnail {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .gen14-team-card {
+        padding: 15px;
+    }
+    
+    .gen14-team-name {
+        font-size: 1.2rem;
+    }
+    
+    .gen14-member-card {
+        width: 90px;
+    }
+    
+    .gen14-member-image {
+        height: 90px;
+    }
+    
+    .gen14-member-name {
+        font-size: 0.85rem;
+    }
+    
+    .gen14-modal-image img {
+        max-width: 120px;
+    }
+    
+    .gen14-modal-name {
+        font-size: 1.3rem;
+    }
+    
+    .gen14-image-close {
+        font-size: 2rem;
+        right: 15px;
+    }
+    
+    .gen14-image-bg-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .gen14-image-bg-toggle-icon {
+        font-size: 1.2rem;
+    }
+}
