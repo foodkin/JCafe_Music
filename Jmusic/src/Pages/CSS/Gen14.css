@@ -744,9 +744,7 @@ body {
 }
 
 /* RESPONSIVE MEDIA QUERIES */
-
 /* Extra Large Screens (1400px+) - Already handled by default styles */
-
 /* Large Screens (1200px - 1399px) */
 @media screen and (max-width: 1399px) {
     .gen14-character-showcase-wrapper {

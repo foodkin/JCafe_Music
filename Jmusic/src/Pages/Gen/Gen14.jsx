@@ -444,7 +444,7 @@ function Gen14() {
                                 </div>
                             ))}
                             {/* Scroll Kanan, menggunakan logika dari handleScroll */}
-                            <button className="gen14-more-btn" onClick={() => handleScroll('right')}>MORE +</button>
+                            <button className="gen14-more-btn" onClick={() => handleScroll('right')}>Next</button>
                         </div>
                     </div>
                 </div> 
