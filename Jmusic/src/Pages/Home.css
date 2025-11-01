@@ -344,84 +344,238 @@ section > * {
   background: #2B3B52;
 }
 
-/* RESPONSIVE DESIGN */
+/* =======================================
+   RESPONSIVE MEDIA QUERIES - IMPROVED
+   ======================================= */
 
-/* Tablet (max-width: 992px) */
-@media (max-width: 992px) {
+/* Extra Large Desktop (1400px+) - Base styles sudah optimal */
+
+/* Large Desktop (1200px - 1399px) */
+@media screen and (max-width: 1399px) {
+  .home-about-content,
+  .home-carousel,
+  .home-youtube-container {
+    max-width: 1100px;
+  }
+
+  .home-section-title {
+    font-size: 2.8rem;
+  }
+}
+
+/* Desktop (992px - 1199px) */
+@media screen and (max-width: 1199px) {
   .home-header {
-    height: 480px;
+    height: 550px;
+  }
+
+  .home-title {
+    font-size: 4.5rem;
+  }
+
+  .home-section-title {
+    font-size: 2.6rem;
+  }
+
+  section {
+    padding: 70px 35px;
+  }
+
+  .home-about-content,
+  .home-carousel,
+  .home-youtube-container {
+    max-width: 960px;
+  }
+
+  .home-about-logo img {
+    width: 260px;
+    height: 260px;
+  }
+
+  .home-carousel-main img {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Tablet Large (768px - 991px) */
+@media screen and (max-width: 991px) {
+  .home-header {
+    height: 500px;
+  }
+
+  .home-header-text {
+    left: 35px;
+    bottom: 35px;
+  }
+
+  .home-welcome {
+    font-size: 1.3rem;
+  }
+
+  .home-title {
+    font-size: 4rem;
+  }
+
+  section {
+    padding: 60px 30px;
+  }
+
+  .home-section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+
+  /* About Section - Stack Layout */
+  .home-about-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .home-about-logo img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .home-about-description p {
+    text-align: center;
+    font-size: 1.05rem;
+  }
+
+  /* Carousel - Vertical Stack */
+  .home-carousel-main {
+    flex-direction: column;
+    gap: 30px;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .home-carousel-main img {
+    width: 260px;
+    height: 260px;
+  }
+
+  .home-carousel-description h3 {
+    font-size: 1.8rem;
+  }
+
+  .home-carousel-description p {
+    text-align: center;
+    font-size: 1.05rem;
+  }
+
+  .home-thumbnail {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* Tablet (600px - 767px) */
+@media screen and (max-width: 767px) {
+  .home-header {
+    height: 450px;
+  }
+
+  .home-header-text {
+    left: 30px;
+    bottom: 30px;
+    right: 30px;
+  }
+
+  .home-welcome {
+    font-size: 1.2rem;
   }
 
   .home-title {
     font-size: 3.5rem;
   }
 
+  section {
+    padding: 50px 25px;
+  }
+
   .home-section-title {
-    font-size: 2.5rem;
-  }
-
-  .home-about-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .home-about-description p {
-    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 45px;
   }
 
   .home-about-logo img {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
   }
 
-  .home-carousel-main {
-    flex-direction: column;
-    text-align: center;
+  .home-about-description p {
+    font-size: 1rem;
+    line-height: 1.75;
   }
 
-  .home-carousel-description p {
-    text-align: center;
-  }
-
-  .home-carousel-main img {
-    width: 250px;
-    height: 250px;
-  }
-}
-
-/* Mobile Large (max-width: 768px) */
-@media (max-width: 768px) {
-  .home-header {
-    height: 450px;
-  }
-
-  .home-title {
-    font-size: 3rem;
-  }
-
+  /* Carousel Adjustments */
   .home-carousel-thumbnails {
-    gap: 15px;
+    gap: 12px;
   }
 
   .home-thumbnail {
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
+    border-width: 2px;
   }
 
   .home-carousel-content {
     gap: 15px;
   }
 
+  .home-carousel-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 2.5rem;
+  }
+
+  .home-carousel-main {
+    padding: 22px;
+    gap: 25px;
+  }
+
+  .home-carousel-main img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .home-carousel-description h3 {
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+  }
+
+  .home-carousel-description p {
+    font-size: 1rem;
+  }
+
+  /* YouTube */
   .home-youtube-player {
     border-width: 3px;
-    box-shadow: 4px 4px 0 #000;
+    box-shadow: 5px 5px 0 #000;
+  }
+
+  .home-youtube-controls {
+    gap: 18px;
+    margin-top: 35px;
+  }
+
+  .home-youtube-btn {
+    padding: 13px 30px;
+    font-size: 1rem;
+  }
+
+  .section-divider {
+    height: 5px;
   }
 }
 
-/* Mobile (max-width: 600px) */
-@media (max-width: 600px) {
+/* Mobile Large (480px - 599px) */
+@media screen and (max-width: 599px) {
   .home-container {
-    margin-top: -60px;
+    margin-top: -70px;
+    margin-bottom: -40px;
   }
 
   .home-header {
@@ -429,22 +583,23 @@ section > * {
   }
 
   .home-header-text {
-    left: 20px;
-    bottom: 20px;
-    right: 20px;
+    left: 25px;
+    bottom: 25px;
+    right: 25px;
   }
 
   .home-welcome {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
   }
 
   .home-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 1.1;
   }
 
   section {
-    padding: 50px 20px;
+    padding: 45px 20px;
   }
 
   .home-section-title {
@@ -454,6 +609,7 @@ section > * {
     border-bottom-width: 3px;
   }
 
+  /* About Section */
   .home-about-content {
     gap: 30px;
   }
@@ -465,35 +621,37 @@ section > * {
   }
 
   .home-about-description p {
-    font-size: 1rem;
+    font-size: 0.98rem;
     line-height: 1.7;
     margin-bottom: 15px;
   }
 
-  /* Carousel Mobile Optimization */
+  /* Carousel Mobile Optimization - HORIZONTAL BUTTONS */
   .home-carousel-thumbnails {
     gap: 10px;
     padding: 0 10px;
   }
 
   .home-thumbnail {
-    width: 80px;
-    height: 80px;
-    border-width: 2px;
+    width: 85px;
+    height: 85px;
   }
 
   .home-carousel-content {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row; /* Horizontal: Left-Content-Right */
+    gap: 15px;
+    align-items: center;
   }
 
   .home-carousel-btn {
     width: 50px;
     height: 50px;
     font-size: 2rem;
+    flex-shrink: 0;
   }
 
   .home-carousel-main {
+    flex: 1; /* Take remaining space */
     gap: 20px;
     padding: 20px;
     box-shadow: 4px 4px 0 #2B3B52;
@@ -501,18 +659,18 @@ section > * {
 
   .home-carousel-main img {
     width: 100%;
-    max-width: 250px;
+    max-width: 240px;
     height: auto;
     aspect-ratio: 1;
   }
 
   .home-carousel-description h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 15px;
   }
 
   .home-carousel-description p {
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     line-height: 1.7;
   }
 
@@ -525,13 +683,15 @@ section > * {
   .home-youtube-controls {
     gap: 15px;
     margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .home-youtube-btn {
-    padding: 12px 25px;
-    font-size: 0.95rem;
+    padding: 12px 30px;
+    font-size: 0.96rem;
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
   }
 
   .section-divider {
@@ -539,10 +699,112 @@ section > * {
   }
 }
 
-/* Mobile Small (max-width: 480px) */
-@media (max-width: 480px) {
+/* Mobile Standard (375px - 479px) */
+@media screen and (max-width: 479px) {
+  .home-container {
+    margin-top: -60px;
+  }
+
   .home-header {
-    height: 350px;
+    height: 360px;
+  }
+
+  .home-header-text {
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .home-welcome {
+    font-size: 1rem;
+    text-shadow: 0 0 12px #fff;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+    text-shadow: 0 0 18px #fff;
+  }
+
+  section {
+    padding: 40px 18px;
+  }
+
+  .home-section-title {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+    padding-bottom: 7px;
+  }
+
+  /* About */
+  .home-about-content {
+    gap: 25px;
+  }
+
+  .home-about-logo img {
+    width: 160px;
+    height: 160px;
+    border-width: 3px;
+  }
+
+  .home-about-description p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  /* Carousel - Keep Horizontal */
+  .home-thumbnail {
+    width: 75px;
+    height: 75px;
+  }
+
+  .home-carousel-content {
+    gap: 12px;
+  }
+
+  .home-carousel-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
+
+  .home-carousel-main {
+    padding: 18px;
+    gap: 18px;
+    box-shadow: 3px 3px 0 #2B3B52;
+  }
+
+  .home-carousel-main img {
+    max-width: 220px;
+  }
+
+  .home-carousel-description h3 {
+    font-size: 1.4rem;
+    margin-bottom: 13px;
+  }
+
+  .home-carousel-description p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  /* YouTube */
+  .home-youtube-controls {
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .home-youtube-btn {
+    padding: 11px 25px;
+    font-size: 0.92rem;
+    max-width: 280px;
+  }
+}
+
+/* Mobile Small (320px - 374px) */
+@media screen and (max-width: 374px) {
+  .home-header {
+    height: 320px;
   }
 
   .home-header-text {
@@ -556,37 +818,41 @@ section > * {
   }
 
   .home-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   section {
-    padding: 40px 15px;
+    padding: 35px 15px;
   }
 
   .home-section-title {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     margin-bottom: 30px;
   }
 
   .home-about-logo img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
   }
 
   .home-about-description p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.6;
   }
 
   .home-thumbnail {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .home-carousel-content {
+    gap: 10px;
   }
 
   .home-carousel-btn {
     width: 45px;
     height: 45px;
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
 
   .home-carousel-main {
@@ -595,7 +861,7 @@ section > * {
   }
 
   .home-carousel-main img {
-    max-width: 200px;
+    max-width: 190px;
   }
 
   .home-carousel-description h3 {
@@ -604,33 +870,33 @@ section > * {
   }
 
   .home-carousel-description p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.6;
   }
 
   .home-youtube-btn {
     padding: 10px 20px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 }
 
-/* Mobile Extra Small (max-width: 360px) */
-@media (max-width: 360px) {
+/* Mobile Extra Small (max-width: 319px) */
+@media screen and (max-width: 319px) {
   .home-header {
-    height: 300px;
+    height: 280px;
   }
 
   .home-title {
-    font-size: 1.75rem;
+    font-size: 1.9rem;
   }
 
   .home-section-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .home-about-logo img {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
   }
 
   .home-thumbnail {
@@ -638,8 +904,18 @@ section > * {
     height: 60px;
   }
 
+  .home-carousel-content {
+    gap: 8px;
+  }
+
+  .home-carousel-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.5rem;
+  }
+
   .home-carousel-main img {
-    max-width: 180px;
+    max-width: 170px;
   }
 
   .home-carousel-description h3 {
@@ -651,14 +927,108 @@ section > * {
   }
 }
 
-/* Touch Device Optimizations */
+/* =======================================
+   LANDSCAPE MODE OPTIMIZATIONS
+   ======================================= */
+
+/* Tablet Landscape */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .home-header {
+    height: 90vh;
+    max-height: 550px;
+  }
+
+  section {
+    padding: 50px 30px;
+  }
+
+  .home-section-title {
+    margin-bottom: 40px;
+  }
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  .home-header {
+    height: 100vh;
+    max-height: 480px;
+  }
+
+  .home-title {
+    font-size: 2.8rem;
+  }
+
+  section {
+    padding: 40px 25px;
+  }
+
+  .home-section-title {
+    font-size: 2rem;
+    margin-bottom: 35px;
+  }
+
+  .home-about-content {
+    flex-direction: row;
+    gap: 40px;
+    text-align: left;
+  }
+
+  .home-about-logo img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .home-about-description p {
+    text-align: left;
+  }
+
+  .home-carousel-main {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .home-carousel-description p {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 667px) and (orientation: landscape) {
+  .home-header {
+    max-height: 420px;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  section {
+    padding: 35px 20px;
+  }
+
+  .home-about-logo img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* =======================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ======================================= */
+
 @media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects, use active states */
   .home-thumbnail:hover {
     transform: none;
+    opacity: 0.6;
   }
 
   .home-thumbnail:active {
     transform: scale(0.95);
+    opacity: 1;
+  }
+
+  .home-thumbnail.active:active {
+    transform: scale(1);
   }
 
   .home-carousel-btn:hover {
@@ -668,7 +1038,8 @@ section > * {
   }
 
   .home-carousel-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.93);
+    background: #C41E28;
   }
 
   .home-youtube-btn:hover {
@@ -679,26 +1050,109 @@ section > * {
   }
 
   .home-youtube-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
+    background: #C41E28;
+  }
+
+  /* Increase touch target sizes for small screens */
+  @media screen and (max-width: 599px) {
+    .home-thumbnail {
+      min-width: 80px;
+      min-height: 80px;
+    }
+
+    .home-carousel-btn {
+      min-width: 50px;
+      min-height: 50px;
+    }
+
+    .home-youtube-btn {
+      min-height: 44px;
+      min-width: 44px;
+    }
   }
 }
 
-/* Landscape Mode for Mobile */
-@media (max-width: 900px) and (orientation: landscape) {
-  .home-header {
-    height: 100vh;
-    max-height: 500px;
+/* =======================================
+   HIGH RESOLUTION DISPLAYS
+   ======================================= */
+
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+  .home-header-img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 
-  .home-title {
-    font-size: 2.5rem;
+  .home-about-logo img,
+  .home-thumbnail img,
+  .home-carousel-main img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* =======================================
+   PRINT STYLES
+   ======================================= */
+
+@media print {
+  .home-header {
+    height: auto;
+    page-break-after: always;
+  }
+
+  .home-carousel-btn,
+  .home-youtube-btn,
+  .home-youtube-player {
+    display: none;
   }
 
   section {
-    padding: 40px 20px;
+    padding: 30px 20px;
+    page-break-inside: avoid;
   }
 
   .home-section-title {
-    margin-bottom: 30px;
+    color: #000 !important;
+  }
+}
+
+/* =======================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .home-title {
+    animation: none;
+  }
+
+  .fade-up {
+    animation: none;
+    opacity: 1;
+  }
+
+  .home-about-logo img {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .home-section-title {
+    border-bottom-width: 5px;
+  }
+
+  .home-thumbnail.active {
+    border-width: 4px;
+  }
+
+  .home-carousel-main {
+    border-width: 3px;
   }
 }
